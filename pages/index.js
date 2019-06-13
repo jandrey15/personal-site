@@ -17,27 +17,9 @@ class Home extends Component {
     const { data } = this.props
     // console.log(data)
     return (
-      <div>
-        <h3>Hello world</h3>
-        {data.map(item => (
-          <div className='container' key={item.id}>
-            <h2>{item.title}</h2>
-            <article className='content' dangerouslySetInnerHTML={{ __html: item.html }} />
-          </div>
-        ))}
-        <style jsx>{`
-          .container {
-            max-width: 600px;
-            margin: 0 auto;
-          } 
-        `}</style>
-        <style jsx global>{`
-          .content img {
-            max-width: 500px;
-            margin: 0 auto;
-          }   
-        `}</style>
-      </div>
+      <section id='Home' className='container'>
+        <h3>Hola soy home</h3>
+      </section>
     )
   }
 }
