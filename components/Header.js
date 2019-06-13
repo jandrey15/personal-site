@@ -3,10 +3,10 @@ const Header = (props) => {
     <header id='Header'>
       <nav className='container'>
         <ul className='menu'>
-          <li><a href='http://' target='_blank' rel='noopener noreferrer'>Inicio</a></li>
-          <li><a href='http://' target='_blank' rel='noopener noreferrer'>Sobre mi</a></li>
-          <li><a href='http://' target='_blank' rel='noopener noreferrer'>Blog</a></li>
-          <li><a href='http://' target='_blank' rel='noopener noreferrer'>portafolio</a></li>
+          <li><a href='/'>Inicio</a></li>
+          <li><a href='http://'>Sobre mi</a></li>
+          <li><a href='http://'>Blog</a></li>
+          <li><a href='http://'>portafolio</a></li>
         </ul>
       </nav>
       <style jsx>{`
@@ -32,6 +32,7 @@ const Header = (props) => {
           color: #ffffff;
           text-transform: uppercase;
           font-weight: 400;
+          transition: .2s;
         }
 
         .menu a:hover {

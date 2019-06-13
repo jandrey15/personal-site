@@ -6,6 +6,7 @@ export default css.global`
   body {
     font-family: 'Oswald', system-ui, sans-serif;
     font-size: 16px;
+    font-weight: 400;
     margin: 0;
   }
 

@@ -32,6 +32,7 @@ const Footer = (props) => {
         .copyright a {
           text-decoration: none;
           color: #eaeaea;
+          transition: .2s;
         }
 
         .legal, .alojado {
@@ -39,6 +40,7 @@ const Footer = (props) => {
           color: #eaeaea;
           display: block;
           margin-bottom: 10px;
+          transition: .2s;
         }
 
         .text a:hover { color: #ffffff; }
