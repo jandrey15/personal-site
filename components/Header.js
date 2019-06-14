@@ -21,7 +21,7 @@ const Header = (props) => {
           margin: 0 auto;
           padding: 0;
           display: flex;
-          justify-content: space-around;
+          justify-content: space-between;
           align-items: center;
           height: 45px;
           width: 270px;

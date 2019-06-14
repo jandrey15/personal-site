@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 // import Link from 'next/link'
 import Layout from '../components/Layout'
 import Cover from '../components/Cover'
+import Posts from '../components/PostsGrid'
 import Error from './_error'
 import 'isomorphic-unfetch'
 
@@ -12,7 +13,7 @@ class Home extends Component {
 
     try {
       // eslint-disable-next-line no-undef
-      const req = await fetch(`${API_URL}/posts/?key=${API_KEY}`)
+      const req = await fetch(`${API_URL}/posts/?key=${API_KEY}&limit=4`)
       const { posts } = await req.json()
 
       if (req.status >= 400) {
@@ -55,6 +56,9 @@ class Home extends Component {
 
             <h2>De qué hablo en mi blog</h2>
             <p><a href='/tag/desarrollo-web'>Desarrollo web</a>, Tutoriales, artículos sobre tecnologías: JavaScript, Node.js, Docker, React, python, etc.</p>
+
+            <h2>Últimos artículos publicados</h2>
+            <Posts posts={data} />
           </div>
         </section>
         <style jsx>{`
