@@ -1,28 +1,18 @@
 import React, { Component } from 'react'
 
 class Cover extends Component {
-  componentDidMount () {
-    // twttr.widgets.createFollowButton(
-    //   'jandrey15',
-    //   document.getElementById('follow__twitter'),
-    //   {
-    //     size: 'large'
-    //   }
-    // ).then(function (el) {
-    //   console.log('Follow button added.')
-    // })
-  }
   render () {
+    const { title, profile = true, caption = true } = this.props
     return (
       <section id='Cover'>
         <div className='inner'>
-          <a className='profile' href='/'>
-            <img src='/static/profile.jpg' alt='Profile' />
-          </a>
-          <h1>John Serrano</h1>
-          <div id='follow__twitter' />
-          <a href='https://twitter.com/jandrey15?ref_src=twsrc%5Etfw' className='twitter-follow-button' data-show-count='true'>Follow @jandrey15</a>
-          <p>Desarrollador Web Full-Stack</p>
+          {profile &&
+            <a className='profile' href='/'>
+              <img src='/static/profile.jpg' alt='Profile' />
+            </a>
+          }
+          <h1>{title}</h1>
+          {caption && <p>Desarrollador Web Full-Stack</p>}
         </div>
         <style jsx>{`
           #Cover {
@@ -47,17 +37,13 @@ class Cover extends Component {
             z-index: 10;
             display: block;
             bottom: 0;
-            background: rgba(28, 28, 28, .50);
+            background: rgba(28, 28, 28, .55);
           }
   
           .profile img {
             border-radius: 50%;
             max-width: 120px;
             border: 3px solid #ffffff;
-          }
-
-          .twitter-follow-button {
-            margin: 5px 0;
           }
   
           .inner {
@@ -67,21 +53,21 @@ class Cover extends Component {
             align-items: center;
             justify-content: center;
             z-index: 11;
-            width: 850px;
+            width: 700px;
           }
   
           .inner h1 {
             font-size: 3.75rem;
-            font-weight: 500;
+            font-weight: 700;
             margin: 5px 0;
             text-shadow: -1px 1px 2px #1c1c1c;
           }
   
           .inner p {
-            font-size: 2.1rem;
-            line-height: 2.6rem;
+            font-size: 2rem;
+            line-height: 2.5rem;
             text-align: center;
-            font-weight: 400;
+            font-weight: 700;
             margin: 0;
             text-shadow: -1px 1px 2px #1c1c1c;
           }
