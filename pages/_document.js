@@ -31,6 +31,7 @@ class MyDocument extends Document {
 
           {
             <Fragment>
+              {/* Quitar si no se esta usando */}
               <script async src='https://platform.twitter.com/widgets.js' charSet='utf-8' />
             </Fragment>
           }

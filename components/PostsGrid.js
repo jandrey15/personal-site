@@ -1,4 +1,5 @@
 const Posts = ({ posts }) => {
+  // console.log(posts)
   return (
     <section id='Posts'>
       {posts.map(post => (
@@ -10,7 +11,7 @@ const Posts = ({ posts }) => {
             <a href={`/blog/${post.slug}`} className='title'>
               <h2>{post.title}</h2>
             </a>
-            <p>{post.excerpt}</p>
+            <p>{ post.custom_excerpt.substring(0, 160) || post.excerpt.substring(0, 160)}</p>
           </div>
         </article>
       ))}
@@ -26,7 +27,14 @@ const Posts = ({ posts }) => {
         #Posts .content {
           padding: 10px;
           border: 1px solid #eeeeee;
-          border-radius: 5px;
+          border-bottom-right-radius: 5px;
+          border-bottom-left-radius: 5px;
+          transition: .5s;
+          border-top: none;
+        }
+
+        #Posts .post:hover .content {
+          border-color: #0078ae;
         }
 
         #Posts img {
@@ -54,8 +62,9 @@ const Posts = ({ posts }) => {
           display: flex;
         }
 
-        #Posts .title:hover > h2:hover {
+        #Posts .title:hover h2 {
           opacity: 0.8;
+          color: #0078ae;
         }
       `}</style>
     </section>

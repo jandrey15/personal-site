@@ -7,7 +7,7 @@ const Footer = (props) => {
           <a href='/'>John Serrano</a> <span>© 2015 - {ano}</span>
         </div>
         <a className='legal' href='/legal' rel='nofollow'>Aviso legal y política de privacidad</a>
-        <a className='alojado' href='https://www.digitalocean.com/'>Alojado en Digital Ocean</a>
+        <a className='alojado' href='https://m.do.co/c/66d901bee48b' target='_blank'>Alojado en Digital Ocean ❤️️</a>
       </div>
       <style jsx>{`
         #Footer {

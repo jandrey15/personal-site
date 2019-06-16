@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import Layout from '../components/Layout'
 import Cover from '../components/Cover'
 import Posts from '../components/PostsGrid'
+import Newsletter from '../components/Newsletter'
 import Error from './_error'
 import 'isomorphic-unfetch'
 
@@ -59,6 +60,11 @@ class Home extends Component {
 
             <h2>Últimos artículos publicados</h2>
             <Posts posts={data} />
+
+            <h2>Contacto</h2>
+            <p>Puedes ponerte en contacto conmigo públicamente por las redes sociales Mencíoname en Twitter <a href='https://twitter.com/Jandrey15' target='_blank'>(soy @jandrey15)</a>.</p>
+
+            <Newsletter />
           </div>
         </section>
         <style jsx>{`

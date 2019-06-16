@@ -24,14 +24,16 @@ const Header = (props) => {
           justify-content: space-between;
           align-items: center;
           height: 45px;
-          width: 270px;
+          width: 330px;
         }
 
         .menu a {
           text-decoration: none;
           color: #ffffff;
           text-transform: uppercase;
+          font-size: 1.2rem;
           font-weight: 400;
+          line-height: 1.6rem;
           transition: .2s;
         }
 

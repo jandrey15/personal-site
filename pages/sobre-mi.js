@@ -3,8 +3,8 @@ import Cover from '../components/Cover'
 
 const SobreMi = () => {
   return (
-    <Layout>
-      <Cover title='Quién es John Serrano' profile={false} caption={false} />
+    <Layout title='John Serrano - Sobre mí'>
+      <Cover title='Quién es John Serrano' profile={false} caption={false} cover='/static/background_2.jpg' />
       <section id='Home' className='container'>
         <div className='main'>
           <h2>Sobre mí</h2>

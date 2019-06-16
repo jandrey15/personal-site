@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 class Cover extends Component {
   render () {
-    const { title, profile = true, caption = true } = this.props
+    const { title, profile = true, caption = true, cover = '/static/background.jpg' } = this.props
     return (
       <section id='Cover'>
         <div className='inner'>
@@ -22,7 +22,7 @@ class Cover extends Component {
             color: #fff;
             height: 400px;
             background: #090a0b no-repeat 50%;
-            background-image: url('/static/background.jpg');
+            background-image: url(${cover});
             background-size: cover;          
             display: flex;
             flex-direction: column;
