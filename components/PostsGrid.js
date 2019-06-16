@@ -21,21 +21,24 @@ const Posts = ({ posts }) => {
           grid-template-columns: repeat(2, 340px);
           grid-column-gap: 20px;
           grid-row-gap: 30px;
-          margin: 30px 0 50px;
+          margin: 30px 0 0;
+          padding-bottom: 50px;
+          border-bottom: 2px solid #eeeeee;
         }
-
-        #Posts .content {
-          padding: 10px;
-          border: 1px solid #eeeeee;
-          border-bottom-right-radius: 5px;
-          border-bottom-left-radius: 5px;
+        
+        {/* border-bottom-right-radius: 5px;
+          border-bottom-left-radius: 5px; 
+          border: 1px solid #eeeeee;          
           transition: .5s;
+        */}
+        #Posts .content {
+          padding: 10px 5px;
           border-top: none;
         }
 
-        #Posts .post:hover .content {
+        {/* #Posts .post:hover .content {
           border-color: #0078ae;
-        }
+        } */}
 
         #Posts img {
           height: 200px;

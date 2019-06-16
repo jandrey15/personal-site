@@ -29,7 +29,8 @@ class Home extends Component {
       // console.log(json)
       return { data: posts, statusCode: 200 }
     } catch (err) {
-      res.statusCode = 503
+      // res.statusCode = 503
+      if (res) res.statusCode = 503
       console.error(err)
       return {
         data: [],
