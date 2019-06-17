@@ -11,7 +11,7 @@ const Posts = ({ posts }) => {
             <a href={`/blog/${post.slug}`} className='title'>
               <h2>{post.title}</h2>
             </a>
-            <p>{ post.custom_excerpt.substring(0, 160) || post.excerpt.substring(0, 160)}</p>
+            <p>{ post.custom_excerpt ? post.custom_excerpt.substring(0, 160) : post.excerpt ? post.excerpt.substring(0, 160) : null}</p>
           </div>
         </article>
       ))}
