@@ -1,5 +1,6 @@
 import Layout from '../components/Layout'
 import Cover from '../components/Cover'
+import Newsletter from '../components/Newsletter'
 
 const SobreMi = () => {
   return (
@@ -18,6 +19,8 @@ const SobreMi = () => {
 
           <h2>Actualmente</h2>
           <p>Desde entonces he estado estudiando aprendiendo cosas nuevas pensando siempre en mejorar en ser uno de los mejores desarrolladores de Colombia, estoy por ser un egresado de la Universidad Santo Tomás como <strong>ingeniero en informática</strong>. Creo que gracias a mi disciplina y al ser autodidacta pude mejorar un monto en el desarrollo web también a plataformas como <a href='https://platzi.com/r/jandrey/' target='_blank'>platzi</a>, me ayudó a ser mejor profesional a seguir aprendiendo a no desfallecer y sobre todo a nunca parar de aprender. Actualmente puedo decir que tengo buenos conocimientos de <strong>Front-End</strong>, <strong>Back-End</strong> y también sobre <strong>DevOps</strong>. Me puedes encontrar en <a href='https://www.facebook.com/johnserrano15'>Facebook</a>, <a href='https://twitter.com/Jandrey15'>Twitter</a>, <a href='https://github.com/johnsi15'>GitHub</a> y <a href='https://www.linkedin.com/in/jandreys15'>Linkedin</a> gracias por leer y saludos.</p>
+
+          <Newsletter />
         </div>
       </section>
       <style jsx>{`

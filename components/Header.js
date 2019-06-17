@@ -5,7 +5,7 @@ const Header = (props) => {
         <ul className='menu'>
           <li><a href='/'>Inicio</a></li>
           <li><a href='/sobre-mi'>Sobre mi</a></li>
-          <li><a href='http://'>Blog</a></li>
+          <li><a href='/blog'>Blog</a></li>
           <li><a href='http://'>portafolio</a></li>
         </ul>
       </nav>
