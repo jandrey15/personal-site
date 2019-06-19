@@ -1,8 +1,13 @@
 /* eslint-disable camelcase */
-import Util from '../helpers/util'
+import moment from 'moment'
+moment.locale('es')
 
 const PostsFeature = ({ title, feature_image, slug, custom_excerpt, excerpt, published_at, primary_author }) => {
   // console.log(props)
+  // console.log(moment().format())
+  // console.log(moment().format('MMMM Do YYYY, h:mm:ss a'))
+  // console.log(moment(published_at, 'YYYYMMDD').fromNow())
+  // console.log(moment(published_at).format('DD/MM/YYYY'))
   return (
     <article id='PostsFeature'>
       <a href={`/blog/${slug}`}>
@@ -10,16 +15,22 @@ const PostsFeature = ({ title, feature_image, slug, custom_excerpt, excerpt, pub
       </a>
 
       <div className='content'>
-        <a href={`/blog/${slug}`} className='title'>
-          <h2>{title}</h2>
-        </a>
-        <p>{ custom_excerpt ? custom_excerpt.substring(0, 160) : excerpt ? excerpt.substring(0, 160) : null}</p>
-        <img className='profile__image' src={primary_author.profile_image} alt={primary_author.name} />
-        <span>{primary_author.name}</span>
-        <span> {Util.obtenerFecha(published_at)}</span>
-        <a href={`/blog/${slug}`}>
-          <span>Leer más</span>
-        </a>
+        <header className='post__header'>
+          <a href={`/blog/${slug}`} className='title'>
+            <h2>{title}</h2>
+          </a>
+          <p>{ custom_excerpt ? custom_excerpt.substring(0, 160) : excerpt ? excerpt.substring(0, 160) : null}</p>
+        </header>
+        <footer className='post__meta'>
+          <div className='profile'>
+            <img className='profile__image' src={primary_author.profile_image} alt={primary_author.name} />
+            {/* <span className='profile__name'>{primary_author.name}</span> */}
+          </div>
+          <span>{moment(published_at, 'YYYYMMDD').fromNow()}</span>
+          <a href={`/blog/${slug}`}>
+            <span>Leer más</span>
+          </a>
+        </footer>
       </div>
       <style jsx>{`
         #PostsFeature {
@@ -36,7 +47,7 @@ const PostsFeature = ({ title, feature_image, slug, custom_excerpt, excerpt, pub
           width: 480px;
         }
 
-        #PostsFeature a {
+        #PostsFeature .title {
           text-decoration: none;
           color: #1c1c1c;
           display: flex;
@@ -50,7 +61,7 @@ const PostsFeature = ({ title, feature_image, slug, custom_excerpt, excerpt, pub
         }
 
         #PostsFeature .title:hover h2 {
-          opacity: 0.8;
+          opacity: 0.9;
           color: #0078ae;
         }
 
@@ -60,10 +71,33 @@ const PostsFeature = ({ title, feature_image, slug, custom_excerpt, excerpt, pub
           margin: 0;
         }
 
+        .profile {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
         .profile__image {
-          height: 25px;
-          object-fit: cover;
-          width: 25px;
+          height: 35px;
+          overflow: hidden;
+          border: 1px solid #0078ae;
+          border-radius: 100%;
+          width: 35px;
+        }
+
+        .post__meta {
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          margin-top: 20px;
+        }
+
+        .post__meta span {
+          font-weight: 700;
+        }
+        .post__meta a {
+          color: #0078ae;
+          text-decoration: none;
         }
       `}</style>
     </article>

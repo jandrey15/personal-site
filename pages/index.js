@@ -60,7 +60,7 @@ class Home extends Component {
             <p><a href='/tag/desarrollo-web'>Desarrollo web</a>, Tutoriales, artículos sobre tecnologías: JavaScript, Node.js, Docker, React, python, etc.</p>
 
             <h2>Últimos artículos publicados</h2>
-            <Posts posts={data} />
+            <Posts posts={data} columns='2' />
 
             <h2>Contacto</h2>
             <p>Puedes ponerte en contacto conmigo públicamente por las redes sociales Mencíoname en Twitter <a href='https://twitter.com/Jandrey15' target='_blank'>(soy @jandrey15)</a>.</p>

@@ -15,8 +15,22 @@ class Home extends Component {
 
     try {
       // eslint-disable-next-line no-undef
-      const req = await fetch(`${API_URL}/posts/?key=${API_KEY}&limit=1&filter=featured:true&include=authors`)
-      const { posts: feature } = await req.json()
+      // const req = await fetch(`${API_URL}/posts/?key=${API_KEY}&limit=1&filter=featured:true&include=authors`)
+
+      let [
+        req,
+        reqPosts
+      ] = await Promise.all([
+        fetch(
+          `${API_URL}/posts/?key=${API_KEY}&limit=1&filter=featured:true&include=authors`
+        ),
+        fetch(
+          `${API_URL}/posts/?key=${API_KEY}&limit=9&filter=featured:false&include=authors`
+        )
+      ])
+
+      let { posts: feature } = await req.json()
+      let { posts } = await reqPosts.json()
 
       if (req.status >= 400) {
         res.statusCode = req.status
@@ -29,7 +43,7 @@ class Home extends Component {
       }
 
       // console.log(json)
-      return { data: [], feature: feature[0], statusCode: 200 }
+      return { data: posts, feature: feature[0], statusCode: 200 }
     } catch (err) {
       // res.statusCode = 503
       if (res) res.statusCode = 503
@@ -44,7 +58,8 @@ class Home extends Component {
 
   render () {
     const { data, feature, statusCode } = this.props
-    console.log(feature)
+    // console.log(feature)
+    console.log(data)
 
     if (statusCode !== 200) {
       // console.log('error...')
@@ -55,7 +70,10 @@ class Home extends Component {
       <Layout>
         <section id='Blog' className='container'>
           <PostsFeature {...feature} />
-          <h3>More posts</h3>
+
+          <Posts posts={data} columns='3' />
+
+          <Newsletter />
         </section>
         <style jsx>{`
           .main {
