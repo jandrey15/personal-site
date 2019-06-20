@@ -42,7 +42,7 @@ class Home extends Component {
       let { posts: feature } = await req.json()
       // let { posts } = await reqPosts.json()
       let data = await reqPosts.json()
-      console.log(data)
+      // console.log(data)
 
       if (req.status >= 400) {
         res.statusCode = req.status
@@ -116,7 +116,7 @@ class Home extends Component {
     }
 
     return (
-      <Layout>
+      <Layout title='John Serrano - Blog'>
         <section id='Blog' className='container'>
           <PostsFeature {...feature} />
 

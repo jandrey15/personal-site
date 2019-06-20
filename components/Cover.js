@@ -61,6 +61,7 @@ class Cover extends Component {
             font-weight: 700;
             margin: 5px 0;
             text-shadow: -1px 1px 2px #1c1c1c;
+            text-align: center;
           }
   
           .inner p {
