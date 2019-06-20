@@ -102,13 +102,15 @@ const Posts = ({ posts, columns }) => {
 
           #Posts .profile:hover .profile__name {
             display: block;
-            bottom: -20px;
             opacity: 1;
           }
 
           #Posts .profile__name { 
-            position: absolute;
-            bottom: 0;
+            position: absolute;            
+            bottom: -20px;
+            left: -32px;
+            text-align: center;
+            width: 100px;
             opacity: 0;
             transition: .2s; 
           }
@@ -117,6 +119,7 @@ const Posts = ({ posts, columns }) => {
             height: 35px;
             border: 2px solid #ffffff;
             border-radius: 100%;
+            display: block;
             width: 35px;
           }
 

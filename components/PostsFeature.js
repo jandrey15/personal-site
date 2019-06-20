@@ -23,8 +23,10 @@ const PostsFeature = ({ title, feature_image, slug, custom_excerpt, excerpt, pub
         </header>
         <footer className='post__meta'>
           <div className='profile'>
-            <img className='profile__image' src={primary_author.profile_image} alt={primary_author.name} />
-            {/* <span className='profile__name'>{primary_author.name}</span> */}
+            <a href='/user' className='profile_avatar'>
+              <img className='profile__image' src={primary_author.profile_image} alt={primary_author.name} />
+            </a>
+            <span className='profile__name'>{primary_author.name}</span>
           </div>
           <span>{moment(published_at, 'YYYYMMDD').fromNow()}</span>
           <a href={`/blog/${slug}`}>
@@ -72,32 +74,79 @@ const PostsFeature = ({ title, feature_image, slug, custom_excerpt, excerpt, pub
         }
 
         .profile {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
+          position: relative;
+        }
+
+        .profile:hover .profile__name {
+          display: block;          
+          opacity: 1;
+        }
+
+        .profile__name { 
+          position: absolute;
+          bottom: -20px;
+          left: -32px;
+          text-align: center;
+          width: 100px;
+          opacity: 0;
+          transition: .2s; 
+        }
+
+        .profile_avatar {
+          height: 35px;
+          border: 2px solid #ffffff;
+          border-radius: 100%;
+          display: block;
+          width: 35px;
         }
 
         .profile__image {
-          height: 35px;
-          overflow: hidden;
-          border: 1px solid #0078ae;
           border-radius: 100%;
-          width: 35px;
+          object-fit: cover;
+          display: block;
+          width: 100%;
+          height: 100%;
+          background: #e3e9ed;
         }
 
         .post__meta {
           display: flex;
           justify-content: space-evenly;
           align-items: center;
-          margin-top: 20px;
+          margin: 20px 0;
         }
 
         .post__meta span {
           font-weight: 700;
         }
-        .post__meta a {
+
+        .post__meta > a {
+          position: relative;
+          font-weight: 700;
           color: #0078ae;
           text-decoration: none;
+        }
+
+        .post__meta > a:hover {
+          color: #1c1c1c;
+        }
+
+        .post__meta > a:before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 2px;
+          bottom: 0;
+          left: 0;
+          background-color: #0078ae;
+          visibility: visible;
+          transform: scaleX(1);
+          transition: all 0.3s ease-in-out 0s;
+        }
+
+        .post__meta > a:hover:before {
+          visibility: hidden;
+          transform: scaleX(0);
         }
       `}</style>
     </article>
