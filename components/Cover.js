@@ -5,7 +5,7 @@ moment.locale('es')
 
 class Cover extends Component {
   render () {
-    const { title, profile = true, caption = true, cover = '/static/background.jpg', post = false, published_at, primary_author } = this.props
+    const { title, profile = true, caption = true, cover = '/static/background.jpg', post = false, published_at, primary_author, primary_tag } = this.props
     return (
       <section id='Cover'>
         <div className='inner'>
@@ -17,15 +17,21 @@ class Cover extends Component {
           <h1>{title}</h1>
           {caption && <p>Desarrollador Web Full-Stack</p>}
           {post &&
-            <div className='profile__post'>
-              <div className='profile'>
-                <a href='/user' className='profile_avatar'>
-                  <img className='profile__image' src={primary_author.profile_image} alt={primary_author.name} />
-                </a>
-                <span className='profile__name'>{primary_author.name}</span>
-              </div>
-              {/* <span>{moment(published_at, 'YYYYMMDD').fromNow()}</span> */}
-              <span>{moment(published_at).format('DD MMMM - YYYY')}</span>
+            <div className='profile__section'>
+              <section className='profile__post'>
+                <div className='profile'>
+                  <a href='/user' className='profile_avatar'>
+                    <img className='profile__image' src={primary_author.profile_image} alt={primary_author.name} />
+                  </a>
+                  <span className='profile__name'>{primary_author.name}</span>
+                </div>
+                {/* <span>{moment(published_at, 'YYYYMMDD').fromNow()}</span> */}
+                <span>{moment(published_at).format('DD MMMM - YYYY')}</span>
+              </section>
+
+              <section className='category'>
+                <a href={`/tag/${primary_tag.slug}`}>{primary_tag.name}</a>
+              </section>
             </div>
           }
         </div>
@@ -34,7 +40,7 @@ class Cover extends Component {
             position: relative;
             padding-top: 12px;
             padding-bottom: 12px;
-            color: #fff;
+            color: #ffffff;
             height: 400px;
             background: #090a0b no-repeat 50%;
             background-image: url(${cover});
@@ -53,6 +59,28 @@ class Cover extends Component {
             display: block;
             bottom: 0;
             background: rgba(28, 28, 28, .55);
+          }
+
+          #Cover .category {
+            max-width: 700px;
+            margin: 20px auto 0;
+            text-align: center;
+            font-size: 1.2rem;
+            text-transform: capitalize;
+            font-weight: 700;
+          }
+
+          #Cover .category a {
+            text-decoration: none;
+            color: #ffffff;
+            text-align: center;
+            transition: .2s; 
+            border: 1px solid #0078ae;
+            padding: 5px 10px;
+            border-radius: 20%;
+          }
+          #Cover .category a:hover {
+            opacity: 0.8;
           }
   
           .profile .profile__avatar {

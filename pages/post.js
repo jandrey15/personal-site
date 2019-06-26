@@ -50,11 +50,8 @@ class Post extends Component {
     // console.log(data)
     return (
       <Layout title={data.title}>
-        <Cover title={data.title} profile={false} caption={false} cover={data.feature_image} post published_at={data.published_at} primary_author={data.primary_author} />
+        <Cover title={data.title} profile={false} caption={false} cover={data.feature_image} post published_at={data.published_at} primary_author={data.primary_author} primary_tag={data.primary_tag} />
         <section id='Post' className='container'>
-          <section className='category'>
-            <a href={`/tag/${data.primary_tag.slug}`}>{data.primary_tag.name}</a>
-          </section>
           <article className='body'>
             <Highlight innerHTML>
               {data.html}
@@ -63,28 +60,10 @@ class Post extends Component {
           </article>
           <Newsletter />
         </section>
-        <style jsx>{`
-          #Post .category {
-            max-width: 700px;
-            margin: 20px auto 50px;
-            text-align: center;
-            font-size: 2rem;
-            text-transform: capitalize;
-            font-weight: 700;
-          }
-
-          #Post .category a {
-            text-decoration: none;
-            color: #0078ae;
-            text-align: center;
-            transition: .2s;
-          }
-          #Post .category a:hover {
-            color: #1c1c1c;
-          }
-        `}</style>
-
         <style jsx global>{`
+          #Post {
+            margin-top: 30px;
+          }
           #Post .body {
             font-size: 1.25rem;
             line-height: 2rem;
