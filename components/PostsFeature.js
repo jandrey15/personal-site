@@ -23,7 +23,7 @@ const PostsFeature = ({ title, feature_image, slug, custom_excerpt, excerpt, pub
         </header>
         <footer className='post__meta'>
           <div className='profile'>
-            <a href='/user' className='profile_avatar'>
+            <a href='/sobre-mi' className='profile_avatar'>
               <img className='profile__image' src={primary_author.profile_image} alt={primary_author.name} />
             </a>
             <span className='profile__name'>{primary_author.name}</span>

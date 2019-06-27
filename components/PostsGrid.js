@@ -21,7 +21,7 @@ const Posts = ({ posts, columns }) => {
             </header>
             <footer className='post__meta'>
               <div className='profile'>
-                <a href='/user' className='profile_avatar'>
+                <a href='/sobre-mi' className='profile_avatar'>
                   <img className='profile__image' src={post.primary_author.profile_image} alt={post.primary_author.name} />
                 </a>
                 <span className='profile__name'>{post.primary_author.name}</span>

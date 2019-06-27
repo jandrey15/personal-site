@@ -20,7 +20,7 @@ class Cover extends Component {
             <div className='profile__section'>
               <section className='profile__post'>
                 <div className='profile'>
-                  <a href='/user' className='profile_avatar'>
+                  <a href='/sobre-mi' className='profile_avatar'>
                     <img className='profile__image' src={primary_author.profile_image} alt={primary_author.name} />
                   </a>
                   <span className='profile__name'>{primary_author.name}</span>
@@ -76,8 +76,8 @@ class Cover extends Component {
             text-align: center;
             transition: .2s; 
             border: 1px solid #0078ae;
-            padding: 5px 10px;
-            border-radius: 20%;
+            padding: 3px 10px;
+            border-radius: 10px;
           }
           #Cover .category a:hover {
             opacity: 0.8;
