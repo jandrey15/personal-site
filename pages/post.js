@@ -8,8 +8,8 @@ class Post extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      scrollY: 0,
-      scrollMax: 0
+      max: 0,
+      value: 0
     }
   }
 
@@ -51,25 +51,28 @@ class Post extends Component {
     // const markup = this.props.data.html
     // console.log(hljs.highlight('javascript', markup).value)
     // hljs.initHighlightingOnLoad()
-    // console.log(window.scrollY)
     // console.log(document.body.clientHeight)
+    // console.log(window.innerHeight)
+    const docHeight = document.body.clientHeight
+    const winHeight = window.innerHeight
+
+    const max = docHeight - winHeight
     this.setState({
-      scrollMax: document.body.clientHeight
+      max
     })
-    // window.addEventListener('scroll', this.handleScroll)
+    window.addEventListener('scroll', this.handleScroll)
   }
 
-  // componentWillUnmount () {
-  //   window.removeEventListener('scroll', this.handleScroll)
-  // }
+  componentWillUnmount () {
+    window.removeEventListener('scroll', this.handleScroll)
+  }
 
-  // handleScroll = () => {
-  //   let lastScrollY = window.scrollY
-
-  //   this.setState({
-  //     scrollY: lastScrollY
-  //   })
-  // }
+  handleScroll = () => {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+    // console.log(scrollTop)
+    document.querySelector('#progress')
+      .value = scrollTop
+  }
 
   render () {
     const { data } = this.props
@@ -77,13 +80,7 @@ class Post extends Component {
     return (
       <Layout title={data.title}>
         <Cover title={data.title} profile={false} caption={false} cover={data.feature_image} post published_at={data.published_at} primary_author={data.primary_author} primary_tag={data.primary_tag} />
-        <div className='floating-active floating-header'>
-          <progress id='reading-progress' className='progress' value={this.state.scrollY} max={this.state.scrollMax}>
-            <div className='progress-container'>
-              <span className='progress-bar' />
-            </div>
-          </progress>
-        </div>
+        <progress id='progress' value={this.state.value} max={this.state.max} />
         <section id='Post' className='container'>
           <article className='body'>
             <Highlight innerHTML>
@@ -94,53 +91,42 @@ class Post extends Component {
           <Newsletter />
         </section>
         <style jsx global>{`
-          
-          .floating-header {
-            visibility: hidden;
+
+          progress {
+            /* Positioning */
             position: fixed;
+            left: 0;
             top: 0;
-            right: 0;
-            left: 0;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            height: 60px;
-            border-bottom: 1px solid rgba(0,0,0,.06);
-            background: hsla(0,0%,100%,.95);
-            transition: all .5s cubic-bezier(.19,1,.22,1);
-            transform: translate3d(0,-120%,0);
-          }
-          .floating-active {
-            visibility: visible;
-            transition: all .5s cubic-bezier(.22,1,.27,1);
-            transform: translateZ(0);
-          }
-          .progress {
-            position: absolute;
-            right: 0;
-            bottom: -1px;
-            left: 0;
+
+            /* Dimensions */
             width: 100%;
-            height: 2px;
+            height: 5px;
+
+            /* Reset the appearance */
+            -webkit-appearance: none;
+              -moz-appearance: none;
+                    appearance: none;
+
+            /* Get rid of the default border in Firefox/Opera. */
             border: none;
-            color: #3eb0ef;
-            background: transparent;
-            appearance: none;
+
+            /* Progress bar container for Firefox/IE10+ */
+            background-color: transparent;
+
+            /* Progress bar value for IE10+ */
+            color: red;
           }
-          .progress-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: block;
-            width: 100%;
-            height: 2px;
+
+          progress::-webkit-progress-bar {
             background-color: transparent;
           }
-          .progress-bar {
-            display: block;
-            width: 50%;
-            height: inherit;
-            background-color: #3eb0ef;
+
+          progress::-webkit-progress-value {
+            background-color: red;
+          }
+
+          progress::-moz-progress-bar {
+            background-color: red;
           }
           #Post {
             margin-top: 30px;
