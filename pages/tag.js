@@ -13,7 +13,7 @@ class Tag extends Component {
     }
   }
 
-  static async getInitialProps ({ res }) {
+  static async getInitialProps ({ res, query }) {
     // console.log('SLUG', query.slug)
 
     const API_URL = process.env.API_URL
@@ -26,7 +26,7 @@ class Tag extends Component {
         req
       ] = await Promise.all([
         fetch(
-          `${API_URL}/posts/?key=${API_KEY}&include=authors,tags`
+          `${API_URL}/posts/?key=${API_KEY}&include=authors,tags&filter=tag:${query.slug}`
         )
       ])
       const { posts } = await req.json()
@@ -37,29 +37,36 @@ class Tag extends Component {
         console.warn(req.status)
         return {
           data: [],
+          slug: null,
           statusCode: req.status
         }
       }
 
       // console.log(json)
-      return { data: posts, statusCode: 200 }
+      return { data: posts, slug: query.slug, statusCode: 200 }
     } catch (err) {
       // res.statusCode = 503
       if (res) res.statusCode = 503
       console.error(err)
       return {
         data: [],
+        slug: null,
         statusCode: 503
       }
     }
   }
 
+  capitalize = (s) => {
+    if (typeof s !== 'string') return ''
+    return s.charAt(0).toUpperCase() + s.slice(1)
+  }
+
   render () {
-    const { data } = this.props
-    console.log(data)
+    const { data, slug } = this.props
+    // console.log(data)
     return (
-      <Layout title={data[0].primary_tag.name}>
-        <Cover title={data[0].primary_tag.name} profile={false} caption={false} cover='/' />
+      <Layout title={this.capitalize(slug)}>
+        <Cover title={slug} profile={false} caption={false} cover='/' capitalize />
         <section id='Tag' className='container'>
           <PostsGrid posts={data} columns='3' />
         </section>

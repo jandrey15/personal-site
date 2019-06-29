@@ -30,7 +30,7 @@ class Cover extends Component {
               </section>
 
               <section className='category'>
-                <a href={`/tag/${primary_tag.slug}`}>{primary_tag.name}</a>
+                <a href={`/tags/${primary_tag.slug}`}>{primary_tag.name}</a>
               </section>
             </div>
           }
