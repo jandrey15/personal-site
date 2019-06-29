@@ -46,6 +46,7 @@ class Post extends Component {
         console.warn(req.status)
         return {
           data: [],
+          morePost: [],
           statusCode: req.status
         }
       }
@@ -58,6 +59,7 @@ class Post extends Component {
       console.error(err)
       return {
         data: [],
+        morePost: [],
         statusCode: 503
       }
     }
@@ -245,8 +247,9 @@ class Post extends Component {
           }
 
           #Post img, #Post iframe, #Post video {
-            width: 100%;
+            width: auto;
             height: auto;
+            max-width: 100%;
           }
         `}</style>
       </Layout>

@@ -12,8 +12,12 @@ router.get('/blog/:slug', (req, res) => {
   return app.render(req, res, '/post', { slug: req.params.slug })
 })
 
+router.get('/tag', (req, res) => {
+  return app.render(req, res, '/tag')
+})
+
 router.get('/tag/:slug', (req, res) => {
-  return app.render(req, res, '/tag', { slug: req.params.slug })
+  return app.render(req, res, '/tags', { slug: req.params.slug })
 })
 
 // router.get('/productos', (req, res) => {

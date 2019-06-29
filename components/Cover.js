@@ -5,7 +5,7 @@ moment.locale('es')
 
 class Cover extends Component {
   render () {
-    const { title, profile = true, caption = true, cover = '/static/background.jpg', post = false, published_at, primary_author, primary_tag } = this.props
+    const { title, profile = true, caption = true, cover = '/static/background.jpg', post = false, published_at, primary_author, primary_tag, capitalize } = this.props
     return (
       <section id='Cover'>
         <div className='inner'>
@@ -14,7 +14,7 @@ class Cover extends Component {
               <img className='profile__avatar' src='/static/profile.jpg' alt='Profile' />
             </a>
           }
-          <h1>{title}</h1>
+          <h1 className={capitalize && `capitalize`}>{title}</h1>
           {caption && <p>Desarrollador Web Full-Stack</p>}
           {post &&
             <div className='profile__section'>
@@ -105,6 +105,10 @@ class Cover extends Component {
             margin: 5px 0;
             text-shadow: -1px 1px 2px #1c1c1c;
             text-align: center;
+          }
+
+          .inner .capitalize {
+            text-transform: capitalize;
           }
   
           .inner p {
