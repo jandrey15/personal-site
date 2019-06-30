@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import Layout from '../components/Layout'
 // import Cover from '../components/Cover'
 import Posts from '../components/PostsGrid'
-import Newsletter from '../components/Newsletter'
 import PostsFeature from '../components/PostsFeature'
 import ReactPaginate from 'react-paginate'
 import Error from './_error'
@@ -135,8 +134,6 @@ class Home extends Component {
             subContainerClassName={'pages pagination'}
             activeClassName={'active'}
           />
-
-          <Newsletter />
         </section>
         <style jsx>{`
           .main {
