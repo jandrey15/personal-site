@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import moment from 'moment'
 moment.locale('es')
 
@@ -9,27 +10,33 @@ const Posts = ({ posts, columns }) => {
         {posts.map(post => (
           <article className='post' key={post.id}>
             <header className='post__header'>
-              <a href={`/blog/${post.slug}`}>
-                <img src={post.feature_image} alt={post.title} />
-              </a>
+              <Link prefetch href={`/post?slug=${post.slug}`} as={`/blog/${post.slug}`}>
+                <a><img src={post.feature_image} alt={post.title} /></a>
+              </Link>
               <div className='content'>
-                <a href={`/blog/${post.slug}`} className='title'>
-                  <h2>{post.title}</h2>
-                </a>
+                <Link prefetch href={`/post?slug=${post.slug}`} as={`/blog/${post.slug}`}>
+                  <a className='title'>
+                    <h2>{post.title}</h2>
+                  </a>
+                </Link>
                 <p>{ post.custom_excerpt ? post.custom_excerpt.substring(0, 160) : post.excerpt ? post.excerpt.substring(0, 160) : null}</p>
               </div>
             </header>
             <footer className='post__meta'>
               <div className='profile'>
-                <a href='/sobre-mi' className='profile_avatar'>
-                  <img className='profile__image' src={post.primary_author.profile_image} alt={post.primary_author.name} />
-                </a>
+                <Link prefetch href='/sobre-mi'>
+                  <a className='profile_avatar'>
+                    <img className='profile__image' src={post.primary_author.profile_image} alt={post.primary_author.name} />
+                  </a>
+                </Link>
                 <span className='profile__name'>{post.primary_author.name}</span>
               </div>
               <span>{moment(post.published_at, 'YYYYMMDD').fromNow()}</span>
-              <a href={`/blog/${post.slug}`}>
-                <span>Leer más</span>
-              </a>
+              <Link prefetch href={`/post?slug=${post.slug}`} as={`/blog/${post.slug}`}>
+                <a className='title'>
+                  <span>Leer más</span>
+                </a>
+              </Link>
             </footer>
           </article>
         ))}
@@ -180,13 +187,15 @@ const Posts = ({ posts, columns }) => {
     <section id='Posts'>
       {posts.map(post => (
         <article className='post' key={post.id}>
-          <a href={`/blog/${post.slug}`}>
-            <img src={post.feature_image} alt={post.title} />
-          </a>
+          <Link prefetch href={`/post?slug=${post.slug}`} as={`/blog/${post.slug}`}>
+            <a><img src={post.feature_image} alt={post.title} /></a>
+          </Link>
           <div className='content'>
-            <a href={`/blog/${post.slug}`} className='title'>
-              <h2>{post.title}</h2>
-            </a>
+            <Link prefetch href={`/post?slug=${post.slug}`} as={`/blog/${post.slug}`}>
+              <a className='title'>
+                <h2>{post.title}</h2>
+              </a>
+            </Link>
             <p>{ post.custom_excerpt ? post.custom_excerpt.substring(0, 160) : post.excerpt ? post.excerpt.substring(0, 160) : null}</p>
           </div>
         </article>

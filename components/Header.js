@@ -1,11 +1,25 @@
+import Link from 'next/link'
+
 const Header = (props) => {
   return (
     <header id='Header'>
       <nav className='container'>
         <ul className='menu'>
-          <li><a href='/'>Inicio</a></li>
-          <li><a href='/sobre-mi'>Sobre mi</a></li>
-          <li><a href='/blog'>Blog</a></li>
+          <li>
+            <Link prefetch href='/'>
+              <a>Inicio</a>
+            </Link>
+          </li>
+          <li>
+            <Link prefetch href='/sobre-mi'>
+              <a>Sobre mi</a>
+            </Link>
+          </li>
+          <li>
+            <Link prefetch href='/blog'>
+              <a>Blog</a>
+            </Link>
+          </li>
           <li><a href='http://'>portafolio</a></li>
         </ul>
       </nav>

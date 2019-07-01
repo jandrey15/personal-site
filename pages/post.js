@@ -6,6 +6,7 @@ import Cover from '../components/Cover'
 import PostsGrid from '../components/PostsGrid'
 import Highlight from 'react-highlight'
 import ReactDisqusComments from 'react-disqus-comments'
+import Router from 'next/router'
 
 class Post extends Component {
   constructor (props) {
@@ -14,6 +15,8 @@ class Post extends Component {
       max: 0,
       value: 0
     }
+
+    Router.events.on('routeChangeComplete', this.handleRouteChange)
   }
 
   static async getInitialProps ({ res, query }) {
@@ -62,6 +65,17 @@ class Post extends Component {
         morePost: [],
         statusCode: 503
       }
+    }
+  }
+
+  handleRouteChange = (url) => {
+    console.log('App is changing to: ', url)
+    // console.log(this.props.data.title)
+    let title = this.props.data.title
+    // console.log(url.slice(0, 6))
+    if (url.slice(0, 6) === '/blog/' && url.length > 8) {
+      addthis.layers.refresh()
+      addthis.update('share', 'title', title)
     }
   }
 
@@ -149,6 +163,7 @@ class Post extends Component {
             border: none;
             background-color: transparent;
             color: #0078ae;
+            z-index: 1;
           }
 
           progress::-webkit-progress-bar {
