@@ -15,8 +15,6 @@ class Post extends Component {
       max: 0,
       value: 0
     }
-
-    Router.events.on('routeChangeComplete', this.handleRouteChange)
   }
 
   static async getInitialProps ({ res, query }) {
@@ -73,10 +71,11 @@ class Post extends Component {
     // console.log(this.props.data.title)
     let title = this.props.data.title
     // console.log(url.slice(0, 6))
-    if (url.slice(0, 6) === '/blog/' && url.length > 8) {
-      addthis.layers.refresh()
-      addthis.update('share', 'title', title)
-    }
+    // if (url.slice(0, 6) === '/blog/' && url.length > 8) {
+    //   console.log('ok paso')
+    //   addthis.layers.refresh()
+    //   addthis.update('share', 'title', title)
+    // }
   }
 
   componentDidMount () {
@@ -98,6 +97,7 @@ class Post extends Component {
       max
     })
     window.addEventListener('scroll', this.handleScroll)
+    // Router.events.on('routeChangeComplete', this.handleRouteChange)
     // https://stackoverflow.com/questions/35761062/add-addthis-to-react-component
     // addthis.layers.refresh() // important! init the add this widget
     // addthis.update('share', 'url', 'my-initial-url'); // update with initial prop value
@@ -131,7 +131,11 @@ class Post extends Component {
         <progress id='progress' value={this.state.value} max={this.state.max} />
         <section id='Post' className='container'>
 
-          <div className='addthis_inline_share_toolbox' />
+          <div
+            className='addthis_inline_share_toolbox'
+            data-url={`http://localhost:3001/blog/${data.slug}`}
+            data-title={data.title}
+          />
 
           <article className='body'>
             <Highlight innerHTML>
@@ -202,6 +206,7 @@ class Post extends Component {
             font-weight: 400;
             margin: 0 auto;
             max-width: 700px;
+            overflow: hidden;
           }
           #Post .body h5 {
             font-size: 1.5rem;
@@ -220,18 +225,18 @@ class Post extends Component {
           #Post .body pre {
             font-size: 1rem;
           }
-          #Post .body a {
+          #Post .body p a {
             position: relative;
             font-weight: 700;
             color: #0078ae;
             text-decoration: none;
           }
 
-          #Post .body a:hover {
+          #Post .body p a:hover {
             color: #1c1c1c;
           }
 
-          #Post .body a:before {
+          #Post .body p a:before {
             content: "";
             position: absolute;
             width: 100%;
@@ -244,7 +249,7 @@ class Post extends Component {
             transition: all 0.3s ease-in-out 0s;
           }
 
-          #Post .body a:hover:before {
+          #Post .body p a:hover:before {
             visibility: hidden;
             transform: scaleX(0);
           }

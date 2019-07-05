@@ -4781,11 +4781,6 @@ readdirp@^2.2.1:
     micromatch "^3.1.10"
     readable-stream "^2.0.2"
 
-reaptcha@^1.5.1:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/reaptcha/-/reaptcha-1.5.1.tgz#c6a5207f42a164bcc96f8b8892674d17a86c444a"
-  integrity sha512-VrXIhnUVHEEjHmT/vKSTfkM+VP7VroOSESFQZCAGyMZcbMGs7kUZ2v7RRr26WooahRRkyfNxZJDILhVJNixNEw==
-
 recursive-copy@2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/recursive-copy/-/recursive-copy-2.0.6.tgz#d590f9eb5f165b96a1b80bc8f9cbcb5c6f9c89e9"

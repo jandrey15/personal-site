@@ -1,5 +1,4 @@
 import React, { Fragment, Component } from 'react'
-import Reaptcha from 'reaptcha'
 
 class Newsletter extends Component {
   constructor (props) {
@@ -21,18 +20,15 @@ class Newsletter extends Component {
     this.email = element
   }
 
-  // SetRefRecaptcha = element => {
-  //   this.recaptcha = element
-  // }
-
   validateEmail = email => {
     // eslint-disable-next-line no-useless-escape
     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     return re.test(email)
   }
 
-  onVerify = token => {
-    // console.log('token -> ', token)
+  onSubmit = event => {
+    event.preventDefault()
+
     if (this.name.value !== '' && this.email.value !== '') {
       if (this.validateEmail(this.email.value)) {
         fetch(`/api/contact`, {
@@ -43,8 +39,7 @@ class Newsletter extends Component {
           },
           body: JSON.stringify({
             email: this.email.value,
-            firstName: this.name.value,
-            'g-recaptcha-response': token
+            firstName: this.name.value
           })
         })
           .then(res => res.json())
@@ -55,9 +50,6 @@ class Newsletter extends Component {
               message: data.message
             })
 
-            if (data.status !== 200) {
-              this.captcha.reset()
-            }
             // document.getElementById('formContactenos').reset()
           })
           .catch(err => {
@@ -87,7 +79,7 @@ class Newsletter extends Component {
           <p className='message'>{this.state.message}</p>
         ) : (
           <Fragment>
-            <div className='newsletter'>
+            <form className='newsletter' onSubmit={this.onSubmit}>
               {/* <input type='email' placeholder='Email' required />
                 <button>Suscribirme</button> */}
               <input
@@ -116,16 +108,8 @@ class Newsletter extends Component {
                 Suscribirme
               </button>
 
-              <Reaptcha
-                ref={e => (this.captcha = e)}
-                sitekey='6LevYasUAAAAAMRZG-0BZOlKBo0oFX4rJBvIXWbe'
-                onVerify={this.onVerify}
-                size='invisible'
-                hl='es-419'
-              />
-
               <aside className='messageRequest'>{this.state.message}</aside>
-            </div>
+            </form>
           </Fragment>
         )}
         <style jsx>{`
