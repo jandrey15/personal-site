@@ -71,11 +71,11 @@ class Post extends Component {
     // console.log(this.props.data.title)
     let title = this.props.data.title
     // console.log(url.slice(0, 6))
-    // if (url.slice(0, 6) === '/blog/' && url.length > 8) {
-    //   console.log('ok paso')
-    //   addthis.layers.refresh()
-    //   addthis.update('share', 'title', title)
-    // }
+    if (url.slice(0, 6) === '/blog/' && url.length > 8) {
+      console.log('ok paso')
+      addthis.layers.refresh()
+      addthis.update('share', 'title', title)
+    }
   }
 
   componentDidMount () {
@@ -97,7 +97,7 @@ class Post extends Component {
       max
     })
     window.addEventListener('scroll', this.handleScroll)
-    // Router.events.on('routeChangeComplete', this.handleRouteChange)
+    Router.events.on('routeChangeComplete', this.handleRouteChange)
     // https://stackoverflow.com/questions/35761062/add-addthis-to-react-component
     // addthis.layers.refresh() // important! init the add this widget
     // addthis.update('share', 'url', 'my-initial-url'); // update with initial prop value
@@ -106,14 +106,6 @@ class Post extends Component {
   componentWillUnmount () {
     window.removeEventListener('scroll', this.handleScroll)
   }
-
-  // componentDidUpdate () {
-  //   addthis.update('share', 'url', this.props.myurl); // update with prop value
-  // }
-
-  // componentWillReceiveProps(nextProps) {
-  //   addthis.update('share', 'url', nextProps.myurl); // update with prop value
-  // }
 
   handleScroll = () => {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
