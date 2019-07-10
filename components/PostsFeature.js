@@ -1,4 +1,5 @@
 /* eslint-disable camelcase */
+import Link from 'next/link'
 import moment from 'moment'
 moment.locale('es')
 
@@ -16,22 +17,26 @@ const PostsFeature = ({ title, feature_image, slug, custom_excerpt, excerpt, pub
 
       <div className='content'>
         <header className='post__header'>
-          <a href={`/blog/${slug}`} className='title'>
-            <h2>{title}</h2>
-          </a>
+          <Link prefetch href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
+            <a className='title'><h2>{title}</h2></a>
+          </Link>
           <p>{ custom_excerpt ? custom_excerpt.substring(0, 160) : excerpt ? excerpt.substring(0, 160) : null}</p>
         </header>
         <footer className='post__meta'>
           <div className='profile'>
-            <a href='/sobre-mi' className='profile_avatar'>
-              <img className='profile__image' src={primary_author.profile_image} alt={primary_author.name} />
-            </a>
+            <Link prefetch href='/sobre-mi'>
+              <a className='profile_avatar'>
+                <img className='profile__image' src={primary_author.profile_image} alt={primary_author.name} />
+              </a>
+            </Link>
             <span className='profile__name'>{primary_author.name}</span>
           </div>
           <span>{moment(published_at, 'YYYYMMDD').fromNow()}</span>
-          <a href={`/blog/${slug}`}>
-            <span>Leer más</span>
-          </a>
+          <Link prefetch href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
+            <a>
+              <span>Leer más</span>
+            </a>
+          </Link>
         </footer>
       </div>
       <style jsx>{`

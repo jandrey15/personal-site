@@ -6,7 +6,6 @@ import Cover from '../components/Cover'
 import PostsGrid from '../components/PostsGrid'
 import Highlight from 'react-highlight'
 import ReactDisqusComments from 'react-disqus-comments'
-import Router from 'next/router'
 
 class Post extends Component {
   constructor (props) {
@@ -66,18 +65,6 @@ class Post extends Component {
     }
   }
 
-  handleRouteChange = (url) => {
-    console.log('App is changing to: ', url)
-    // console.log(this.props.data.title)
-    let title = this.props.data.title
-    // console.log(url.slice(0, 6))
-    if (url.slice(0, 6) === '/blog/' && url.length > 8) {
-      console.log('ok paso')
-      addthis.layers.refresh()
-      addthis.update('share', 'title', title)
-    }
-  }
-
   componentDidMount () {
     setTimeout(() => {
       let addthisScript = document.createElement('script')
@@ -97,10 +84,6 @@ class Post extends Component {
       max
     })
     window.addEventListener('scroll', this.handleScroll)
-    Router.events.on('routeChangeComplete', this.handleRouteChange)
-    // https://stackoverflow.com/questions/35761062/add-addthis-to-react-component
-    // addthis.layers.refresh() // important! init the add this widget
-    // addthis.update('share', 'url', 'my-initial-url'); // update with initial prop value
   }
 
   componentWillUnmount () {
@@ -216,6 +199,10 @@ class Post extends Component {
           }
           #Post .body pre {
             font-size: 1rem;
+          }
+          #Post .body pre a {
+            text-decoration: none;
+            color: #ffffff;
           }
           #Post .body p a {
             position: relative;
