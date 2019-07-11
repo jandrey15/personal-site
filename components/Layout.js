@@ -2,6 +2,18 @@ import Head from 'next/head'
 import Header from './Header'
 import Footer from './Footer'
 import globalStyles from '../styles/global'
+import NProgress from 'nprogress'
+import Router from 'next/router'
+
+Router.onRouteChangeStart = url => {
+  NProgress.start()
+}
+
+Router.onRouteChangeComplete = url => {
+  NProgress.done()
+}
+
+Router.onRouteChangeError = () => NProgress.done()
 
 const Layout = ({ children, title }) => {
   return (

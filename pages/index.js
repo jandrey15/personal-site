@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import Link from 'next/link'
+import Link from 'next/link'
 import Layout from '../components/Layout'
 import Cover from '../components/Cover'
 import Posts from '../components/PostsGrid'
@@ -53,10 +53,16 @@ class Home extends Component {
         <section id='Home' className='container'>
           <div className='main'>
             <h2>¿Quién soy?</h2>
-            <p>Tecnólogo en análisis y desarrollo de sistemas de la información graduado en el SENA(Colombia) y <strong>Desarrollador Web Full-Stack</strong>. Entusiasta de las tecnologías web: JavaScript, Node.js, Docker, Firebase, React, etc.. Comparto mis conocimientos a través de mi <a href='/blog'>blog</a>. Puedes leer más <a href='/sobre-mi'>sobre mi</a>.</p>
+            <p>Tecnólogo en análisis y desarrollo de sistemas de la información graduado en el SENA(Colombia) y <strong>Desarrollador Web Full-Stack</strong>. Entusiasta de las tecnologías web: JavaScript, Node.js, Docker, Firebase, React, etc.. Comparto mis conocimientos a través de mi
+              <Link prefetch href='/blog'>
+                <a> blog</a>
+              </Link>. Puedes leer más <Link prefetch href='/sobre-mi'><a>sobre mi</a></Link>.</p>
 
             <h2>De qué hablo en mi blog</h2>
-            <p><a href='/tag/desarrollo-web'>Desarrollo web</a>, Tutoriales, artículos sobre tecnologías: JavaScript, Node.js, Docker, React, python, etc.</p>
+            <p>
+              <Link prefetch href='/tag/desarrollo-web' as='/tags/desarrollo-web'>
+                <a >Desarrollo web</a>
+              </Link>, Tutoriales, artículos sobre tecnologías: JavaScript, Node.js, Docker, React, python, etc.</p>
 
             <h2>Últimos artículos publicados</h2>
             <Posts posts={data} columns='2' />
