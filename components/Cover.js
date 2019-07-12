@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 import React, { Component } from 'react'
+import Link from 'next/link'
 import moment from 'moment'
 moment.locale('es')
 
@@ -10,9 +11,11 @@ class Cover extends Component {
       <section id='Cover'>
         <div className='inner'>
           {profile &&
-            <a className='profile' href='/'>
-              <img className='profile__avatar' src='/static/profile.jpg' alt='Profile' />
-            </a>
+            <Link prefetch href='/'>
+              <a className='profile'>
+                <img className='profile__avatar' src='/static/profile.jpg' alt='Profile' />
+              </a>
+            </Link>
           }
           <h1 className={capitalize && `capitalize`}>{title}</h1>
           {caption && <p>Desarrollador Web Full-Stack</p>}
@@ -20,9 +23,11 @@ class Cover extends Component {
             <div className='profile__section'>
               <section className='profile__post'>
                 <div className='profile'>
-                  <a href='/sobre-mi' className='profile_avatar'>
-                    <img className='profile__image' src={primary_author.profile_image} alt={primary_author.name} />
-                  </a>
+                  <Link prefetch href='/sobre-mi'>
+                    <a className='profile_avatar'>
+                      <img className='profile__image' src={primary_author.profile_image} alt={primary_author.name} />
+                    </a>
+                  </Link>
                   <span className='profile__name'>{primary_author.name}</span>
                 </div>
                 {/* <span>{moment(published_at, 'YYYYMMDD').fromNow()}</span> */}
@@ -30,7 +35,9 @@ class Cover extends Component {
               </section>
 
               <section className='category'>
-                <a href={`/tags/${primary_tag.slug}`}>{primary_tag.name}</a>
+                <Link prefetch href={`/tag/${primary_tag.slug}`} as={`/tags/${primary_tag.slug}`}>
+                  <a>{primary_tag.name}</a>
+                </Link>
               </section>
             </div>
           }
