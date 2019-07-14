@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import Layout from '../components/Layout'
 import Cover from '../components/Cover'
 import PostsGrid from '../components/PostsGrid'
+import Error from './_error'
 
 class Tags extends Component {
   constructor (props) {
@@ -55,8 +56,14 @@ class Tags extends Component {
   }
 
   render () {
-    const { data } = this.props
+    const { data, statusCode } = this.props
     // console.log(data)
+
+    if (statusCode !== 200) {
+      // console.log('error...')
+      return <Error statusCode={statusCode} />
+    }
+
     return (
       <Layout title={data[0].primary_tag.name}>
         <Cover title={data[0].primary_tag.name} profile={false} caption={false} cover='/' />
@@ -66,6 +73,7 @@ class Tags extends Component {
         <style jsx global>{`
           #Tag {
             margin-top: 70px;
+            flex: 1;
           }
         `}</style>
       </Layout>

@@ -4,6 +4,7 @@ import Layout from '../components/Layout'
 import Newsletter from '../components/Newsletter'
 import Cover from '../components/Cover'
 import PostsGrid from '../components/PostsGrid'
+import Error from './_error'
 import Highlight from 'react-highlight'
 import ReactDisqusComments from 'react-disqus-comments'
 
@@ -38,8 +39,25 @@ class Post extends Component {
       ])
       const { posts: post } = await req.json()
       const { posts: morePost } = await reqPosts.json()
-      // console.log(post)
+      // console.log('Is this post -> ', post)
       // console.log(morePost)
+
+      if (post === undefined) {
+        const reqPage = await fetch(`${API_URL}/pages/slug/${query.slug}/?key=${API_KEY}&include=authors,tags`)
+        const { pages: page } = await reqPage.json()
+        // const pages = await reqPage.json()
+        if (reqPage.status >= 400) {
+          res.statusCode = req.status
+          console.warn(req.status)
+          return {
+            data: [],
+            morePost: [],
+            statusCode: req.status
+          }
+        }
+        // console.log('Is this page -> ', page)
+        return { data: page[0], morePost, statusCode: 200 }
+      }
 
       if (req.status >= 400) {
         res.statusCode = req.status
@@ -98,8 +116,14 @@ class Post extends Component {
   }
 
   render () {
-    const { data, morePost } = this.props
+    const { data, morePost, statusCode } = this.props
     // console.log(data)
+
+    if (statusCode !== 200) {
+      // console.log('error...')
+      return <Error statusCode={statusCode} />
+    }
+
     return (
       <Layout title={data.title}>
         <Cover title={data.title} profile={false} caption={false} cover={data.feature_image} post published_at={data.published_at} primary_author={data.primary_author} primary_tag={data.primary_tag} />
@@ -200,10 +224,7 @@ class Post extends Component {
           #Post .body pre {
             font-size: 1rem;
           }
-          #Post .body pre a {
-            text-decoration: none;
-            color: #ffffff;
-          }
+          
           #Post .body p a {
             position: relative;
             font-weight: 700;
@@ -243,6 +264,15 @@ class Post extends Component {
             line-height: 1.5rem;
             font-weight: 400;
             border-radius: 3px;
+          }
+
+          #Post .body pre a, #Post .body code a {
+            text-decoration: none;
+            color: #ffffff;
+          }
+
+          #Post .body code a:hover {
+            color: #ffffff;
           }
 
           #Post img, #Post iframe, #Post video {

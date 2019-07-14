@@ -126,6 +126,7 @@ class Home extends Component {
           }
           .contact {
             margin-bottom: 50px;
+            border: none;
           }
         `}</style>
       </Layout>

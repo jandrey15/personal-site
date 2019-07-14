@@ -1,12 +1,18 @@
+import Link from 'next/link'
+
 const Footer = (props) => {
   const ano = (new Date()).getFullYear()
   return (
     <footer id='Footer'>
       <div className='text'>
         <div className='copyright'>
-          <a href='/'>John Serrano</a> <span>© 2015 - {ano}</span>
+          <Link href='/'>
+            <a>John Serrano</a>
+          </Link> <span>© 2015 - {ano}</span>
         </div>
-        <a className='legal' href='/legal' rel='nofollow'>Aviso legal y política de privacidad</a>
+        <Link href='/legal'>
+          <a className='legal' rel='nofollow'>Aviso legal y política de privacidad</a>
+        </Link>
         <a className='alojado' href='https://m.do.co/c/66d901bee48b' target='_blank'>Alojado en Digital Ocean ❤️️</a>
       </div>
       <style jsx>{`
