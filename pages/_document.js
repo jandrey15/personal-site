@@ -4,6 +4,7 @@
 // ./pages/_document.js
 import Document, { Head, Main, NextScript } from 'next/document'
 import { Fragment } from 'react'
+import { GA_TRACKING_ID } from '../helpers/gtag'
 
 class MyDocument extends Document {
   static async getInitialProps (ctx) {
@@ -11,6 +12,17 @@ class MyDocument extends Document {
     const initialProps = await Document.getInitialProps(ctx)
 
     return { ...initialProps, isProduction }
+  }
+
+  setGoogleTags () {
+    return {
+      __html: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '${GA_TRACKING_ID}');
+      `
+    }
   }
 
   render () {
@@ -21,7 +33,11 @@ class MyDocument extends Document {
         <Head>
           {isProduction && (
             <Fragment>
-              {console.log('Hello production')}
+              <script
+                async
+                src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+              />
+              <script dangerouslySetInnerHTML={this.setGoogleTags()} />
             </Fragment>
           )}
           {
@@ -38,7 +54,7 @@ class MyDocument extends Document {
           {
             <Fragment>
               {/* Quitar si no se esta usando */}
-              <script async src='https://platform.twitter.com/widgets.js' charSet='utf-8' />
+              {console.log('scripts....')}
             </Fragment>
           }
         </body>
