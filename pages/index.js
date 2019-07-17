@@ -47,8 +47,21 @@ class Home extends Component {
       return <Error statusCode={statusCode} />
     }
 
+    const SEO = {
+      title: '',
+      description: '',
+      image: '',
+      url: '',
+      titleOpenGraph: '',
+      date: '',
+      modified: '',
+      imagenFacebookSEO: '',
+      imagenTwitterSEO: '',
+      type: 'article'
+    }
+
     return (
-      <Layout>
+      <Layout SEO={SEO}>
         <Cover title='John Serrano' />
         <section id='Home' className='container'>
           <div className='main'>

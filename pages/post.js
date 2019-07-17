@@ -124,8 +124,21 @@ class Post extends Component {
       return <Error statusCode={statusCode} />
     }
 
+    const SEO = {
+      title: data.title,
+      description: '',
+      image: '',
+      url: '',
+      titleOpenGraph: '',
+      date: '',
+      modified: '',
+      imagenFacebookSEO: '',
+      imagenTwitterSEO: '',
+      type: 'article'
+    }
+
     return (
-      <Layout title={data.title}>
+      <Layout SEO={SEO}>
         <Cover title={data.title} profile={false} caption={false} cover={data.feature_image} post published_at={data.published_at} primary_author={data.primary_author} primary_tag={data.primary_tag} />
         <progress id='progress' value={this.state.value} max={this.state.max} />
         <section id='Post' className='container'>

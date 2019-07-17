@@ -114,8 +114,21 @@ class Home extends Component {
       return <Error statusCode={statusCode} />
     }
 
+    const SEO = {
+      title: 'John Serrano - Blog',
+      description: '',
+      image: '',
+      url: '',
+      titleOpenGraph: '',
+      date: '',
+      modified: '',
+      imagenFacebookSEO: '',
+      imagenTwitterSEO: '',
+      type: 'article'
+    }
+
     return (
-      <Layout title='John Serrano - Blog'>
+      <Layout SEO={SEO}>
         <section id='Blog' className='container'>
           <PostsFeature {...feature} />
 

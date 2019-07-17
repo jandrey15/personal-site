@@ -71,8 +71,21 @@ class Tag extends Component {
       return <Error statusCode={statusCode} />
     }
 
+    const SEO = {
+      title: this.capitalize(slug),
+      description: '',
+      image: '',
+      url: '',
+      titleOpenGraph: '',
+      date: '',
+      modified: '',
+      imagenFacebookSEO: '',
+      imagenTwitterSEO: '',
+      type: 'article'
+    }
+
     return (
-      <Layout title={this.capitalize(slug)}>
+      <Layout SEO={SEO}>
         <Cover title={slug} profile={false} caption={false} cover='/' capitalize />
         <section id='Tag' className='container'>
           <PostsGrid posts={data} columns='3' />

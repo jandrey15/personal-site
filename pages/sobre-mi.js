@@ -3,8 +3,21 @@ import Cover from '../components/Cover'
 import Link from 'next/link'
 
 const SobreMi = () => {
+  const SEO = {
+    title: 'John Serrano - Sobre mí',
+    description: '',
+    image: '',
+    url: '',
+    titleOpenGraph: '',
+    date: '',
+    modified: '',
+    imagenFacebookSEO: '',
+    imagenTwitterSEO: '',
+    type: 'article'
+  }
+
   return (
-    <Layout title='John Serrano - Sobre mí'>
+    <Layout SEO={SEO}>
       <Cover title='Quién es John Serrano' profile={false} caption={false} cover='/static/background_2.jpg' />
       <section id='Home' className='container'>
         <div className='main'>

@@ -58,47 +58,16 @@ class Layout extends Component {
   render () {
     const { children, SEO } = this.props
 
-    let title = SEO
-      ? SEO.title !== undefined
-        ? SEO.title
-        : DEFAULT_SEO.openGraph.title
-      : DEFAULT_SEO.openGraph.title
-    let description = SEO
-      ? SEO.description !== undefined
-        ? SEO.description
-        : DEFAULT_SEO.description
-      : DEFAULT_SEO.description
-    const url = SEO
-      ? SEO.url !== undefined
-        ? SEO.url
-        : DEFAULT_SEO.openGraph.url
-      : DEFAULT_SEO.openGraph.url
-    const image = SEO
-      ? SEO.image !== undefined
-        ? SEO.image
-        : DEFAULT_SEO.openGraph.image
-      : DEFAULT_SEO.openGraph.image
-    const imagenFacebook = SEO
-      ? SEO.imagenFacebookSEO !== undefined
-        ? SEO.imagenFacebookSEO
-        : DEFAULT_SEO.openGraph.image
-      : DEFAULT_SEO.openGraph.image
-    const imagenTwitter = SEO
-      ? SEO.imagenTwitterSEO !== undefined
-        ? SEO.imagenTwitterSEO
-        : DEFAULT_SEO.openGraph.image
-      : DEFAULT_SEO.openGraph.image
-    const date = SEO ? (SEO.date !== undefined ? SEO.date : null) : null
-    const modified = SEO
-      ? SEO.modified !== undefined
-        ? SEO.modified
-        : null
-      : null
-    const type = SEO
-      ? SEO.type !== undefined
-        ? SEO.type
-        : DEFAULT_SEO.openGraph.type
-      : DEFAULT_SEO.openGraph.type
+    let title = SEO.title !== '' ? SEO.title : DEFAULT_SEO.title
+    const titleOpenGraph = SEO.titleOpenGraph !== '' ? SEO.titleOpenGraph : DEFAULT_SEO.openGraph.title
+    let description = SEO.description !== '' ? SEO.description : DEFAULT_SEO.description
+    const url = SEO.url !== '' ? SEO.url : DEFAULT_SEO.openGraph.url
+    const image = SEO.image !== '' ? SEO.image : DEFAULT_SEO.openGraph.image
+    const imagenFacebook = SEO.imagenFacebookSEO !== '' ? SEO.imagenFacebookSEO : DEFAULT_SEO.openGraph.image
+    const imagenTwitter = SEO.imagenTwitterSEO !== '' ? SEO.imagenTwitterSEO : DEFAULT_SEO.openGraph.image
+    const date = SEO.date !== '' ? SEO.date : null
+    const modified = SEO.modified !== '' ? SEO.modified : null
+    const type = SEO.type !== '' ? SEO.type : DEFAULT_SEO.openGraph.type
 
     return (
       <div id='Layout'>
@@ -125,13 +94,7 @@ class Layout extends Component {
           <meta
             key='twitter:title'
             name='twitter:title'
-            content={
-              SEO
-                ? SEO.titleOpenGraph !== undefined
-                  ? SEO.titleOpenGraph
-                  : DEFAULT_SEO.openGraph.title
-                : DEFAULT_SEO.openGraph.title
-            }
+            content={titleOpenGraph}
           />
           <meta
             key='twitter:description'
@@ -145,13 +108,7 @@ class Layout extends Component {
           <meta
             key='og:title'
             property='og:title'
-            content={
-              SEO
-                ? SEO.titleOpenGraph !== undefined
-                  ? SEO.titleOpenGraph
-                  : DEFAULT_SEO.openGraph.title
-                : DEFAULT_SEO.openGraph.title
-            }
+            content={titleOpenGraph}
           />
           <meta
             key='og:description'

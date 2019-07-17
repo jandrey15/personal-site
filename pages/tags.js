@@ -64,8 +64,21 @@ class Tags extends Component {
       return <Error statusCode={statusCode} />
     }
 
+    const SEO = {
+      title: data[0].primary_tag.name,
+      description: '',
+      image: '',
+      url: '',
+      titleOpenGraph: '',
+      date: '',
+      modified: '',
+      imagenFacebookSEO: '',
+      imagenTwitterSEO: '',
+      type: 'article'
+    }
+
     return (
-      <Layout title={data[0].primary_tag.name}>
+      <Layout SEO={SEO}>
         <Cover title={data[0].primary_tag.name} profile={false} caption={false} cover='/' />
         <section id='Tag' className='container'>
           <PostsGrid posts={data} columns='3' />
