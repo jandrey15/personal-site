@@ -11,9 +11,11 @@ const PostsFeature = ({ title, feature_image, slug, custom_excerpt, excerpt, pub
   // console.log(moment(published_at).format('DD/MM/YYYY'))
   return (
     <article id='PostsFeature'>
-      <a href={`/blog/${slug}`}>
-        <img className='picture' src={feature_image} alt={title} />
-      </a>
+      <Link prefetch href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
+        <a>
+          <img className='picture' src={feature_image} alt={title} />
+        </a>
+      </Link>
 
       <div className='content'>
         <header className='post__header'>

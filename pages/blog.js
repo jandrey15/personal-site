@@ -118,17 +118,17 @@ class Home extends Component {
       title: 'John Serrano - Blog',
       description: '',
       image: '',
-      url: '',
-      titleOpenGraph: '',
+      url: 'https://johnserrano.co/blog',
+      titleOpenGraph: 'John Serrano - Blog',
       date: '',
       modified: '',
-      imagenFacebookSEO: '',
-      imagenTwitterSEO: '',
+      imagenFacebook: '',
+      imagenTwitter: '',
       type: 'article'
     }
 
     return (
-      <Layout SEO={SEO}>
+      <Layout {...SEO}>
         <section id='Blog' className='container'>
           <PostsFeature {...feature} />
 

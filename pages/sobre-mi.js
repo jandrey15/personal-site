@@ -11,13 +11,13 @@ const SobreMi = () => {
     titleOpenGraph: '',
     date: '',
     modified: '',
-    imagenFacebookSEO: '',
-    imagenTwitterSEO: '',
+    imagenFacebook: '',
+    imagenTwitter: '',
     type: 'article'
   }
 
   return (
-    <Layout SEO={SEO}>
+    <Layout {...SEO}>
       <Cover title='Quién es John Serrano' profile={false} caption={false} cover='/static/background_2.jpg' />
       <section id='Home' className='container'>
         <div className='main'>

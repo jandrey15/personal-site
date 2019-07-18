@@ -126,19 +126,19 @@ class Post extends Component {
 
     const SEO = {
       title: data.title,
-      description: '',
-      image: '',
-      url: '',
-      titleOpenGraph: '',
-      date: '',
-      modified: '',
-      imagenFacebookSEO: '',
-      imagenTwitterSEO: '',
+      description: data.meta_description,
+      image: data.feature_image,
+      url: `/${data.slug}`, // Corregir path
+      titleOpenGraph: data.meta_title,
+      date: data.published_at,
+      modified: data.updated_at,
+      imagenFacebook: data.feature_image,
+      imagenTwitter: data.feature_image,
       type: 'article'
     }
 
     return (
-      <Layout SEO={SEO}>
+      <Layout {...SEO} >
         <Cover title={data.title} profile={false} caption={false} cover={data.feature_image} post published_at={data.published_at} primary_author={data.primary_author} primary_tag={data.primary_tag} />
         <progress id='progress' value={this.state.value} max={this.state.max} />
         <section id='Post' className='container'>

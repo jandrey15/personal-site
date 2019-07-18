@@ -79,13 +79,13 @@ class Tag extends Component {
       titleOpenGraph: '',
       date: '',
       modified: '',
-      imagenFacebookSEO: '',
-      imagenTwitterSEO: '',
+      imagenFacebook: '',
+      imagenTwitter: '',
       type: 'article'
     }
 
     return (
-      <Layout SEO={SEO}>
+      <Layout {...SEO}>
         <Cover title={slug} profile={false} caption={false} cover='/' capitalize />
         <section id='Tag' className='container'>
           <PostsGrid posts={data} columns='3' />

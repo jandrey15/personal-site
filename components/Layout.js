@@ -56,18 +56,18 @@ class Layout extends Component {
   }
 
   render () {
-    const { children, SEO } = this.props
+    let { children, title, titleOpenGraph, description, url, image, imagenFacebook, imagenTwitter, date, modified, type } = this.props
 
-    let title = SEO.title !== '' ? SEO.title : DEFAULT_SEO.title
-    const titleOpenGraph = SEO.titleOpenGraph !== '' ? SEO.titleOpenGraph : DEFAULT_SEO.openGraph.title
-    let description = SEO.description !== '' ? SEO.description : DEFAULT_SEO.description
-    const url = SEO.url !== '' ? SEO.url : DEFAULT_SEO.openGraph.url
-    const image = SEO.image !== '' ? SEO.image : DEFAULT_SEO.openGraph.image
-    const imagenFacebook = SEO.imagenFacebookSEO !== '' ? SEO.imagenFacebookSEO : DEFAULT_SEO.openGraph.image
-    const imagenTwitter = SEO.imagenTwitterSEO !== '' ? SEO.imagenTwitterSEO : DEFAULT_SEO.openGraph.image
-    const date = SEO.date !== '' ? SEO.date : null
-    const modified = SEO.modified !== '' ? SEO.modified : null
-    const type = SEO.type !== '' ? SEO.type : DEFAULT_SEO.openGraph.type
+    title = title !== '' ? title : DEFAULT_SEO.title
+    titleOpenGraph = titleOpenGraph !== '' ? titleOpenGraph : DEFAULT_SEO.openGraph.title
+    description = description !== '' ? description : DEFAULT_SEO.description
+    url = url !== '' ? url : DEFAULT_SEO.openGraph.url
+    image = image !== '' ? image : DEFAULT_SEO.openGraph.image
+    imagenFacebook = imagenFacebook !== '' ? imagenFacebook : DEFAULT_SEO.openGraph.image
+    imagenTwitter = imagenTwitter !== '' ? imagenTwitter : DEFAULT_SEO.openGraph.image
+    date = date !== '' ? date : null
+    modified = modified !== '' ? modified : null
+    type = type !== '' ? type : DEFAULT_SEO.openGraph.type
 
     return (
       <div id='Layout'>

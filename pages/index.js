@@ -55,13 +55,13 @@ class Home extends Component {
       titleOpenGraph: '',
       date: '',
       modified: '',
-      imagenFacebookSEO: '',
-      imagenTwitterSEO: '',
+      imagenFacebook: '',
+      imagenTwitter: '',
       type: 'article'
     }
 
     return (
-      <Layout SEO={SEO}>
+      <Layout {...SEO}>
         <Cover title='John Serrano' />
         <section id='Home' className='container'>
           <div className='main'>
