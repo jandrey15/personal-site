@@ -22,6 +22,7 @@ class Post extends Component {
 
     const API_URL = process.env.API_URL
     const API_KEY = process.env.API_KEY
+    const DOMAIN_URL = process.env.DOMAIN_URL
 
     try {
       // eslint-disable-next-line no-undef
@@ -52,6 +53,7 @@ class Post extends Component {
           return {
             data: [],
             morePost: [],
+            domainUrl: DOMAIN_URL,
             statusCode: req.status
           }
         }
@@ -65,12 +67,13 @@ class Post extends Component {
         return {
           data: [],
           morePost: [],
+          domainUrl: DOMAIN_URL,
           statusCode: req.status
         }
       }
 
       // console.log(json)
-      return { data: post[0], morePost, statusCode: 200 }
+      return { data: post[0], morePost, domainUrl: DOMAIN_URL, statusCode: 200 }
     } catch (err) {
       // res.statusCode = 503
       if (res) res.statusCode = 503
@@ -78,6 +81,7 @@ class Post extends Component {
       return {
         data: [],
         morePost: [],
+        domainUrl: DOMAIN_URL,
         statusCode: 503
       }
     }
@@ -116,8 +120,8 @@ class Post extends Component {
   }
 
   render () {
-    const { data, morePost, statusCode } = this.props
-    // console.log(data)
+    const { data, morePost, domainUrl, statusCode } = this.props
+    console.log(data)
 
     if (statusCode !== 200) {
       // console.log('error...')
@@ -126,14 +130,23 @@ class Post extends Component {
 
     const SEO = {
       title: data.title,
-      description: data.meta_description,
-      image: data.feature_image,
-      url: `/${data.slug}`, // Corregir path
-      titleOpenGraph: data.meta_title,
+      description: data.meta_description || data.custom_excerpt || data.excerpt,
+      image: data.feature_image ? data.feature_image.replace(
+        'admin',
+        'static'
+      ) : `${domainUrl}/static/default.jpg`,
+      url: data.canonical_url || `${domainUrl}/${data.slug}`, // Corregir path
+      titleOpenGraph: data.meta_title || data.title,
       date: data.published_at,
       modified: data.updated_at,
-      imagenFacebook: data.feature_image,
-      imagenTwitter: data.feature_image,
+      imagenFacebook: data.feature_image ? data.feature_image.replace(
+        'admin',
+        'static'
+      ) : `${domainUrl}/static/default.jpg`,
+      imagenTwitter: data.feature_image ? data.feature_image.replace(
+        'admin',
+        'static'
+      ) : `${domainUrl}/static/default.jpg`,
       type: 'article'
     }
 

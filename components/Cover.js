@@ -33,12 +33,13 @@ class Cover extends Component {
                 {/* <span>{moment(published_at, 'YYYYMMDD').fromNow()}</span> */}
                 <span>{moment(published_at).format('DD MMMM - YYYY')}</span>
               </section>
-
-              <section className='category'>
-                <Link prefetch href={`/tag/${primary_tag.slug}`} as={`/tags/${primary_tag.slug}`}>
-                  <a>{primary_tag.name}</a>
-                </Link>
-              </section>
+              {primary_tag && (
+                <section className='category'>
+                  <Link prefetch href={`/tag/${primary_tag.slug}`} as={`/tags/${primary_tag.slug}`}>
+                    <a>{primary_tag.name}</a>
+                  </Link>
+                </section>
+              )}
             </div>
           }
         </div>
