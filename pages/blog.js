@@ -86,6 +86,12 @@ class Home extends Component {
 
   componentDidMount () {
     this.loadPostsFromServer()
+
+    const elem = document.createElement('script')
+    elem.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
+    elem.async = true
+    elem.defer = true
+    document.body.appendChild(elem)
   }
 
   handlePageClick = (event) => {
@@ -147,11 +153,26 @@ class Home extends Component {
             subContainerClassName={'pages pagination'}
             activeClassName={'active'}
           />
+
+          <div className='pauta'>
+            <ins className='adsbygoogle'
+              style={{ display: 'block' }}
+              data-ad-client='ca-pub-3083367533294626'
+              data-ad-slot='9904956829'
+              data-ad-format='auto'
+              data-full-width-responsive='true' />
+          </div>
         </section>
         <style jsx>{`
           .main {
             margin: 70px auto 0 auto;
             max-width: 700px;
+          }
+
+          .pauta {
+            margin: 20px 0;
+            height: 250px;
+            width: 300px;
           }
 
           h2 {

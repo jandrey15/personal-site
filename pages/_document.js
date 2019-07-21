@@ -25,6 +25,12 @@ class MyDocument extends Document {
     }
   }
 
+  setGoogleAdsense () {
+    return {
+      __html: `(adsbygoogle = window.adsbygoogle || []).push({});`
+    }
+  }
+
   render () {
     const { isProduction } = this.props
 
@@ -53,8 +59,7 @@ class MyDocument extends Document {
 
           {
             <Fragment>
-              {/* Quitar si no se esta usando */}
-              {console.log('scripts....')}
+              <script dangerouslySetInnerHTML={this.setGoogleAdsense()} />
             </Fragment>
           }
         </body>

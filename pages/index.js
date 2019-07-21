@@ -38,6 +38,17 @@ class Home extends Component {
     }
   }
 
+  componentDidMount () {
+    const elem = document.createElement('script')
+    elem.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
+    elem.async = true
+    elem.defer = true
+    document.body.appendChild(elem)
+
+    // (window.adsbygoogle = window.adsbygoogle || []).push({})
+    // (adsbygoogle = window.adsbygoogle || []).push({})
+  }
+
   render () {
     const { data, statusCode } = this.props
     // console.log(data)
@@ -83,11 +94,23 @@ class Home extends Component {
             <h2>Contacto</h2>
             <p className='contact'>Puedes ponerte en contacto conmigo públicamente por las redes sociales Mencíoname en Twitter <a href='https://twitter.com/Jandrey15' target='_blank'>(soy @jandrey15)</a>.</p>
           </div>
+          <div className='pauta'>
+            <ins className='adsbygoogle'
+              style={{ display: 'block' }}
+              data-ad-client='ca-pub-3083367533294626'
+              data-ad-slot='3127795481'
+              data-ad-format='auto'
+              data-full-width-responsive='true' />
+          </div>
         </section>
         <style jsx>{`
           .main {
             margin: 70px auto 0 auto;
             max-width: 700px;
+          }
+
+          .pauta {
+            margin: 20px 0;
           }
 
           h2 {
