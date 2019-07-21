@@ -25,7 +25,7 @@ class Cover extends Component {
                 <div className='profile'>
                   <Link prefetch href='/sobre-mi'>
                     <a className='profile_avatar'>
-                      <img className='profile__image' src={primary_author.profile_image} alt={primary_author.name} />
+                      <img className='profile__image' src={primary_author.profile_image.replace('admin', 'static')} alt={primary_author.name} />
                     </a>
                   </Link>
                   <span className='profile__name'>{primary_author.name}</span>
@@ -51,7 +51,7 @@ class Cover extends Component {
             color: #ffffff;
             height: 400px;
             background: #090a0b no-repeat 50%;
-            background-image: url(${cover});
+            background-image: url(${cover.replace('admin', 'static')});
             background-size: cover;          
             display: flex;
             flex-direction: column;

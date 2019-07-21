@@ -35,7 +35,7 @@ class Post extends Component {
           `${API_URL}/posts/slug/${query.slug}/?key=${API_KEY}&include=authors,tags`
         ),
         fetch(
-          `${API_URL}/posts/?key=${API_KEY}&limit=3&filter=featured:false&include=authors`
+          `${API_URL}/posts/?key=${API_KEY}&limit=3&filter=featured:false%2Bslug:-${query.slug}&include=authors`
         )
       ])
       const { posts: post } = await req.json()
@@ -121,7 +121,7 @@ class Post extends Component {
 
   render () {
     const { data, morePost, domainUrl, statusCode } = this.props
-    console.log(data)
+    // console.log(data)
 
     if (statusCode !== 200) {
       // console.log('error...')
