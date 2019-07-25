@@ -171,8 +171,6 @@ class Home extends Component {
 
           .pauta {
             margin: 20px 0;
-            height: 250px;
-            width: 300px;
           }
 
           h2 {

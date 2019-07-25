@@ -106,6 +106,12 @@ class Post extends Component {
       max
     })
     window.addEventListener('scroll', this.handleScroll)
+
+    const elem = document.createElement('script')
+    elem.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
+    elem.async = true
+    elem.defer = true
+    document.body.appendChild(elem)
   }
 
   componentWillUnmount () {
@@ -169,6 +175,14 @@ class Post extends Component {
             </Highlight>
           </article>
           <Newsletter />
+          <div className='pauta'>
+            <ins className='adsbygoogle'
+              style={{ display: 'block' }}
+              data-ad-client='ca-pub-3083367533294626'
+              data-ad-slot='5525468930'
+              data-ad-format='auto'
+              data-full-width-responsive='true' />
+          </div>
           <ReactDisqusComments
             shortname='johnserrano'
             identifier={data.slug}
@@ -179,6 +193,10 @@ class Post extends Component {
           <PostsGrid posts={morePost} columns='3' />
         </section>
         <style jsx global>{`
+
+          .pauta {
+            margin: 20px 0;
+          }
 
           progress {
             position: fixed;
