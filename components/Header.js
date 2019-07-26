@@ -20,7 +20,11 @@ const Header = (props) => {
               <a>Blog</a>
             </Link>
           </li>
-          <li><a href='http://'>portafolio</a></li>
+          <li>
+            <Link prefetch href='/portafolio'>
+              <a>Portafolio</a>
+            </Link>
+          </li>
         </ul>
       </nav>
       <style jsx>{`
