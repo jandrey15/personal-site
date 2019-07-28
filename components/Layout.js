@@ -19,7 +19,7 @@ Router.onRouteChangeComplete = url => {
     gtag.trackPageView(url)
   }
   // eslint-disable-next-line no-undef
-  (adsbygoogle = window.adsbygoogle || []).push({})
+  // (adsbygoogle = window.adsbygoogle || []).push({})
 }
 
 Router.onRouteChangeError = () => NProgress.done()

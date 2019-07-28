@@ -33,13 +33,13 @@ class Portafolio extends Component {
               </div>
             </li>
             <li className='project suscripciones'>
-              <div className='caption dark top'>
+              <div className='caption light'>
                 <h3>Suscripciones</h3>
                 <span>Drupal 7, Html5, Css3, Jquery, Sass</span>
               </div>
             </li>
             <li className='project promociones'>
-              <div className='caption dark'>
+              <div className='caption light'>
                 <h3>Promociones</h3>
                 <span>React, Node.js, Express, Webpack, Sass</span>
               </div>
@@ -102,6 +102,8 @@ class Portafolio extends Component {
             width: 100%;
             height: 100%;
             z-index: 8;
+            filter: brightness(50%);
+            -webkit-filter: brightness(50%);
             transition: transform 200ms linear;
             background-repeat: no-repeat;
             background-size: cover;
@@ -110,29 +112,32 @@ class Portafolio extends Component {
           }
           .project:hover:before {
             transform: scale(1.1);
+            filter: brightness(90%);
+            -webkit-filter: brightness(90%);
           }
           .light {
             color: #ffffff;
             text-shadow: -1px 1px 2px #1c1c1c;
           }
           .dark {
-            color: #1c1c1c;
+            color: #000000;
           }
           .top {
             top: 7%;
           }
           .caption {
             position: absolute;
-            left: 8%;
+            left: 0;
             bottom: 0%;
-            padding-bottom: 7%;
+            padding: 0 0 20px 6%;
+            width: 94%;
             transition: bottom 300ms linear;
             z-index: 9;
           }
           .caption h3 {
             font-size: 1.875rem;
             line-height: 2.25rem;
-            margin-bottom: 10px;
+            margin: 10px 0 10px;
           }
           .caption span {
             font-size: 0.8rem;
