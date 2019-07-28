@@ -20,22 +20,40 @@ class Portafolio extends Component {
       <Layout {...SEO}>
         <section id='Portafolio'>
           <ul className='projects'>
-            <li className='project'>
+            <li className='project laopinion'>
               <div className='caption light'>
-                <h3>Paila</h3>
-                <span>Branding, Mobile, UX/UI</span>
+                <h3>La opinión</h3>
+                <span>Drupal 7, Html5, Css3, Jquery, Firebase, Sass</span>
               </div>
             </li>
-            <li className='project'>
+            <li className='project deleitese'>
               <div className='caption light'>
-                <h3>Paila</h3>
-                <span>Branding, Mobile, UX/UI</span>
+                <h3>Deleitese</h3>
+                <span>Drupal 7, Html5, Css3, Jquery, Angular 1, Sass</span>
               </div>
             </li>
-            <li className='project'>
+            <li className='project suscripciones'>
+              <div className='caption dark top'>
+                <h3>Suscripciones</h3>
+                <span>Drupal 7, Html5, Css3, Jquery, Sass</span>
+              </div>
+            </li>
+            <li className='project promociones'>
+              <div className='caption dark'>
+                <h3>Promociones</h3>
+                <span>React, Node.js, Express, Webpack, Sass</span>
+              </div>
+            </li>
+            <li className='project especial__transito'>
               <div className='caption light'>
-                <h3>Paila</h3>
-                <span>Branding, Mobile, UX/UI</span>
+                <h3>Especial Tránsito</h3>
+                <span>Html5, Css3, Jquery, JavaScript</span>
+              </div>
+            </li>
+            <li className='project especial__frontera'>
+              <div className='caption light'>
+                <h3>Especial La frontera</h3>
+                <span>Html5, Css3, Jquery, JavaScript</span>
               </div>
             </li>
           </ul>
@@ -53,10 +71,27 @@ class Portafolio extends Component {
           }
 
           .project {
-            background: url('/static/project.png') no-repeat;
             padding-bottom: 56.25%;
             position: relative;
             overflow: hidden;
+          }
+          .project.laopinion {
+            background: url('/static/laopinion.jpg') no-repeat;
+          }
+          .project.deleitese {
+            background: url('/static/deleitese.jpg') no-repeat;
+          }
+          .project.suscripciones {
+            background: url('/static/suscripciones.jpg') no-repeat;
+          }
+          .project.promociones {
+            background: url('/static/promociones.jpg') no-repeat;
+          }
+          .project.especial__transito {
+            background: url('/static/especial1.jpg') no-repeat;
+          }
+          .project.especial__frontera {
+            background: url('/static/especial2.jpg') no-repeat;
           }
           .project:before {
             content: "";
@@ -78,6 +113,13 @@ class Portafolio extends Component {
           }
           .light {
             color: #ffffff;
+            text-shadow: -1px 1px 2px #1c1c1c;
+          }
+          .dark {
+            color: #1c1c1c;
+          }
+          .top {
+            top: 7%;
           }
           .caption {
             position: absolute;
