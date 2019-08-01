@@ -150,6 +150,9 @@ class Portafolio extends Component {
             filter: brightness(90%);
             -webkit-filter: brightness(90%);
           }
+          .project:hover > .caption {
+            background: rgba(0, 0, 0, 0.8);
+          }
           .light {
             color: #ffffff;
             text-shadow: -1px 1px 2px #1c1c1c;
@@ -164,7 +167,7 @@ class Portafolio extends Component {
             position: absolute;
             left: 0;
             bottom: 0%;
-            padding: 0 0 20px 6%;
+            padding: 0 0 20px 7%;
             width: 94%;
             transition: bottom 300ms linear;
             z-index: 9;
@@ -175,8 +178,8 @@ class Portafolio extends Component {
             margin: 10px 0 10px;
           }
           .caption span {
-            font-size: 0.8rem;
-            line-height: 1rem;
+            font-size: 1rem;
+            line-height: 1.2rem;
             text-transform: uppercase;
           }
         `}</style>
