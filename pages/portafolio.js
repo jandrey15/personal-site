@@ -20,41 +20,69 @@ class Portafolio extends Component {
       <Layout {...SEO}>
         <section id='Portafolio'>
           <ul className='projects'>
-            <li className='project laopinion'>
-              <div className='caption light'>
-                <h3>La opinión</h3>
-                <span>Drupal 7, Html5, Css3, Jquery, Firebase, Sass</span>
-              </div>
+            <li>
+              <a className='project laopinion' href='https://www.laopinion.com.co' target='_blank'>
+                <div className='caption light'>
+                  <h3>La opinión</h3>
+                  <span>Drupal 7, Html5, Css3, Jquery, Firebase, Sass</span>
+                </div>
+              </a>
             </li>
-            <li className='project deleitese'>
-              <div className='caption light'>
-                <h3>Deleitese</h3>
-                <span>Drupal 7, Html5, Css3, Jquery, Angular 1, Sass</span>
-              </div>
+            <li>
+              <a className='project deleitese' href='http://www.deleitese.co' target='_blank'>
+                <div className='caption light'>
+                  <h3>Deleitese</h3>
+                  <span>Drupal 7, Html5, Css3, Jquery, Angular 1, Sass</span>
+                </div>
+              </a>
             </li>
-            <li className='project suscripciones'>
-              <div className='caption light'>
-                <h3>Suscripciones</h3>
-                <span>Drupal 7, Html5, Css3, Jquery, Sass</span>
-              </div>
+            <li>
+              <a className='project suscripciones' href='https://suscripciones.laopinion.com.co' target='_blank'>
+                <div className='caption light'>
+                  <h3>Suscripciones</h3>
+                  <span>Drupal 7, Html5, Css3, Jquery, Sass</span>
+                </div>
+              </a>
             </li>
-            <li className='project promociones'>
-              <div className='caption light'>
-                <h3>Promociones</h3>
-                <span>React, Node.js, Express, Webpack, Sass</span>
-              </div>
+            <li>
+              <a className='project promociones' href='https://promociones.laopinion.com.co' target='_blank'>
+                <div className='caption light'>
+                  <h3>Promociones</h3>
+                  <span>React, Node.js, Express, Webpack, Sass</span>
+                </div>
+              </a>
             </li>
-            <li className='project especial__transito'>
-              <div className='caption light'>
-                <h3>Especial Tránsito</h3>
-                <span>Html5, Css3, Jquery, JavaScript</span>
-              </div>
+            <li>
+              <a className='project especial__transito' href='https://especiales.laopinion.com.co/transito/index.html' target='_blank'>
+                <div className='caption light'>
+                  <h3>Especial Tránsito</h3>
+                  <span>Html5, Css3, Jquery, JavaScript</span>
+                </div>
+              </a>
             </li>
-            <li className='project especial__frontera'>
-              <div className='caption light'>
-                <h3>Especial La frontera</h3>
-                <span>Html5, Css3, Jquery, JavaScript</span>
-              </div>
+            <li>
+              <a className='project especial__frontera' href='https://especiales.laopinion.com.co/frontera/index.html' target='_blank'>
+                <div className='caption light'>
+                  <h3>Especial La frontera</h3>
+                  <span>Html5, Css3, Jquery, JavaScript</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a className='project podcast' href='https://podcasts-bkwaiavyko.now.sh' target='_blank'>
+                <div className='caption light'>
+                  <h3>Add de Podcasts</h3>
+                  <span>Next.js, React, Node.js, Express, Now</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a className='project spotify' href='https://github.com/jandrey15/spotifyReact' target='_blank'>
+                <div className='caption light'>
+                  <h3>Add de Spotify</h3>
+                  <span>React, Create React App, Api Spotify</span>
+                </div>
+              </a>
             </li>
           </ul>
         </section>
@@ -74,6 +102,7 @@ class Portafolio extends Component {
             padding-bottom: 56.25%;
             position: relative;
             overflow: hidden;
+            display: block;
           }
           .project.laopinion {
             background: url('/static/laopinion.jpg') no-repeat;
@@ -92,6 +121,12 @@ class Portafolio extends Component {
           }
           .project.especial__frontera {
             background: url('/static/especial2.jpg') no-repeat;
+          }
+          .project.podcast {
+            background: url('/static/podcast.jpg') no-repeat;
+          }
+          .project.spotify {
+            background: url('/static/spotify.jpg') no-repeat;
           }
           .project:before {
             content: "";
