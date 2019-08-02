@@ -182,6 +182,16 @@ class Portafolio extends Component {
             line-height: 1.2rem;
             text-transform: uppercase;
           }
+
+          @media screen and (max-width: 768px) {
+            .projects {
+              grid-template-columns: 100%;
+            }
+
+            .project:hover > .caption {
+              background: transparent;
+            }
+          }
         `}</style>
       </Layout>
     )

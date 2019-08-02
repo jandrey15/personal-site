@@ -1,8 +1,10 @@
 import Link from 'next/link'
+import Hamburger from './Hamburger'
 
 const Header = (props) => {
   return (
     <header id='Header'>
+      <Hamburger />
       <nav className='container'>
         <ul className='menu'>
           <li>
@@ -58,6 +60,44 @@ const Header = (props) => {
         .menu a:hover {
           color: #0078ae;
         }
+
+        @media screen and (max-width: 768px) {
+          #Header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 19;
+          }
+          nav {
+            position: fixed;
+            left: 0;
+            top: 45px;
+            background: #1c1c1c;
+            padding: 0;
+            height: 100vh;
+            z-index: 20;
+          }
+          .menu {
+            flex-direction: column;
+            margin: 0;
+            height: 100vh;
+            justify-content: center;
+            width: 100%;
+          }
+
+          .menu li {
+            margin: 0;
+            padding: 15px 0;
+            margin: 0;
+            width: 100%;
+          }
+          .menu a {
+            display: block;
+            text-align: center;
+            width: 100%;
+          }
+
+          
       `}</style>
     </header>
   )
