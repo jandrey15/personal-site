@@ -1,10 +1,13 @@
+import React, { useState } from 'react'
 import Link from 'next/link'
 import Hamburger from './Hamburger'
 
-const Header = (props) => {
+const Header = () => {
+  const [active, setActive] = useState(false)
+
   return (
     <header id='Header'>
-      <Hamburger />
+      <Hamburger handleClick={() => setActive(!active)} active={active} />
       <nav className='container'>
         <ul className='menu'>
           <li>
@@ -63,12 +66,14 @@ const Header = (props) => {
 
         @media screen and (max-width: 768px) {
           #Header {
-            position: fixed;
+            position: ${active ? 'fixed' : 'relative'};
             top: 0;
             width: 100%;
             z-index: 19;
           }
           nav {
+            opacity: ${active ? '1' : '0'};
+            transition: .2s;
             position: fixed;
             left: 0;
             top: 45px;
@@ -98,6 +103,11 @@ const Header = (props) => {
           }
 
           
+      `}</style>
+      <style jsx global>{`
+        body {
+          overflow-y: ${active ? 'hidden' : 'scroll'};
+        }
       `}</style>
     </header>
   )
