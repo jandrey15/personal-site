@@ -255,4 +255,9 @@ export default css.global`
   template {
     display: none;
   }
+  @media screen and (max-width: 768px) {
+    .container {
+      width: 96%;
+    }
+  }
 `

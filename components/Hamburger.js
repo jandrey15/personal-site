@@ -24,10 +24,6 @@ const Hamburger = ({ handleClick, active }) => {
           border: 0;
           margin: 0;
           overflow: visible; }
-          .hamburger:hover {
-            opacity: 0.7; }
-          .hamburger.is-active:hover {
-            opacity: 0.7; }
           .hamburger.is-active .hamburger-inner,
           .hamburger.is-active .hamburger-inner::before,
           .hamburger.is-active .hamburger-inner::after {

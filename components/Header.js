@@ -72,7 +72,7 @@ const Header = () => {
             z-index: 19;
           }
           nav {
-            opacity: ${active ? '1' : '0'};
+            display: ${active ? 'block' : 'none'};
             transition: .2s;
             position: fixed;
             left: 0;
@@ -80,6 +80,7 @@ const Header = () => {
             background: #1c1c1c;
             padding: 0;
             height: 100vh;
+            width: 100vw;
             z-index: 20;
           }
           .menu {

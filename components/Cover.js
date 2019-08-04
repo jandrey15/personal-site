@@ -163,6 +163,12 @@ class Cover extends Component {
             height: 100%;
             background: #e3e9ed;
           }
+
+          @media screen and (max-width: 768px) {
+            #Cover {
+              background-position: left center;
+            }
+          }
         `}</style>
       </section>
     )

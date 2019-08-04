@@ -191,6 +191,10 @@ class Portafolio extends Component {
             .project:hover > .caption {
               background: transparent;
             }
+
+            .project:hover:before {
+              filter: brightness(50%);
+            }
           }
         `}</style>
       </Layout>
