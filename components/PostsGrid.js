@@ -178,6 +178,17 @@ const Posts = ({ posts, columns }) => {
             visibility: hidden;
             transform: scaleX(0);
           }
+
+          @media screen and (max-width: 768px) {
+            #Posts {
+              grid-template-columns: repeat(2, 300px);
+            }
+          }
+          @media screen and (max-width: 630px) {
+            #Posts {
+              grid-template-columns: minmax(300px, 1fr);
+            }
+          }
         `}</style>
       </section>
     )
@@ -253,6 +264,12 @@ const Posts = ({ posts, columns }) => {
         #Posts .title:hover h2 {
           opacity: 0.9;
           color: #0078ae;
+        }
+
+        @media screen and (max-width: 630px) {
+          #Posts {
+            grid-template-columns: minmax(300px, 1fr);
+          }
         }
       `}</style>
     </section>

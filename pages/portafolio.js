@@ -195,6 +195,31 @@ class Portafolio extends Component {
             .project:hover:before {
               filter: brightness(50%);
             }
+
+            .project.laopinion {
+              background: url('/static/laopinion_m.jpg') no-repeat;
+            }
+            .project.deleitese {
+              background: url('/static/deleitese_m.jpg') no-repeat;
+            }
+            .project.suscripciones {
+              background: url('/static/suscripciones_m.jpg') no-repeat;
+            }
+            .project.promociones {
+              background: url('/static/promociones_m.jpg') no-repeat;
+            }
+            .project.especial__transito {
+              background: url('/static/especial1_m.jpg') no-repeat;
+            }
+            .project.especial__frontera {
+              background: url('/static/especial2_m.jpg') no-repeat;
+            }
+            .project.podcast {
+              background: url('/static/podcast_m.jpg') no-repeat;
+            }
+            .project.spotify {
+              background: url('/static/spotify_m.jpg') no-repeat;
+            }
           }
         `}</style>
       </Layout>

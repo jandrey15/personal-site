@@ -155,6 +155,17 @@ const PostsFeature = ({ title, feature_image, slug, custom_excerpt, excerpt, pub
           visibility: hidden;
           transform: scaleX(0);
         }
+
+        @media screen and (max-width: 768px) {
+          #PostsFeature {
+            grid-template-columns: minmax(300px, 1fr);
+          }
+
+          #PostsFeature .picture {
+            height: 200px;
+            width: 100%;
+          }
+        }
       `}</style>
     </article>
   )

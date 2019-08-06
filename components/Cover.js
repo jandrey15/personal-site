@@ -108,9 +108,10 @@ class Cover extends Component {
           }
   
           .inner h1 {
-            font-size: 3.75rem;
+            font-size: 3.75rem;            
+            line-height: 3.5rem;
             font-weight: 700;
-            margin: 5px 0;
+            margin: 20px 0;
             text-shadow: -1px 1px 2px #1c1c1c;
             text-align: center;
           }
@@ -167,6 +168,16 @@ class Cover extends Component {
           @media screen and (max-width: 768px) {
             #Cover {
               background-position: left center;
+            }
+
+            #Cover .profile__post {
+              width: 100%;
+            }
+            #Cover .profile__post .profile {
+              justify-content: center;
+            }
+            #Cover .profile__post span {
+              margin-left: 10px;
             }
           }
         `}</style>
