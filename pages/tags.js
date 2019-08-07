@@ -64,8 +64,10 @@ class Tags extends Component {
       return <Error statusCode={statusCode} />
     }
 
+    const title = data[0].primary_tag !== null ? data[0].primary_tag.name : ''
+
     const SEO = {
-      title: data[0].primary_tag.name,
+      title: title,
       description: '',
       image: '',
       url: '',
@@ -79,7 +81,7 @@ class Tags extends Component {
 
     return (
       <Layout {...SEO}>
-        <Cover title={data[0].primary_tag.name} profile={false} caption={false} cover='/' />
+        <Cover title={title} profile={false} caption={false} cover='/' />
         <section id='Tag' className='container'>
           <PostsGrid posts={data} columns='3' />
         </section>

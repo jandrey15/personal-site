@@ -171,6 +171,7 @@ class Cover extends Component {
             }
 
             #Cover .profile__post {
+              margin-top: 20px;
               width: 100%;
             }
             #Cover .profile__post .profile {
@@ -178,6 +179,17 @@ class Cover extends Component {
             }
             #Cover .profile__post span {
               margin-left: 10px;
+              font-size: 1rem;
+              line-height: 1.2rem;
+            }
+            #Cover .category {
+              margin-top: 30px;
+            }
+
+            .inner h1 {
+              font-size: 3rem;
+              line-height: 3.2rem;
+              width: 100%;
             }
           }
         `}</style>

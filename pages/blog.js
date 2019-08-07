@@ -269,6 +269,15 @@ class Home extends Component {
           } 
 
           #Blog .pagination .disabled { display: none; }  
+
+          @media screen and (max-width: 768px) {
+            #Blog .pagination {
+              flex-wrap: wrap;
+            }
+            #Blog li {
+              margin: 0px 0 10px;
+            }
+          }
         `}</style>
       </Layout>
     )

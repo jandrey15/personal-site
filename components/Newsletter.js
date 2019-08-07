@@ -53,6 +53,7 @@ class Newsletter extends Component {
             // document.getElementById('formContactenos').reset()
           })
           .catch(err => {
+            // eslint-disable-next-line no-console
             if (err) console.log(`Error ${err}`)
           })
       } else {
@@ -190,6 +191,15 @@ class Newsletter extends Component {
             font-size: 13px;
             text-align: center;
             color: #1c1c1c;
+          }
+
+          @media screen and (max-width: 768px) {
+            #Newsletter {
+              width: 85%;
+            }
+            .newsletter input {
+              margin-bottom: 20px;
+            }
           }
         `}</style>
       </section>
