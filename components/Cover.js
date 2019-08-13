@@ -6,7 +6,7 @@ moment.locale('es')
 
 class Cover extends Component {
   render () {
-    const { title, profile = true, caption = true, cover = '/static/background.jpg', post = false, published_at, primary_author, primary_tag, capitalize } = this.props
+    const { title, profile = true, caption = true, cover = '/static/background.jpg', post = false, published_at, primary_author, primary_tag = false, capitalize = false } = this.props
     return (
       <section id='Cover'>
         <div className='inner'>

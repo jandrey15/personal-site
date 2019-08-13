@@ -164,7 +164,7 @@ class Post extends Component {
 
           <div
             className='addthis_inline_share_toolbox'
-            data-url={`http://localhost:3001/blog/${data.slug}`}
+            data-url={`${domainUrl}/blog/${data.slug}`}
             data-title={data.title}
           />
 

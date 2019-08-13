@@ -230,7 +230,7 @@ class Home extends Component {
             padding: 0;
             margin: 50px auto;
             align-items: center;
-            max-width: 400px;
+            max-width: 500px;
           }
 
           #Blog li {
