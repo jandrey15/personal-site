@@ -84,7 +84,7 @@ class Home extends Component {
 
             <h2>De qué hablo en mi blog</h2>
             <p>
-              <Link prefetch href='/tag/desarrollo-web' as='/tags/desarrollo-web'>
+              <Link prefetch href='/tag?slug=desarrollo-web' as='/tags/desarrollo-web'>
                 <a >Desarrollo web</a>
               </Link>, Tutoriales, artículos sobre tecnologías: JavaScript, Node.js, Docker, React, python, etc.</p>
 

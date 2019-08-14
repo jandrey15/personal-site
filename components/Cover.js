@@ -35,7 +35,7 @@ class Cover extends Component {
               </section>
               {primary_tag && (
                 <section className='category'>
-                  <Link prefetch href={`/tag/${primary_tag.slug}`} as={`/tags/${primary_tag.slug}`}>
+                  <Link prefetch href={`/tag?slug=${primary_tag.slug}`} as={`/tags/${primary_tag.slug}`}>
                     <a>{primary_tag.name}</a>
                   </Link>
                 </section>
