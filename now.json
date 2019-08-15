@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "name": "stage johnserrano",
+  "alias": ["stage.johnserrano.xyz", "johnserrano-stage"],
+  "env": {
+    "NODE_ENV": "production",
+    "PORT": "3000",
+    "API_URL": "http://api.johnserrano.xyz/ghost/api/v2/content",
+    "API_KEY": "@api_key_johnserrano",
+    "STATIC_URL": "http://static.johnserrano.xyz",
+    "DOMAIN_URL": "http://johnserrano.xyz",
+    "LISTID": "@listid_johnserrano",
+    "API_KEY_MAIL": "@api_key_mail_johnserrano",
+    "SECRET_CAPTCHA": "@secret_captcha_johnserrano"
+  },
+  "routes": [
+    { "src": "/blog/(?<slug>[^/]+)$", "dest": "/post?slug=$slug" },
+    { "src": "/tags/(?<slug>[^/]+)$", "dest": "/tag?slug=$slug" }
+  ]
+}

@@ -1,0 +1,8 @@
+build
+.next
+node_modules
+.dockerignore
+.gitignore
+.env
+.env-example
+.vscode
