@@ -9,9 +9,9 @@ const router = express.Router()
 //   app.render(req, res, actualPage, queryParams)
 // })
 
-// router.get('/blog', (req, res) => {
-//   return app.render(req, res, '/blog')
-// })
+router.get('/blog/', (req, res) => {
+  return app.render(req, res, '/blog')
+})
 
 router.get('/blog/:slug', (req, res) => {
   return app.render(req, res, '/post', { slug: req.params.slug })
