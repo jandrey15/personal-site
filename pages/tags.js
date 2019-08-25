@@ -4,6 +4,7 @@ import Layout from '../components/Layout'
 import Cover from '../components/Cover'
 import PostsGrid from '../components/PostsGrid'
 import Error from './_error'
+import 'isomorphic-unfetch'
 
 class Tags extends Component {
   constructor (props) {

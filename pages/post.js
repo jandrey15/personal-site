@@ -7,6 +7,7 @@ import PostsGrid from '../components/PostsGrid'
 import Error from './_error'
 import Highlight from 'react-highlight'
 import ReactDisqusComments from 'react-disqus-comments'
+import 'isomorphic-unfetch'
 
 class Post extends Component {
   constructor (props) {

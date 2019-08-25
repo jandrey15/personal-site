@@ -71,7 +71,7 @@ class Portafolio extends Component {
             <li>
               <a className='project podcast' href='https://podcasts-bkwaiavyko.now.sh' target='_blank'>
                 <div className='caption light'>
-                  <h3>Add de Podcasts</h3>
+                  <h3>App de Podcasts</h3>
                   <span>Next.js, React, Node.js, Express, Now</span>
                 </div>
               </a>
@@ -79,7 +79,7 @@ class Portafolio extends Component {
             <li>
               <a className='project spotify' href='https://github.com/jandrey15/spotifyReact' target='_blank'>
                 <div className='caption light'>
-                  <h3>Add de Spotify</h3>
+                  <h3>App de Spotify</h3>
                   <span>React, Create React App, Api Spotify</span>
                 </div>
               </a>
