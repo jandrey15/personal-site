@@ -2,9 +2,6 @@
   "version": 2,
   "name": "Site John Serrano",
   "alias": ["johnandrey.xyz", "www.johnandrey.xyz", "blog.johnandrey.xyz"],
-  "github": {
-    "autoAlias": false
-  },
   "build": {
     "env": {
       "NODE_ENV": "production",
