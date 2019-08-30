@@ -1,7 +1,7 @@
 {
   "version": 2,
   "name": "Site John Serrano",
-  "alias": ["johnandrey.xyz", "www.johnandrey.xyz", "blog.johnandrey.xyz"],
+  "alias": ["johnandrey.xyz", "www.johnandrey.xyz", "blog.johnandrey.xyz", "johnserrano-stage"],
   "build": {
     "env": {
       "NODE_ENV": "production",
