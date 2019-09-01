@@ -1,15 +1,15 @@
 {
   "version": 2,
   "name": "Site John Serrano",
-  "alias": ["johnandrey.xyz", "www.johnandrey.xyz", "blog.johnandrey.xyz", "johnserrano-stage"],
+  "alias": ["johnserrano.xyz", "www.johnserrano.xyz", "blog.johnserrano.xyz", "johnserrano-stage"],
   "build": {
     "env": {
       "NODE_ENV": "production",
       "PORT": "3000",
-      "API_URL": "https://api.johnandrey.xyz/ghost/api/v2/content",
+      "API_URL": "https://api.johnserrano.xyz/ghost/api/v2/content",
       "API_KEY": "@api_key_johnserrano",
-      "STATIC_URL": "https://static.johnandrey.xyz",
-      "DOMAIN_URL": "https://johnandrey.xyz",
+      "STATIC_URL": "https://static.johnserrano.xyz",
+      "DOMAIN_URL": "https://johnserrano.xyz",
       "LISTID": "@listid_johnserrano",
       "API_KEY_MAIL": "@api_key_mail_johnserrano",
       "SECRET_CAPTCHA": "@secret_captcha_johnserrano"
