@@ -15,7 +15,7 @@
     }
   },
   "routes": [
-    { "src": "/blog/(?<slug>[^/]+)", "dest": "/post?slug=$slug" },
-    { "src": "/tags/(?<slug>[^/]+)", "dest": "/tag?slug=$slug" }
+    { "src": "/blog/(?<slug>[^/]+)$", "dest": "/post?slug=$slug" },
+    { "src": "/tags/(?<slug>[^/]+)$", "dest": "/tag?slug=$slug" }
   ]
 }
