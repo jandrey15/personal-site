@@ -9,6 +9,10 @@ const router = express.Router()
 //   app.render(req, res, actualPage, queryParams)
 // })
 
+router.get('\\S+\/$', function (req, res) {
+  return res.redirect(301, req.path.slice(0, -1) + req.url.slice(req.path.length))
+})
+
 router.get('/blog/', (req, res) => {
   return app.render(req, res, '/blog')
 })
