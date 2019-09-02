@@ -16,6 +16,12 @@
   },
   "routes": [
     { "src": "/blog/(?<slug>[^/]+)$", "dest": "/post?slug=$slug" },
-    { "src": "/tags/(?<slug>[^/]+)$", "dest": "/tag?slug=$slug" }
+    { "src": "/tags/(?<slug>[^/]+)$", "dest": "/tag?slug=$slug" },
+    {
+      "src": "/(.*)",
+      "status": 301,
+      "headers": { "Location": "https://johnserrano.co/blog$1" }
+    },
+    {"src": "/ads.txt", "dest": "/static/$1"}
   ]
 }
