@@ -97,6 +97,9 @@ const Header = () => {
             margin: 0;
             width: 100%;
           }
+          .menu li:last-child {
+            margin-bottom: 100px;
+          }
           .menu a {
             display: block;
             text-align: center;
