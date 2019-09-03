@@ -9,12 +9,12 @@ const router = express.Router()
 //   app.render(req, res, actualPage, queryParams)
 // })
 
-router.get('\\S+\/$', function (req, res) {
-  console.log(req.path.slice(0, -1))
-  console.log('------------------------')
-  console.log(req.url.slice(req.path.length))
-  res.redirect(301, req.path.slice(0, -1) + req.url.slice(req.path.length))
-})
+// router.get('\\S+\/$', function (req, res) {
+//   console.log(req.path.slice(0, -1))
+//   console.log('------------------------')
+//   console.log(req.url.slice(req.path.length))
+//   res.redirect(301, req.path.slice(0, -1) + req.url.slice(req.path.length))
+// })
 
 // router.get('/blog/', (req, res) => {
 //   // return app.render(req, res, '/blog')
