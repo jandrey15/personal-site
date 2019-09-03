@@ -17,6 +17,21 @@
   "routes": [
     { "src": "/blog/(?<slug>[^/]+)", "dest": "/post?slug=$slug" },
     { "src": "/tags/(?<slug>[^/]+)", "dest": "/tag?slug=$slug" },
-    { "src": "^/ads.txt", "dest": "/static/ads.txt" }
+    { "src": "^/ads.txt", "dest": "/static/ads.txt" },
+    {
+      "src": "/blog/",
+      "status": 301,
+      "headers": { "Location": "https://johnserrano.co/blog" }
+    },
+    {
+      "src": "/tags/",
+      "status": 301,
+      "headers": { "Location": "https://johnserrano.co/tags" }
+    },
+    {
+      "src": "/blog/(?<slug>[^/]+)/$",
+      "status": 301,
+      "headers": { "Location": "https://johnserrano.co/blog/$slug" }
+    }
   ]
 }

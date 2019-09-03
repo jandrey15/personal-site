@@ -19,6 +19,25 @@ app
   .then(() => {
     const server = express()
 
+    // server.use(function (req, res, next) {
+    //   if (req.path.substr(-1) === '/' && req.path.length > 1) {
+    //     let query = req.url.slice(req.path.length)
+    //     res.redirect(301, req.path.slice(0, -1) + query)
+    //   } else {
+    //     next()
+    //   }
+    // })
+
+    // server.use((req, res, next) => {
+    //   const test = /\?[^]*\//.test(req.url)
+    //   if (req.url.substr(-1) === '/' && req.url.length > 1 && !test) {
+    //     console.log('paso ok -> ' + req.url)
+    //     res.redirect(301, req.url.slice(0, -1))
+    //   } else {
+    //     next()
+    //   }
+    // })
+
     server.use('/', routes)
 
     server.use(express.static('static'))
