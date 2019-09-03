@@ -168,6 +168,7 @@ class Cover extends Component {
           @media screen and (max-width: 768px) {
             #Cover {
               background-position: left center;
+              background-image: url(${cover === '/static/background.jpg' ? '/static/background_m.jpg' : cover.replace('admin', 'static')});
             }
 
             #Cover .profile__post {
