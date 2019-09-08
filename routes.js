@@ -9,17 +9,12 @@ const router = express.Router()
 //   app.render(req, res, actualPage, queryParams)
 // })
 
-router.get('/blog/', (req, res) => {
-  return app.render(req, res, '/blog')
-})
+// https://zeit.co/guides/redirect-from-www
+// https://spectrum.chat/zeit/general/now-v2-routes-trailing-slashes~d646da8d-8b6e-4b7e-a352-7379f36cec1a
 
 router.get('/blog/:slug', (req, res) => {
   return app.render(req, res, '/post', { slug: req.params.slug })
 })
-
-// router.get('/tags', (req, res) => {
-//   return app.render(req, res, '/tags')
-// })
 
 router.get('/tags/:slug', (req, res) => {
   return app.render(req, res, '/tag', { slug: req.params.slug })

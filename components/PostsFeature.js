@@ -13,7 +13,7 @@ const PostsFeature = ({ title, feature_image, slug, custom_excerpt, excerpt, pub
     <article id='PostsFeature'>
       <Link prefetch href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
         <a>
-          <img className='picture' src={feature_image} alt={title} />
+          <img className='picture' src={feature_image.replace('admin', 'static')} alt={title} />
         </a>
       </Link>
 
