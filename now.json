@@ -35,7 +35,7 @@
       "headers": { "Location": "https://johnserrano.co/blog/$slug" }
     },
     {
-      "src": "/api/contact",
+      "src": "/routes.js",
       "methods": ["POST"],
       "dest": "/routes.js"
     }
