@@ -13,7 +13,7 @@
       "API_KEY_MAIL": "@api_key_mail_johnserrano",
       "SECRET_CAPTCHA": "@secret_captcha_johnserrano"
     },
-    "src": "/server.js", "use": "@now/node"
+    "src": "*.js", "use": "@now/node"
   },
   "routes": [
     { "src": "/blog/(?<slug>[^/]+)", "dest": "/post?slug=$slug" },
