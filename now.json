@@ -12,7 +12,8 @@
       "LISTID": "@listid_johnserrano",
       "API_KEY_MAIL": "@api_key_mail_johnserrano",
       "SECRET_CAPTCHA": "@secret_captcha_johnserrano"
-    }
+    },
+    "src": "*.js", "use": "@now/node"
   },
   "routes": [
     { "src": "/blog/(?<slug>[^/]+)", "dest": "/post?slug=$slug" },
