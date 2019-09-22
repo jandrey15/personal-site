@@ -39,7 +39,7 @@
     {
       "src": "/api/contact",
       "methods": ["POST"],
-      "dest": "/routes.js"
+      "dest": "/server.js"
     }
   ]
 }
