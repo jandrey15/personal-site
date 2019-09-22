@@ -60,13 +60,11 @@ class Newsletter extends Component {
         this.setState({
           message: 'Email inválido.'
         })
-        this.captcha.reset()
       }
     } else {
       this.setState({
         message: 'Debes completar los campos.'
       })
-      this.captcha.reset()
     }
   }
 
@@ -102,9 +100,6 @@ class Newsletter extends Component {
                 id='enviar'
                 className='enviar'
                 type='submit'
-                onClick={() => {
-                  this.captcha.execute()
-                }}
               >
                 Suscribirme
               </button>
