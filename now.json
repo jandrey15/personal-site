@@ -32,11 +32,6 @@
       "src": "/blog/(?<slug>[^/]+)/$",
       "status": 301,
       "headers": { "Location": "https://johnserrano.co/blog/$slug" }
-    },
-    {
-      "src": "/api/contact",
-      "methods": ["POST"],
-      "dest": "/server.js"
     }
   ]
 }
