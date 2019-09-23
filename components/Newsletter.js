@@ -31,7 +31,7 @@ class Newsletter extends Component {
 
     if (this.name.value !== '' && this.email.value !== '') {
       if (this.validateEmail(this.email.value)) {
-        fetch(`/api/contact`, {
+        fetch(`https://contact.johnserrano.co/api/contact`, {
           method: 'POST',
           headers: {
             Accept: 'application/json',
