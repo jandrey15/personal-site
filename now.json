@@ -8,10 +8,7 @@
       "API_URL": "https://api.johnserrano.co/ghost/api/v2/content",
       "API_KEY": "@api_key_johnserrano",
       "STATIC_URL": "https://static.johnserrano.co",
-      "DOMAIN_URL": "https://johnserrano.co",
-      "LISTID": "@listid_johnserrano",
-      "API_KEY_MAIL": "@api_key_mail_johnserrano",
-      "SECRET_CAPTCHA": "@secret_captcha_johnserrano"
+      "DOMAIN_URL": "https://johnserrano.co"
     }
   },
   "routes": [

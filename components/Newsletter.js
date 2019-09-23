@@ -31,7 +31,7 @@ class Newsletter extends Component {
 
     if (this.name.value !== '' && this.email.value !== '') {
       if (this.validateEmail(this.email.value)) {
-        fetch(`/api/contact`, {
+        fetch(`https://contact.johnserrano.co/api/contact`, {
           method: 'POST',
           headers: {
             Accept: 'application/json',
@@ -60,13 +60,11 @@ class Newsletter extends Component {
         this.setState({
           message: 'Email inválido.'
         })
-        this.captcha.reset()
       }
     } else {
       this.setState({
         message: 'Debes completar los campos.'
       })
-      this.captcha.reset()
     }
   }
 
@@ -102,9 +100,6 @@ class Newsletter extends Component {
                 id='enviar'
                 className='enviar'
                 type='submit'
-                onClick={() => {
-                  this.captcha.execute()
-                }}
               >
                 Suscribirme
               </button>
