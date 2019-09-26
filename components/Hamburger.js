@@ -1,6 +1,6 @@
 const Hamburger = ({ handleClick, active }) => {
   return (
-    <button className={`hamburger hamburger--emphatic ${active ? 'is-active' : false}`} type='button' onClick={handleClick}>
+    <button aria-label='Hamburger' className={`hamburger hamburger--emphatic ${active ? 'is-active' : false}`} type='button' onClick={handleClick}>
       <span className='hamburger-box'>
         <span className='hamburger-inner' />
       </span>

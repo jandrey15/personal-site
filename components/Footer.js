@@ -13,7 +13,7 @@ const Footer = (props) => {
         <Link href='/legal'>
           <a className='legal' rel='nofollow'>Aviso legal y política de privacidad</a>
         </Link>
-        <a className='alojado' href='https://m.do.co/c/66d901bee48b' target='_blank'>Alojado en Digital Ocean ❤️️</a>
+        <a className='alojado' href='https://m.do.co/c/66d901bee48b' rel='noreferrer' target='_blank'>Alojado en Digital Ocean ❤️️</a>
       </div>
       <style jsx>{`
         #Footer {
