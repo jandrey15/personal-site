@@ -82,7 +82,7 @@ class Layout extends Component {
           <meta charSet='UTF-8' />
           <meta
             name='viewport'
-            content='width=device-width, initial-scale=1, maximum-scale=1'
+            content='width=device-width, initial-scale=1, maximum-scale=5'
           />
 
           <meta key='description' name='description' content={description} />
