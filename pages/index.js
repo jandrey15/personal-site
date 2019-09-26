@@ -92,7 +92,7 @@ class Home extends Component {
             <Posts posts={data} columns='2' />
 
             <h2>Contacto</h2>
-            <p className='contact'>Puedes ponerte en contacto conmigo públicamente por las redes sociales Mencíoname en Twitter <a href='https://twitter.com/Jandrey15' target='_blank'>(soy @jandrey15)</a>.</p>
+            <p className='contact'>Puedes ponerte en contacto conmigo públicamente por las redes sociales Mencíoname en Twitter <a href='https://twitter.com/Jandrey15' rel='noreferrer' target='_blank'>(soy @jandrey15)</a>.</p>
           </div>
           <div className='pauta'>
             <ins className='adsbygoogle'
