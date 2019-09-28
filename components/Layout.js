@@ -84,7 +84,7 @@ class Layout extends Component {
             name='viewport'
             content='width=device-width, initial-scale=1, maximum-scale=5'
           />
-
+          <meta key='title' name='title' content={titleOpenGraph} />
           <meta key='description' name='description' content={description} />
 
           <link rel='apple-touch-icon' sizes='180x180' href='/static/favicon/apple-touch-icon.png' />
