@@ -94,6 +94,15 @@ class Home extends Component {
             <h2>Contacto</h2>
             <p className='contact'>Puedes ponerte en contacto conmigo públicamente por las redes sociales Mencíoname en Twitter <a href='https://twitter.com/Jandrey15' rel='noreferrer' target='_blank'>(soy @jandrey15)</a>.</p>
           </div>
+
+          <div className='apoyar'>
+            <p>Si te gusta lo que lees puedes apoyarme haciendo una donación con PayPal, de antemano gracias por su apoyo.</p>
+            <form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_top'>
+              <input type='hidden' name='cmd' value='_s-xclick' />
+              <input type='hidden' name='hosted_button_id' value='SJZPTCRX7TYGA' />
+              <input type='image' src='https://www.paypalobjects.com/webstatic/en_US/btn/btn_donate_pp_142x27.png' border='0' name='submit' title='PayPal - The safer, easier way to pay online!' alt='Donate with PayPal button' />
+            </form>
+          </div>
           <div className='pauta'>
             <ins className='adsbygoogle'
               style={{ display: 'block' }}
@@ -107,6 +116,18 @@ class Home extends Component {
           .main {
             margin: 70px auto 0 auto;
             max-width: 700px;
+          }
+
+          .apoyar {
+            max-width: 700px;
+            margin: 0 auto 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          .apoyar p {            
+            text-align: center; 
+            border: none;
           }
 
           .pauta {
@@ -161,8 +182,7 @@ class Home extends Component {
             transform: scaleX(0);
           }
           .contact {
-            margin-bottom: 50px;
-            border: none;
+            margin-bottom: 70px;
           }
         `}</style>
       </Layout>

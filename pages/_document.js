@@ -57,11 +57,11 @@ class MyDocument extends Document {
           <Main />
           <NextScript />
 
-          {
+          {/* {
             <Fragment>
               <script dangerouslySetInnerHTML={this.setGoogleAdsense()} />
             </Fragment>
-          }
+          } */}
         </body>
       </html>
     )
