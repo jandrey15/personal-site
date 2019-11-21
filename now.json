@@ -15,6 +15,9 @@
     { "src": "/blog/(?<slug>[^/]+)", "dest": "/post?slug=$slug" },
     { "src": "/tags/(?<slug>[^/]+)", "dest": "/tag?slug=$slug" },
     { "src": "^/ads.txt", "dest": "/static/ads.txt" },
+    { "src": "/.well-known", "dest": "/" },
+    { "src": "/.well-known/acme-challenge", "dest": "/" },
+    { "src": "/.well-known/acme-challenge/(?<slug>[^/]+)", "dest": "/" },
     {
       "src": "/blog/",
       "status": 301,
@@ -29,11 +32,6 @@
       "src": "/blog/(?<slug>[^/]+)/$",
       "status": 301,
       "headers": { "Location": "https://johnserrano.co/blog/$slug" }
-    },
-    {
-      "src": "/.well-known/acme-challenge/(?<slug>[^/]+)/$",
-      "status": 301,
-      "headers": { "Location": "https://johnserrano.co" }
     }
   ]
 }
