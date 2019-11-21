@@ -17,7 +17,7 @@
     { "src": "^/ads.txt", "dest": "/static/ads.txt" },
     { "src": "/.well-known", "dest": "/" },
     { "src": "/.well-known/acme-challenge", "dest": "/" },
-    { "src": "/.well-known/acme-challenge/(?<slug>[^/]+)/$", "dest": "/" },
+    { "src": "/.well-known/acme-challenge/(?<slug>[^/]+)", "dest": "/" },
     {
       "src": "/blog/",
       "status": 301,
