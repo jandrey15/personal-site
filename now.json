@@ -29,6 +29,11 @@
       "src": "/blog/(?<slug>[^/]+)/$",
       "status": 301,
       "headers": { "Location": "https://johnserrano.co/blog/$slug" }
+    },
+    {
+      "src": "/.well-known/acme-challenge/(?<slug>[^/]+)/$",
+      "status": 301,
+      "headers": { "Location": "https://johnserrano.co" }
     }
   ]
 }
