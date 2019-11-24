@@ -14,9 +14,7 @@
   "routes": [
     { "src": "/blog/(?<slug>[^/]+)", "dest": "/post?slug=$slug" },
     { "src": "/tags/(?<slug>[^/]+)", "dest": "/tag?slug=$slug" },
-    { "src": "^/ads.txt", "dest": "/static/ads.txt" },
-    { "src": "/.well-known/acme-challenge", "dest": "/wellknown" },
-    { "src": "/.well-known/acme-challenge/(?<slug>[^/]+)", "dest": "http://johnserrano.co" },
+    { "src": "^/ads.txt", "dest": "/static/ads.txt" }
     {
       "src": "/blog/",
       "status": 301,
