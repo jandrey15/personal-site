@@ -14,7 +14,7 @@
   "routes": [
     { "src": "/blog/(?<slug>[^/]+)", "dest": "/post?slug=$slug" },
     { "src": "/tags/(?<slug>[^/]+)", "dest": "/tag?slug=$slug" },
-    { "src": "^/ads.txt", "dest": "/static/ads.txt" }
+    { "src": "^/ads.txt", "dest": "/static/ads.txt" },
     {
       "src": "/blog/",
       "status": 301,
