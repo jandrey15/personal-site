@@ -279,13 +279,13 @@ class Post extends Component {
             font-size: 1.5rem;
             line-height: 2rem;
             font-weight: 700;
-            margin: .5em 0 .2em;
+            margin: 2em 0 .2em;
           }
           #Post .body h3 {
             font-size: 2rem;
             line-height: 2.5rem;
             font-weight: 700;
-            margin: .5em 0 1em;
+            margin: 2em 0 1em;
             padding-bottom: 10px;
             border-bottom: 2px solid #eeeeee;
           }
