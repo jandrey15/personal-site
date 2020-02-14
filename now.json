@@ -6,7 +6,7 @@
       "NODE_ENV": "production",
       "PORT": "3000",
       "API_URL": "https://api.johnserrano.co/ghost/api/v2/content",
-      "API_KEY": "@api_key_johnserrano",
+      "API_KEY": "@api_key_johnserrano2",
       "STATIC_URL": "https://static.johnserrano.co",
       "DOMAIN_URL": "https://johnserrano.co"
     }
