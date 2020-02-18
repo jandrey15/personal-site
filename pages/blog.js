@@ -54,6 +54,7 @@ class Home extends Component {
       }
 
       // console.log(json)
+      // console.log(feature)
       return { data: data, feature: feature[0], statusCode: 200, API_URL, API_KEY }
     } catch (err) {
       // res.statusCode = 503
@@ -136,7 +137,7 @@ class Home extends Component {
     return (
       <Layout {...SEO}>
         <section id='Blog' className='container'>
-          <PostsFeature {...feature} />
+          {feature && <PostsFeature {...feature} />}
 
           <Posts posts={posts} columns='3' />
 

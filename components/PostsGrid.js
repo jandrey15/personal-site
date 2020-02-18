@@ -53,7 +53,7 @@ const Posts = ({ posts, columns }) => {
             grid-template-columns: repeat(3, 300px);
             grid-column-gap: 20px;
             grid-row-gap: 30px;
-            margin: 0 auto;
+            margin: 50px auto 0;
             justify-content: center;
             padding-bottom: 50px;
             border-bottom: 2px solid #eeeeee;
