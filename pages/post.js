@@ -159,7 +159,16 @@ class Post extends Component {
 
     return (
       <Layout {...SEO} >
-        <Cover title={data.title} profile={false} caption={false} cover={data.feature_image} post published_at={data.published_at} primary_author={data.primary_author} primary_tag={data.primary_tag} />
+        <Cover
+          title={data.title}
+          profile={false}
+          caption={false}
+          cover={data.feature_image ? data.feature_image : '/static/gallery.jpg'}
+          post
+          published_at={data.published_at}
+          primary_author={data.primary_author}
+          primary_tag={data.primary_tag}
+        />
         <progress id='progress' value={this.state.value} max={this.state.max} />
         <section id='Post' className='container'>
 
