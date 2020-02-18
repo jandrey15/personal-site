@@ -3,7 +3,7 @@ import Link from 'next/link'
 import moment from 'moment'
 moment.locale('es')
 
-const PostsFeature = ({ title, feature_image, slug, custom_excerpt, excerpt, published_at, primary_author }) => {
+const PostsFeature = ({ title, feature_image = '', slug, custom_excerpt, excerpt, published_at, primary_author = '' }) => {
   // console.log(props)
   // console.log(moment().format())
   // console.log(moment().format('MMMM Do YYYY, h:mm:ss a'))
