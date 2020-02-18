@@ -334,6 +334,12 @@ class Post extends Component {
             border-radius: 3px;
           }
 
+          #Post .body blockquote {
+            margin: 0 0 1.5em;
+            padding: 0 1.5em;
+            border-left: 3px solid #232323;
+          }
+
           #Post .body pre a, #Post .body code a {
             text-decoration: none;
             color: #ffffff;
