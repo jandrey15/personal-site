@@ -48,7 +48,8 @@ class MyDocument extends Document {
           )}
           {
             <Fragment>
-              <link rel='stylesheet'
+              <link
+                rel='stylesheet'
                 href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/railscasts.min.css' />
             </Fragment>
           }

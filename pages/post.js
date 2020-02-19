@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 import React, { Component } from 'react'
+import TrackVisibility from 'react-on-screen'
 import Layout from '../components/Layout'
 import Newsletter from '../components/Newsletter'
 import Cover from '../components/Cover'
@@ -89,11 +90,13 @@ class Post extends Component {
   }
 
   componentDidMount () {
-    setTimeout(() => {
-      let addthisScript = document.createElement('script')
-      addthisScript.setAttribute('src', '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b5f1245e5550d5c')
-      if (document.body) document.body.appendChild(addthisScript)
-    })
+    // setTimeout(() => {
+    //   let addthisScript = document.createElement('script')
+    //   addthisScript.setAttribute('src', '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b5f1245e5550d5c')
+    //   addthisScript.async = true
+    //   addthisScript.defer = true
+    //   if (document.body) document.body.appendChild(addthisScript)
+    // })
     // const markup = this.props.data.html
     // console.log(hljs.highlight('javascript', markup).value)
     // hljs.initHighlightingOnLoad()
@@ -108,11 +111,31 @@ class Post extends Component {
     })
     window.addEventListener('scroll', this.handleScroll)
 
-    const elem = document.createElement('script')
-    elem.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
-    elem.async = true
-    elem.defer = true
-    document.body.appendChild(elem)
+    // const elem = document.createElement('script')
+    // elem.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
+    // elem.async = true
+    // elem.defer = true
+    // document.body.appendChild(elem)
+
+    const { data } = this.props
+
+    window.addthis_reload = function () {
+      if (!window.addthis) {
+        window['addthis_config'] = { 'data_track_addressbar': false, 'pubid': 'ra-5b5f1245e5550d5c' }
+        let addthisScript = document.createElement('script')
+        addthisScript.setAttribute('src', '//s7.addthis.com/js/300/addthis_widget.js')
+        addthisScript.async = true
+        addthisScript.defer = true
+        if (document.body) document.body.appendChild(addthisScript)
+      } else {
+        addthis.layers.refresh()
+        window['addthis_share'].url = window.location.href
+        window['addthis_share'].title = data.title
+        window.addthis.toolbox('.addthis_inline_share_toolbox')
+        // console.log(window.location.href)
+      }
+    }
+    window.addthis_reload()
   }
 
   componentWillUnmount () {
@@ -122,8 +145,7 @@ class Post extends Component {
   handleScroll = () => {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
     // console.log(scrollTop)
-    document.querySelector('#progress')
-      .value = scrollTop
+    document.querySelector('#progress').value = scrollTop
   }
 
   render () {
@@ -159,14 +181,21 @@ class Post extends Component {
 
     return (
       <Layout {...SEO} >
-        <Cover title={data.title} profile={false} caption={false} cover={data.feature_image} post published_at={data.published_at} primary_author={data.primary_author} primary_tag={data.primary_tag} />
+        <Cover
+          title={data.title}
+          profile={false}
+          caption={false}
+          cover={data.feature_image ? data.feature_image : '/static/gallery.jpg'}
+          post
+          published_at={data.published_at}
+          primary_author={data.primary_author}
+          primary_tag={data.primary_tag}
+        />
         <progress id='progress' value={this.state.value} max={this.state.max} />
         <section id='Post' className='container'>
 
           <div
             className='addthis_inline_share_toolbox'
-            data-url={`${domainUrl}/blog/${data.slug}`}
-            data-title={data.title}
           />
 
           <article className='body'>
@@ -175,15 +204,23 @@ class Post extends Component {
               {/* <article className='body' dangerouslySetInnerHTML={{ __html: data.html }} /> */}
             </Highlight>
           </article>
-          <div className='apoyar'>
-            <p>Si te gusta lo que lees puedes apoyarme haciendo una donación con PayPal, de antemano gracias por su apoyo.</p>
-            <form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_top'>
-              <input type='hidden' name='cmd' value='_s-xclick' />
-              <input type='hidden' name='hosted_button_id' value='SJZPTCRX7TYGA' />
-              <input type='image' src='https://www.paypalobjects.com/webstatic/en_US/btn/btn_donate_pp_142x27.png' border='0' name='submit' title='PayPal - The safer, easier way to pay online!' alt='Donate with PayPal button' />
-            </form>
-          </div>
-          <Newsletter />
+
+          <TrackVisibility once partialVisibility>
+            {({ isVisible }) => isVisible && (
+              <div className='apoyar'>
+                <p>Si te gusta lo que lees puedes apoyarme haciendo una donación con PayPal, de antemano gracias por su apoyo.</p>
+                <form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_top'>
+                  <input type='hidden' name='cmd' value='_s-xclick' />
+                  <input type='hidden' name='hosted_button_id' value='SJZPTCRX7TYGA' />
+                  <input type='image' src='https://www.paypalobjects.com/webstatic/en_US/btn/btn_donate_pp_142x27.png' border='0' name='submit' title='PayPal - The safer, easier way to pay online!' alt='Donate with PayPal button' />
+                </form>
+              </div>
+            )}
+          </TrackVisibility>
+
+          <TrackVisibility once partialVisibility>
+            {({ isVisible }) => isVisible && <Newsletter />}
+          </TrackVisibility>
           <div className='pauta'>
             <ins className='adsbygoogle'
               style={{ display: 'block' }}
@@ -192,12 +229,17 @@ class Post extends Component {
               data-ad-format='auto'
               data-full-width-responsive='true' />
           </div>
-          <ReactDisqusComments
-            shortname='johnserrano'
-            identifier={data.slug}
-            title={data.title}
-            url={`http://johnserrano.co/blog/${data.slug}`}
-          />
+
+          <TrackVisibility once partialVisibility>
+            {({ isVisible }) => isVisible && (
+              <ReactDisqusComments
+                shortname='johnserrano'
+                identifier={data.slug}
+                title={data.title}
+                url={`http://johnserrano.co/blog/${data.slug}`}
+              />
+            )}
+          </TrackVisibility>
           <h2>Otros artículos</h2>
           <PostsGrid posts={morePost} columns='3' />
         </section>

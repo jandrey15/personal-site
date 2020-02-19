@@ -15,7 +15,12 @@ const Posts = ({ posts, columns }) => {
                 <article className='post'>
                   <header className='post__header'>
                     <Link prefetch href={`/post?slug=${post.slug}`} as={`/blog/${post.slug}`}>
-                      <a><img src={post.feature_image.replace('admin', 'static')} alt={post.title} /></a>
+                      <a>
+                        <img
+                          src={post.feature_image ? post.feature_image.replace('admin', 'static') : '/static/gallery.jpg'}
+                          alt={post.title}
+                        />
+                      </a>
                     </Link>
                     <div className='content'>
                       <Link prefetch href={`/post?slug=${post.slug}`} as={`/blog/${post.slug}`}>
@@ -209,7 +214,12 @@ const Posts = ({ posts, columns }) => {
             isVisible && (
               <article className='post' key={post.id}>
                 <Link prefetch href={`/post?slug=${post.slug}`} as={`/blog/${post.slug}`}>
-                  <a><img src={post.feature_image.replace('admin', 'static')} alt={post.title} /></a>
+                  <a>
+                    <img
+                      src={post.feature_image ? post.feature_image.replace('admin', 'static') : '/static/gallery.jpg'}
+                      alt={post.title}
+                    />
+                  </a>
                 </Link>
                 <div className='content'>
                   <Link prefetch href={`/post?slug=${post.slug}`} as={`/blog/${post.slug}`}>
