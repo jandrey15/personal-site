@@ -38,7 +38,7 @@ class Home extends Component {
     }
   }
 
-  componentDidMount () {
+  /* componentDidMount () {
     const elem = document.createElement('script')
     elem.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
     elem.async = true
@@ -47,7 +47,7 @@ class Home extends Component {
 
     // (window.adsbygoogle = window.adsbygoogle || []).push({})
     // (adsbygoogle = window.adsbygoogle || []).push({})
-  }
+  } */
 
   render () {
     const { data, statusCode } = this.props
