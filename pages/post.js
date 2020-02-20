@@ -100,8 +100,6 @@ class Post extends Component {
     // const markup = this.props.data.html
     // console.log(hljs.highlight('javascript', markup).value)
     // hljs.initHighlightingOnLoad()
-    // console.log(document.body.clientHeight)
-    // console.log(window.innerHeight)
     const docHeight = document.body.clientHeight
     const winHeight = window.innerHeight
 
@@ -124,7 +122,7 @@ class Post extends Component {
         window['addthis_config'] = { 'data_track_addressbar': false, 'pubid': 'ra-5b5f1245e5550d5c' }
         let addthisScript = document.createElement('script')
         addthisScript.setAttribute('src', '//s7.addthis.com/js/300/addthis_widget.js')
-        addthisScript.async = true
+        // addthisScript.async = true
         addthisScript.defer = true
         if (document.body) document.body.appendChild(addthisScript)
       } else {

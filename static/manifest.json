@@ -1,0 +1,21 @@
+{
+  "name": "John Serrano",
+  "short_name": "John Serrano",
+  "icons": [
+    {
+      "src": "/static/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/static/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "background_color": "#FFFFFF",
+  "description": "Desarrollador web un apasionado y entusiasta de las tecnología web: JavaScript, Node.js, Docker, Firebase, React, etc..",
+  "display": "fullscreen",
+  "start_url": "/",
+  "theme_color": "#000"
+}

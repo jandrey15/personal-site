@@ -11,6 +11,12 @@
       "DOMAIN_URL": "https://johnserrano.co"
     }
   },
+  "builds": [
+    {
+      "src": "next.config.js",
+      "use": "@now/next"
+    }
+  ],
   "routes": [
     { "src": "/blog/(?<slug>[^/]+)", "dest": "/post?slug=$slug" },
     { "src": "/tags/(?<slug>[^/]+)", "dest": "/tag?slug=$slug" },
@@ -29,6 +35,14 @@
       "src": "/blog/(?<slug>[^/]+)/$",
       "status": 301,
       "headers": { "Location": "https://johnserrano.co/blog/$slug" }
+    },
+    {
+      "src": "^/service-worker.js$",
+      "dest": "/_next/static/service-worker.js",
+      "headers": {
+        "cache-control": "public, max-age=43200, immutable",
+        "Service-Worker-Allowed": "/"
+      }
     }
   ]
 }
