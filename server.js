@@ -1,4 +1,5 @@
 const express = require('express')
+const helmet = require('helmet')
 const app = require('./app')
 const routes = require('./routes')
 
@@ -14,6 +15,7 @@ app
     server.use('/', routes)
 
     server.use(express.static('static'))
+    server.use(helmet())
 
     server.get('*', (req, res) => {
       return handle(req, res)
