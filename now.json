@@ -18,10 +18,6 @@
     }
   ],
   "routes": [
-    {
-      "src": "/.*",
-      "headers": { "Cache-Control": "max-age=3600" }
-    },
     { "src": "/blog/(?<slug>[^/]+)", "dest": "/post?slug=$slug", 
       "headers": { "Cache-Control": "max-age=3600" } 
     },
