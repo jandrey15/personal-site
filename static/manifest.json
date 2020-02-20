@@ -3,12 +3,12 @@
   "short_name": "John Serrano",
   "icons": [
     {
-      "src": "/icon-192.png",
+      "src": "/static/icon-192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/icon-512.png",
+      "src": "/static/icon-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
