@@ -1,20 +1,20 @@
 {
   "version": 2,
   "name": "Site John Serrano",
+  "build": {
+    "env": {
+      "NODE_ENV": "production",
+      "PORT": "3000",
+      "API_URL": "https://api.johnserrano.co/ghost/api/v2/content",
+      "API_KEY": "@api_key_johnserrano2",
+      "STATIC_URL": "https://static.johnserrano.co",
+      "DOMAIN_URL": "https://johnserrano.co"
+    }
+  },
   "builds": [
     {
       "src": "next.config.js",
       "use": "@now/next"
-    },
-    {
-      "env": {
-        "NODE_ENV": "production",
-        "PORT": "3000",
-        "API_URL": "https://api.johnserrano.co/ghost/api/v2/content",
-        "API_KEY": "@api_key_johnserrano2",
-        "STATIC_URL": "https://static.johnserrano.co",
-        "DOMAIN_URL": "https://johnserrano.co"
-      }
     }
   ],
   "routes": [
