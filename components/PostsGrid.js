@@ -35,7 +35,13 @@ const Posts = ({ posts, columns }) => {
                     <div className='profile'>
                       <Link prefetch href='/sobre-mi'>
                         <a className='profile_avatar'>
-                          <img className='profile__image' src={post.primary_author.profile_image} alt={post.primary_author.name} />
+                          <img
+                            className='profile__image'
+                            src={post.primary_author.profile_image
+                              ? post.primary_author.profile_image
+                              : 'https://static.ghost.org/v3.0.0/images/ghost.png'}
+                            alt={post.primary_author.name}
+                          />
                         </a>
                       </Link>
                       <span className='profile__name'>{post.primary_author.name}</span>
