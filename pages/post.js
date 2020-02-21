@@ -133,7 +133,7 @@ class Post extends Component {
         // console.log(window.location.href)
       }
     }
-    // window.addthis_reload()
+    window.addthis_reload()
   }
 
   componentWillUnmount () {
