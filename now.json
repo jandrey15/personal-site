@@ -51,7 +51,16 @@
   ],
   "headers": [
     {
-      "source": "/blog.js",
+      "source": "/",
+      "headers" : [
+        {
+          "key" : "Cache-Control",
+          "value" : "public, max-age=3600"
+        }
+      ]
+    },
+    {
+      "source": "/blog",
       "headers" : [
         {
           "key" : "Cache-Control",
