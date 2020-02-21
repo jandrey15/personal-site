@@ -20,8 +20,8 @@
   "routes": [
     {
       "src": "/",
-      "dest": "/", 
-      "headers": { "Cache-Control": "max-age=3600" }
+      "dest": "/",
+      "headers": { "Cache-Control": "max-age=3600000" }
     },
     {
       "src": "/blog/(?<slug>[^/]+)", 
