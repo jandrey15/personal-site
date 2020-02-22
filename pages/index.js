@@ -7,36 +7,36 @@ import Error from './_error'
 import 'isomorphic-unfetch'
 
 class Home extends Component {
-  static async getInitialProps ({ res }) {
-    const API_URL = process.env.API_URL
-    const API_KEY = process.env.API_KEY
+  // static async getInitialProps ({ res }) {
+  //   const API_URL = process.env.API_URL
+  //   const API_KEY = process.env.API_KEY
 
-    try {
-      // eslint-disable-next-line no-undef
-      const req = await fetch(`${API_URL}/posts/?key=${API_KEY}&limit=4`)
-      const { posts } = await req.json()
+  //   try {
+  //     // eslint-disable-next-line no-undef
+  //     const req = await fetch(`${API_URL}/posts/?key=${API_KEY}&limit=4`)
+  //     const { posts } = await req.json()
 
-      if (req.status >= 400) {
-        res.statusCode = req.status
-        console.warn(req.status)
-        return {
-          data: [],
-          statusCode: req.status
-        }
-      }
+  //     if (req.status >= 400) {
+  //       res.statusCode = req.status
+  //       console.warn(req.status)
+  //       return {
+  //         data: [],
+  //         statusCode: req.status
+  //       }
+  //     }
 
-      // console.log(json)
-      return { data: posts, statusCode: 200 }
-    } catch (err) {
-      // res.statusCode = 503
-      if (res) res.statusCode = 503
-      console.error(err)
-      return {
-        data: [],
-        statusCode: 503
-      }
-    }
-  }
+  //     // console.log(json)
+  //     return { data: posts, statusCode: 200 }
+  //   } catch (err) {
+  //     // res.statusCode = 503
+  //     if (res) res.statusCode = 503
+  //     console.error(err)
+  //     return {
+  //       data: [],
+  //       statusCode: 503
+  //     }
+  //   }
+  // }
 
   /* componentDidMount () {
     const elem = document.createElement('script')
@@ -50,13 +50,13 @@ class Home extends Component {
   } */
 
   render () {
-    const { data, statusCode } = this.props
-    // console.log(data)
+    // const { data, statusCode } = this.props
+    // // console.log(data)
 
-    if (statusCode !== 200) {
-      // console.log('error...')
-      return <Error statusCode={statusCode} />
-    }
+    // if (statusCode !== 200) {
+    //   // console.log('error...')
+    //   return <Error statusCode={statusCode} />
+    // }
 
     const SEO = {
       title: '',
