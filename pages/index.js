@@ -89,28 +89,28 @@ class Home extends Component {
               </Link>, Tutoriales, artículos sobre tecnologías: JavaScript, Node.js, Docker, React, python, etc.</p>
 
             <h2>Últimos artículos publicados</h2>
-            <Posts posts={data} columns='2' />
+            {/* <Posts posts={data} columns='2' /> */}
 
             <h2>Contacto</h2>
             <p className='contact'>Puedes ponerte en contacto conmigo públicamente por las redes sociales Mencíoname en Twitter <a href='https://twitter.com/Jandrey15' rel='noreferrer' target='_blank'>(soy @jandrey15)</a>.</p>
           </div>
 
-          <div className='apoyar'>
+          {/* <div className='apoyar'>
             <p>Si te gusta lo que lees puedes apoyarme haciendo una donación con PayPal, de antemano gracias por su apoyo.</p>
             <form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_top'>
               <input type='hidden' name='cmd' value='_s-xclick' />
               <input type='hidden' name='hosted_button_id' value='SJZPTCRX7TYGA' />
               <input type='image' src='https://www.paypalobjects.com/webstatic/en_US/btn/btn_donate_pp_142x27.png' border='0' name='submit' title='PayPal - The safer, easier way to pay online!' alt='Donate with PayPal button' />
             </form>
-          </div>
-          <div className='pauta'>
+          </div> */}
+          {/* <div className='pauta'>
             <ins className='adsbygoogle'
               style={{ display: 'block' }}
               data-ad-client='ca-pub-3083367533294626'
               data-ad-slot='3127795481'
               data-ad-format='auto'
               data-full-width-responsive='true' />
-          </div>
+          </div> */}
         </section>
         <style jsx>{`
           .main {
