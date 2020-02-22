@@ -121,9 +121,9 @@ class Post extends Component {
       if (!window.addthis) {
         window['addthis_config'] = { 'data_track_addressbar': false, 'pubid': 'ra-5b5f1245e5550d5c' }
         let addthisScript = document.createElement('script')
-        addthisScript.setAttribute('src', '//s7.addthis.com/js/300/addthis_widget.js')
         // addthisScript.async = true
         addthisScript.defer = true
+        addthisScript.setAttribute('src', '//s7.addthis.com/js/300/addthis_widget.js')
         if (document.body) document.body.appendChild(addthisScript)
       } else {
         addthis.layers.refresh()

@@ -28,7 +28,13 @@ const PostsFeature = ({ title, feature_image = '', slug, custom_excerpt, excerpt
           <div className='profile'>
             <Link prefetch href='/sobre-mi'>
               <a className='profile_avatar'>
-                <img className='profile__image' src={primary_author.profile_image} alt={primary_author.name} />
+                <img
+                  className='profile__image'
+                  src={primary_author.profile_image
+                    ? primary_author.profile_image.replace('admin', 'static')
+                    : 'https://static.ghost.org/v3.0.0/images/ghost.png'}
+                  alt={primary_author.name}
+                />
               </a>
             </Link>
             <span className='profile__name'>{primary_author.name}</span>
