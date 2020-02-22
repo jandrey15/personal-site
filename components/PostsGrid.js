@@ -3,7 +3,7 @@ import TrackVisibility from 'react-on-screen'
 import moment from 'moment'
 moment.locale('es')
 
-const Posts = ({ posts, columns }) => {
+const Posts = ({ posts = [], columns }) => {
   // console.log(posts)
   if (columns === '3') {
     return (
