@@ -5,6 +5,16 @@ import Cover from '../components/Cover'
 import Posts from '../components/PostsGrid'
 import Error from './_error'
 import 'isomorphic-unfetch'
+import useSWR from 'swr'
+
+const API_URL = process.env.API_URL
+const API_KEY = process.env.API_KEY
+
+async function fetcher (path) {
+  const res = await fetch(API_URL + path)
+  const json = await res.json()
+  return json
+}
 
 class Home extends Component {
   // static async getInitialProps ({ res }) {
@@ -52,6 +62,9 @@ class Home extends Component {
   render () {
     // const { data, statusCode } = this.props
     // // console.log(data)
+    const { data, error } = useSWR(`/posts/?key=${API_KEY}&limit=4`, fetcher)
+
+    if (error) return <Error statusCode={400} />
 
     // if (statusCode !== 200) {
     //   // console.log('error...')
@@ -89,7 +102,7 @@ class Home extends Component {
               </Link>, Tutoriales, artículos sobre tecnologías: JavaScript, Node.js, Docker, React, python, etc.</p>
 
             <h2>Últimos artículos publicados</h2>
-            {/* <Posts posts={data} columns='2' /> */}
+            <Posts posts={data} columns='2' />
 
             <h2>Contacto</h2>
             <p className='contact'>Puedes ponerte en contacto conmigo públicamente por las redes sociales Mencíoname en Twitter <a href='https://twitter.com/Jandrey15' rel='noreferrer' target='_blank'>(soy @jandrey15)</a>.</p>
