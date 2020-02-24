@@ -115,25 +115,25 @@ class Post extends Component {
     // elem.defer = true
     // document.body.appendChild(elem)
 
-    const { data } = this.props
+    // const { data } = this.props
 
-    window.addthis_reload = function () {
-      if (!window.addthis) {
-        window['addthis_config'] = { 'data_track_addressbar': false, 'pubid': 'ra-5b5f1245e5550d5c' }
-        let addthisScript = document.createElement('script')
-        // addthisScript.async = true
-        addthisScript.defer = true
-        addthisScript.setAttribute('src', '//s7.addthis.com/js/300/addthis_widget.js')
-        if (document.body) document.body.appendChild(addthisScript)
-      } else {
-        addthis.layers.refresh()
-        window['addthis_share'].url = window.location.href
-        window['addthis_share'].title = data.title
-        window.addthis.toolbox('.addthis_inline_share_toolbox')
-        // console.log(window.location.href)
-      }
-    }
-    window.addthis_reload()
+    // window.addthis_reload = function () {
+    //   if (!window.addthis) {
+    //     window['addthis_config'] = { 'data_track_addressbar': false, 'pubid': 'ra-5b5f1245e5550d5c' }
+    //     let addthisScript = document.createElement('script')
+    //     // addthisScript.async = true
+    //     addthisScript.defer = true
+    //     addthisScript.setAttribute('src', '//s7.addthis.com/js/300/addthis_widget.js')
+    //     if (document.body) document.body.appendChild(addthisScript)
+    //   } else {
+    //     addthis.layers.refresh()
+    //     window['addthis_share'].url = window.location.href
+    //     window['addthis_share'].title = data.title
+    //     window.addthis.toolbox('.addthis_inline_share_toolbox')
+    //     // console.log(window.location.href)
+    //   }
+    // }
+    // window.addthis_reload()
   }
 
   componentWillUnmount () {
@@ -198,14 +198,6 @@ class Post extends Component {
               {/* <article className='body' dangerouslySetInnerHTML={{ __html: data.html }} /> */}
             </Highlight>
           </article>
-
-          <TrackVisibility once partialVisibility>
-            {({ isVisible }) => isVisible && (
-              <div
-                className='addthis_inline_share_toolbox'
-              />
-            )}
-          </TrackVisibility>
 
           <TrackVisibility once partialVisibility>
             {({ isVisible }) => isVisible && (
