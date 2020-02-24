@@ -192,16 +192,20 @@ class Post extends Component {
         <progress id='progress' value={this.state.value} max={this.state.max} />
         <section id='Post' className='container'>
 
-          <div
-            className='addthis_inline_share_toolbox'
-          />
-
           <article className='body'>
             <Highlight innerHTML>
               {data.html}
               {/* <article className='body' dangerouslySetInnerHTML={{ __html: data.html }} /> */}
             </Highlight>
           </article>
+
+          <TrackVisibility once partialVisibility>
+            {({ isVisible }) => isVisible && (
+              <div
+                className='addthis_inline_share_toolbox'
+              />
+            )}
+          </TrackVisibility>
 
           <TrackVisibility once partialVisibility>
             {({ isVisible }) => isVisible && (
@@ -219,14 +223,14 @@ class Post extends Component {
           <TrackVisibility once partialVisibility>
             {({ isVisible }) => isVisible && <Newsletter />}
           </TrackVisibility>
-          <div className='pauta'>
+          {/* <div className='pauta'>
             <ins className='adsbygoogle'
               style={{ display: 'block' }}
               data-ad-client='ca-pub-3083367533294626'
               data-ad-slot='5525468930'
               data-ad-format='auto'
               data-full-width-responsive='true' />
-          </div>
+          </div> */}
 
           <TrackVisibility once partialVisibility>
             {({ isVisible }) => isVisible && (

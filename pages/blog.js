@@ -8,7 +8,7 @@ import ReactPaginate from 'react-paginate'
 import Error from './_error'
 import 'isomorphic-unfetch'
 
-class Home extends Component {
+class Blog extends Component {
   constructor (props) {
     super(props)
 
@@ -88,11 +88,11 @@ class Home extends Component {
   componentDidMount () {
     this.loadPostsFromServer()
 
-    const elem = document.createElement('script')
-    elem.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
-    elem.async = true
-    elem.defer = true
-    document.body.appendChild(elem)
+    // const elem = document.createElement('script')
+    // elem.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
+    // // elem.async = true
+    // elem.defer = true
+    // document.body.appendChild(elem)
   }
 
   handlePageClick = (event) => {
@@ -155,14 +155,14 @@ class Home extends Component {
             activeClassName={'active'}
           />
 
-          <div className='pauta'>
+          {/* <div className='pauta'>
             <ins className='adsbygoogle'
               style={{ display: 'block' }}
               data-ad-client='ca-pub-3083367533294626'
               data-ad-slot='9904956829'
               data-ad-format='auto'
               data-full-width-responsive='true' />
-          </div>
+          </div> */}
         </section>
         <style jsx>{`
           .main {
@@ -285,4 +285,4 @@ class Home extends Component {
   }
 }
 
-export default Home
+export default Blog
