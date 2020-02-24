@@ -1,6 +1,6 @@
 import Layout from '../components/Layout'
 import Cover from '../components/Cover'
-import Link from 'next/link'
+// import Link from 'next/link'
 
 const Legal = () => (
   <Layout title='John Serrano - Legal'>

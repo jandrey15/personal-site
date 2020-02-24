@@ -115,25 +115,25 @@ class Post extends Component {
     // elem.defer = true
     // document.body.appendChild(elem)
 
-    const { data } = this.props
+    // const { data } = this.props
 
-    window.addthis_reload = function () {
-      if (!window.addthis) {
-        window['addthis_config'] = { 'data_track_addressbar': false, 'pubid': 'ra-5b5f1245e5550d5c' }
-        let addthisScript = document.createElement('script')
-        // addthisScript.async = true
-        addthisScript.defer = true
-        addthisScript.setAttribute('src', '//s7.addthis.com/js/300/addthis_widget.js')
-        if (document.body) document.body.appendChild(addthisScript)
-      } else {
-        addthis.layers.refresh()
-        window['addthis_share'].url = window.location.href
-        window['addthis_share'].title = data.title
-        window.addthis.toolbox('.addthis_inline_share_toolbox')
-        // console.log(window.location.href)
-      }
-    }
-    window.addthis_reload()
+    // window.addthis_reload = function () {
+    //   if (!window.addthis) {
+    //     window['addthis_config'] = { 'data_track_addressbar': false, 'pubid': 'ra-5b5f1245e5550d5c' }
+    //     let addthisScript = document.createElement('script')
+    //     // addthisScript.async = true
+    //     addthisScript.defer = true
+    //     addthisScript.setAttribute('src', '//s7.addthis.com/js/300/addthis_widget.js')
+    //     if (document.body) document.body.appendChild(addthisScript)
+    //   } else {
+    //     addthis.layers.refresh()
+    //     window['addthis_share'].url = window.location.href
+    //     window['addthis_share'].title = data.title
+    //     window.addthis.toolbox('.addthis_inline_share_toolbox')
+    //     // console.log(window.location.href)
+    //   }
+    // }
+    // window.addthis_reload()
   }
 
   componentWillUnmount () {
@@ -192,10 +192,6 @@ class Post extends Component {
         <progress id='progress' value={this.state.value} max={this.state.max} />
         <section id='Post' className='container'>
 
-          <div
-            className='addthis_inline_share_toolbox'
-          />
-
           <article className='body'>
             <Highlight innerHTML>
               {data.html}
@@ -219,14 +215,14 @@ class Post extends Component {
           <TrackVisibility once partialVisibility>
             {({ isVisible }) => isVisible && <Newsletter />}
           </TrackVisibility>
-          <div className='pauta'>
+          {/* <div className='pauta'>
             <ins className='adsbygoogle'
               style={{ display: 'block' }}
               data-ad-client='ca-pub-3083367533294626'
               data-ad-slot='5525468930'
               data-ad-format='auto'
               data-full-width-responsive='true' />
-          </div>
+          </div> */}
 
           <TrackVisibility once partialVisibility>
             {({ isVisible }) => isVisible && (
