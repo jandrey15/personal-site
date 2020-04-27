@@ -26,6 +26,11 @@ const Header = () => {
             </Link>
           </li>
           <li>
+            <Link prefetch href='/tags/react'>
+              <a>React</a>
+            </Link>
+          </li>
+          <li>
             <Link prefetch href='/portafolio'>
               <a>Portafolio</a>
             </Link>
@@ -47,7 +52,7 @@ const Header = () => {
           justify-content: space-between;
           align-items: center;
           height: 45px;
-          width: 330px;
+          width: calc((80px * 5));
         }
 
         .menu a {
