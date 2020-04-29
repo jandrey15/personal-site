@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
 import Hamburger from './Hamburger'
+import Search from './Search'
 
 const Header = () => {
-  const [active, setActive] = useState(false)
+  const [active, setActive] = useState(false) // Menu
 
   return (
     <header id='Header'>
@@ -26,7 +27,7 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <Link prefetch href='/tags/react'>
+            <Link prefetch href='/tag?slug=react' as='/tags/react'>
               <a>React</a>
             </Link>
           </li>
@@ -36,12 +37,19 @@ const Header = () => {
             </Link>
           </li>
         </ul>
+
+        <Search />
       </nav>
       <style jsx>{`
         #Header {
           height: 45px;
           background: #1c1c1c;
           border-bottom: 5px solid #0078ae;
+        }
+
+        nav {
+          display: flex;
+          align-items: center;
         }
 
         .menu {
