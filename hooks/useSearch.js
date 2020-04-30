@@ -16,19 +16,25 @@ function useSearch () {
     dispatch({ type: 'INPUT_SEARCH', payload: target.value })
   }
 
-  const handleRouteChange = url => {
-    console.log('App is changing to: ', url)
-    console.log(state)
-    // if (state.search) {
-    //   console.log('ok paso')
-    //   dispatch({ type: 'RESET' })
-    // }
-  }
+  useEffect(() => {
+    const handleRouteChange = url => {
+      // console.log('App is changing to: ', url)
+      // console.log('This is state search -> ', state)
+      if (url.includes('/blog')) {
+        // console.log('dispatch reset input search')
+        dispatch({ type: 'RESET' })
+      }
+    }
 
-  Router.events.on('routeChangeComplete', handleRouteChange)
+    Router.events.on('routeChangeStart', handleRouteChange)
+    return () => {
+      Router.events.off('routeChangeStart', handleRouteChange)
+    }
+  }, [])
 
   useEffect(() => {
     let mounted = true
+    // console.log('This is search useEffect -> ', state.search)
 
     if (state.search) {
       dispatch({ type: 'FETCH_SEARCH' })

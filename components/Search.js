@@ -5,8 +5,7 @@ const Search = () => {
   const { state, onChange } = useSearch()
 
   const { search, data, loading } = state
-
-  // console.log(state)
+  // console.log('This is state the component -> ', state)
 
   return (
     <div id='Search'>
