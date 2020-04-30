@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import algoliasearch from 'algoliasearch/lite'
+import { useRouter } from 'next/router'
 import Layout from '../components/Layout'
 import Posts from '../components/PostsGrid'
 
@@ -13,8 +14,12 @@ const Search = () => {
   const [loading, setLoading] = useState(true)
   const [search, setSearch] = useState('')
 
+  const router = useRouter()
+  // console.log('router obj', router.query.word)
+  const word = router.query.word || null
+
   useEffect(() => {
-    index.search(search).then(({ hits }) => {
+    index.search(word || search).then(({ hits }) => {
       // console.log(hits)
       setLoading(false)
       setData(hits)
@@ -23,12 +28,12 @@ const Search = () => {
 
   return (
     <Layout>
-      <section id='Search'>
+      <section id='SearchPage'>
         <h3>Hola mundo search</h3>
 
         <form className='search'>
-          <input type='text' placeholder='Buscar' onChange={(e) => setSearch(e.target.value)} />
-          <p>The word is - {search} </p>
+          <input type='text' value={word || search} placeholder='Buscar' onChange={(e) => setSearch(e.target.value)} />
+          <p>The word is - {word || search} </p>
         </form>
 
         {loading && <p>Loading...</p>}

@@ -2,16 +2,20 @@ import Link from 'next/link'
 import useSearch from '../hooks/useSearch'
 
 const Search = () => {
-  const { state, onChange } = useSearch()
+  const { state, onChange, handleSubmit } = useSearch()
 
   const { search, data, loading } = state
   // console.log('This is state the component -> ', state)
 
   return (
     <div id='Search'>
-      <form className='search__form'>
+      <form className='search__form' onSubmit={handleSubmit}>
         <input type='text' value={search} placeholder='Buscar' onChange={onChange} />
-        <button type='button' />
+        <button type='button'>
+          <Link href={{ pathname: '/search', query: { word: search } }}>
+            <a />
+          </Link>
+        </button>
       </form>
       {search.length >= 3 && data.length >= 1 && (
         <div className='search__results'>
@@ -74,6 +78,11 @@ const Search = () => {
           cursor: pointer;
           padding: 0;
           width: 50px;
+        }
+
+        .search__form button a {
+          display: block;
+          height: 100%;
         }
 
         .post-item {

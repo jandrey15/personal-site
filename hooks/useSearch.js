@@ -16,6 +16,18 @@ function useSearch () {
     dispatch({ type: 'INPUT_SEARCH', payload: target.value })
   }
 
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    console.log('ok se disparo el submit')
+    const { search } = state
+
+    console.log(search)
+    Router.push({
+      pathname: '/search',
+      query: { word: search }
+    })
+  }
+
   useEffect(() => {
     const handleRouteChange = url => {
       // console.log('App is changing to: ', url)
@@ -52,7 +64,7 @@ function useSearch () {
     return () => mounted = false
   }, [state.search])
 
-  return { state, onChange }
+  return { state, onChange, handleSubmit }
 }
 
 export default useSearch
