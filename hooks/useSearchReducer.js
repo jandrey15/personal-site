@@ -1,4 +1,3 @@
-// import React, { useReducer } from 'react'
 import initialState from './initialState'
 
 function useSearchReducer (state, action) {

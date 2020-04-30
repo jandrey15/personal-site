@@ -11,6 +11,7 @@ const Search = () => {
     <div id='Search'>
       <form className='search__form'>
         <input type='text' value={search} placeholder='Buscar' onChange={onChange} />
+        <button type='button' />
       </form>
       {search.length >= 3 && data.length >= 1 && (
         <div className='search__results'>
@@ -26,7 +27,7 @@ const Search = () => {
         </div>
       )}
 
-      {search.length >= 3 && data.length <= 0 && (
+      {search.length >= 3 && data.length <= 0 && !loading && (
         <div className='search__results'>
           <div className='search__noResults'>
             <span>No tenemos resultados</span>
@@ -51,6 +52,28 @@ const Search = () => {
           overflow: auto;
           width: 100%;
           z-index: 50;
+        }
+
+        .search__form {
+          display: grid;
+          grid-template-columns: 1fr auto;
+        }
+        .search__form input {
+          outline: none;
+          border: 1px solid #eeeeee;
+          border-radius: 2px 0 0 2px;
+          color: #1c1c1c;
+          padding: 5px;
+        }
+
+        .search__form button {
+          background: #0078ae url('/static/lupa.svg') center/20px no-repeat;
+          height: 100%;
+          border: 1px solid #0078ae;
+          border-radius: 0 2px 2px 0;
+          cursor: pointer;
+          padding: 0;
+          width: 50px;
         }
 
         .post-item {
