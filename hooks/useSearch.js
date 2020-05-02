@@ -21,7 +21,7 @@ function useSearch () {
     console.log('ok se disparo el submit')
     const { search } = state
 
-    console.log(search)
+    // console.log(search)
     Router.push({
       pathname: '/search',
       query: { word: search }
@@ -32,7 +32,7 @@ function useSearch () {
     const handleRouteChange = url => {
       // console.log('App is changing to: ', url)
       // console.log('This is state search -> ', state)
-      if (url.includes('/blog')) {
+      if (url.includes('/blog') || url.includes('/search')) {
         // console.log('dispatch reset input search')
         dispatch({ type: 'RESET' })
       }

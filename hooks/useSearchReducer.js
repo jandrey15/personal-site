@@ -24,6 +24,13 @@ function useSearchReducer (state, action) {
       }
     }
 
+    case 'CHANGE_INITIAL': {
+      return {
+        ...state,
+        initial: false
+      }
+    }
+
     case 'RESET': {
       return initialState
     }
