@@ -1,14 +1,10 @@
 import { useEffect, useReducer } from 'react'
-import algoliasearch from 'algoliasearch/lite'
 import Router from 'next/router'
 import useSearchReducer from './useSearchReducer'
 import initialState from './initialState'
+import index from '../helpers/algolia'
 
 function useSearch () {
-  const API_KEY_ALGOLIA = process.env.API_KEY_ALGOLIA
-  // Config algolia
-  const client = algoliasearch('ZKVB80BMVH', API_KEY_ALGOLIA)
-  const index = client.initIndex('instant_search')
   const [state, dispatch] = useReducer(useSearchReducer, initialState)
 
   const onChange = ({ target }) => {
@@ -18,7 +14,7 @@ function useSearch () {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log('ok se disparo el submit')
+    // console.log('ok se disparo el submit')
     const { search } = state
 
     // console.log(search)

@@ -24,10 +24,10 @@ function useSearchReducer (state, action) {
       }
     }
 
-    case 'CHANGE_INITIAL': {
+    case 'CHANGE_LOADING': {
       return {
         ...state,
-        initial: false
+        loading: false
       }
     }
 

@@ -77,7 +77,7 @@ const Search = () => {
           border-radius: 0 2px 2px 0;
           cursor: pointer;
           padding: 0;
-          width: 50px;
+          width: 45px;
         }
 
         .search__form button a {
