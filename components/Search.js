@@ -97,6 +97,12 @@ const Search = () => {
           opacity: 0.9;
           color: #0078ae;
         }
+
+        @media screen and (max-width: 768px) {
+          #Search {
+            margin-right: 20px;
+          }
+        }
       `}</style>
     </div>
   )

@@ -76,6 +76,16 @@ const SearchPage = () => {
             flex-direction: column;
             padding-top: 50px;
           }
+          @media screen and (max-width: 768px) {
+            .search__form {
+              width: 100%;
+            }
+            .results {
+              margin: 0 auto;
+              padding-top: 0;
+              width: 96%;
+            }
+          }
         `}</style>
 
       </section>

@@ -1,12 +1,13 @@
 /* eslint-disable camelcase */
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import Link from 'next/link'
 import moment from 'moment'
 moment.locale('es')
 
 class Cover extends Component {
   render () {
-    const { title, profile = true, caption = true, cover = '/static/background.jpg', post = false, published_at, primary_author, primary_tag = false, capitalize = false } = this.props
+    const { title, profile = true, caption = true, cover = '/static/background.jpg', post = false, published_at, primary_author, primary_tag, capitalize = false } = this.props
     return (
       <section id='Cover'>
         <div className='inner'>
@@ -204,6 +205,17 @@ class Cover extends Component {
       </section>
     )
   }
+}
+
+Cover.propTypes = {
+  title: PropTypes.string,
+  cover: PropTypes.string,
+  profile: PropTypes.bool,
+  post: PropTypes.bool,
+  published_at: PropTypes.string,
+  primary_author: PropTypes.object,
+  primary_tag: PropTypes.object,
+  capitalize: PropTypes.bool
 }
 
 export default Cover

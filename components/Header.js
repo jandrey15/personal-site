@@ -8,43 +8,50 @@ const Header = () => {
 
   return (
     <header id='Header'>
-      <Hamburger handleClick={() => setActive(!active)} active={active} />
-      <nav className='container'>
-        <ul className='menu'>
-          <li>
-            <Link prefetch href='/'>
-              <a>Inicio</a>
-            </Link>
-          </li>
-          <li>
-            <Link prefetch href='/sobre-mi'>
-              <a>Sobre mi</a>
-            </Link>
-          </li>
-          <li>
-            <Link prefetch href='/blog'>
-              <a>Blog</a>
-            </Link>
-          </li>
-          <li>
-            <Link prefetch href='/tag?slug=react' as='/tags/react'>
-              <a>React</a>
-            </Link>
-          </li>
-          <li>
-            <Link prefetch href='/portafolio'>
-              <a>Portafolio</a>
-            </Link>
-          </li>
-        </ul>
-
+      <div className='header__menu container'>
+        <Hamburger handleClick={() => setActive(!active)} active={active} />
+        <nav>
+          <ul className='menu'>
+            <li>
+              <Link prefetch href='/'>
+                <a>Inicio</a>
+              </Link>
+            </li>
+            <li>
+              <Link prefetch href='/sobre-mi'>
+                <a>Sobre mi</a>
+              </Link>
+            </li>
+            <li>
+              <Link prefetch href='/blog'>
+                <a>Blog</a>
+              </Link>
+            </li>
+            <li>
+              <Link prefetch href='/tag?slug=react' as='/tags/react'>
+                <a>React</a>
+              </Link>
+            </li>
+            <li>
+              <Link prefetch href='/portafolio'>
+                <a>Portafolio</a>
+              </Link>
+            </li>
+          </ul>
+        </nav>
         <Search />
-      </nav>
+      </div>
       <style jsx>{`
         #Header {
           height: 45px;
           background: #1c1c1c;
           border-bottom: 5px solid #0078ae;
+        }
+
+        .header__menu {
+          display: flex;
+          align-items: center;
+          justify-content: space-evenly;
         }
 
         nav {
@@ -82,6 +89,9 @@ const Header = () => {
             position: ${active ? 'fixed' : 'relative'};
             top: 0;
             width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             z-index: 19;
           }
           nav {
@@ -89,7 +99,7 @@ const Header = () => {
             transition: .2s;
             position: fixed;
             left: 0;
-            top: 45px;
+            top: 50px;
             background: #1c1c1c;
             padding: 0;
             height: 100vh;
@@ -118,7 +128,6 @@ const Header = () => {
             text-align: center;
             width: 100%;
           }
-
           
       `}</style>
       <style jsx global>{`
