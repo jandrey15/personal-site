@@ -5,10 +5,10 @@
     "env": {
       "NODE_ENV": "production",
       "PORT": "3000",
-      "API_URL": "https://api.johnserrano.co/ghost/api/v2/content",
+      "API_URL": "https://api.johnandrey.xyz/ghost/api/v2/content",
       "API_KEY": "@api_key_johnserrano2",
-      "STATIC_URL": "https://static.johnserrano.co",
-      "DOMAIN_URL": "https://johnserrano.co"
+      "STATIC_URL": "https://static.johnandrey.xyz",
+      "DOMAIN_URL": "https://johnandrey.xyz"
     }
   },
   "builds": [
@@ -28,16 +28,17 @@
     {
       "src": "/blog/",
       "status": 301,
-      "headers": { "Location": "https://johnserrano.co/blog" }
+      "headers": { "Location": "https://johnandrey.xyz/blog" }
     },
     {
       "src": "/tags/",
       "status": 301,
-      "headers": { "Location": "https://johnserrano.co/tags" }
+      "headers": { "Location": "https://johnandrey.xyz/tags" }
     },
     {
       "src": "/blog/(?<slug>[^/]+)/$",
       "status": 301,
+<<<<<<< HEAD
       "headers": { "Location": "https://johnserrano.co/blog/$slug" }
     },
     {
@@ -47,6 +48,9 @@
         "cache-control": "public, max-age=43200, immutable",
         "Service-Worker-Allowed": "/"
       }
+=======
+      "headers": { "Location": "https://johnandrey.xyz/blog/$slug" }
+>>>>>>> ab7727721be434129737c8e07eec63e178ba5f75
     }
   ]
 }
