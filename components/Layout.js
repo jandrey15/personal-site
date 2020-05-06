@@ -18,11 +18,6 @@ Router.onRouteChangeComplete = url => {
   if (NODE_ENV !== 'development') {
     gtag.trackPageView(url)
   }
-  // console.log(url)
-  // if (url === '/blog' || url === '/') {
-  //   // eslint-disable-next-line no-undef
-  //   (adsbygoogle = window.adsbygoogle || []).push({})
-  // }
 }
 
 Router.onRouteChangeError = () => NProgress.done()
