@@ -38,8 +38,7 @@
     {
       "src": "/blog/(?<slug>[^/]+)/$",
       "status": 301,
-<<<<<<< HEAD
-      "headers": { "Location": "https://johnserrano.co/blog/$slug" }
+      "headers": { "Location": "https://johnandrey.xyz/blog/$slug" }
     },
     {
       "src": "^/service-worker.js$",
@@ -48,9 +47,6 @@
         "cache-control": "public, max-age=43200, immutable",
         "Service-Worker-Allowed": "/"
       }
-=======
-      "headers": { "Location": "https://johnandrey.xyz/blog/$slug" }
->>>>>>> ab7727721be434129737c8e07eec63e178ba5f75
     }
   ]
 }
