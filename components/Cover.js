@@ -7,7 +7,7 @@ moment.locale('es')
 
 class Cover extends Component {
   render () {
-    const { title, profile = true, caption = true, cover = '/static/background.jpg', post = false, published_at, primary_author, primary_tag, capitalize = false } = this.props
+    const { title, profile = true, caption = true, cover = '/static/background.jpg', post = false, published_at, primary_author = '', primary_tag = '', capitalize = false } = this.props
     return (
       <section id='Cover'>
         <div className='inner'>
@@ -213,8 +213,14 @@ Cover.propTypes = {
   profile: PropTypes.bool,
   post: PropTypes.bool,
   published_at: PropTypes.string,
-  primary_author: PropTypes.object,
-  primary_tag: PropTypes.object,
+  primary_author: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object
+  ]),
+  primary_tag: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object
+  ]),
   capitalize: PropTypes.bool
 }
 
