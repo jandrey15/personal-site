@@ -1,9 +1,10 @@
 /* eslint-disable camelcase */
 import Link from 'next/link'
+import PropTypes from 'prop-types'
 import moment from 'moment'
 moment.locale('es')
 
-const PostsDetail = ({ slug, feature_image, title, custom_excerpt, excerpt, primary_author, published_at }) => {
+const PostsDetail = ({ slug, feature_image, title, custom_excerpt = '', excerpt = '', primary_author = '', published_at }) => {
   return (
     <>
       <article className='post'>
@@ -178,6 +179,19 @@ const PostsDetail = ({ slug, feature_image, title, custom_excerpt, excerpt, prim
       `}</style>
     </>
   )
+}
+
+PostsDetail.propTypes = {
+  title: PropTypes.string,
+  feature_image: PropTypes.string,
+  slug: PropTypes.string,
+  custom_excerpt: PropTypes.string,
+  excerpt: PropTypes.string,
+  published_at: PropTypes.string,
+  primary_author: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object
+  ])
 }
 
 export default PostsDetail

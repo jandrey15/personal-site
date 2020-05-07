@@ -1,7 +1,8 @@
 /* eslint-disable camelcase */
 import Link from 'next/link'
+import PropTypes from 'prop-types'
 
-const PostsDetailHome = ({ slug, feature_image, title, custom_excerpt, excerpt }) => {
+const PostsDetailHome = ({ slug, feature_image, title, custom_excerpt = '', excerpt = '' }) => {
   return (
     <>
       <article className='post'>
@@ -61,6 +62,14 @@ const PostsDetailHome = ({ slug, feature_image, title, custom_excerpt, excerpt }
       `}</style>
     </>
   )
+}
+
+PostsDetailHome.propTypes = {
+  title: PropTypes.string,
+  feature_image: PropTypes.string,
+  slug: PropTypes.string,
+  custom_excerpt: PropTypes.string,
+  excerpt: PropTypes.string
 }
 
 export default PostsDetailHome

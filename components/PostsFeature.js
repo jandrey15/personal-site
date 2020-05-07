@@ -1,9 +1,10 @@
 /* eslint-disable camelcase */
 import Link from 'next/link'
+import PropTypes from 'prop-types'
 import moment from 'moment'
 moment.locale('es')
 
-const PostsFeature = ({ title, feature_image = '', slug, custom_excerpt, excerpt, published_at, primary_author = '' }) => {
+const PostsFeature = ({ title, feature_image = '', slug, custom_excerpt = '', excerpt = '', published_at, primary_author = '' }) => {
   // console.log(props)
   // console.log(moment().format())
   // console.log(moment().format('MMMM Do YYYY, h:mm:ss a'))
@@ -175,6 +176,19 @@ const PostsFeature = ({ title, feature_image = '', slug, custom_excerpt, excerpt
       `}</style>
     </article>
   )
+}
+
+PostsFeature.propTypes = {
+  title: PropTypes.string,
+  feature_image: PropTypes.string,
+  slug: PropTypes.string,
+  custom_excerpt: PropTypes.string,
+  excerpt: PropTypes.string,
+  published_at: PropTypes.string,
+  primary_author: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object
+  ])
 }
 
 export default PostsFeature
