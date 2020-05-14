@@ -234,7 +234,7 @@ class Post extends Component {
               />
             )}
           </TrackVisibility>
-          <h2>Otros artículos</h2>
+          <h2 className='more__posts'>Otros artículos</h2>
           <PostsGrid posts={morePost} columns='3' />
         </section>
         <style jsx global>{`
@@ -296,7 +296,7 @@ class Post extends Component {
           #Post {
             margin-top: 30px;
           }
-          #Post h2 {
+          #Post .more__posts {
             font-size: 2rem;
             font-weight: 700;
             margin: 70px auto 50px;
