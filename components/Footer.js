@@ -13,7 +13,10 @@ const Footer = (props) => {
         <Link href='/legal'>
           <a className='legal' rel='nofollow'>Aviso legal y política de privacidad</a>
         </Link>
-        <a className='alojado' href='https://m.do.co/c/66d901bee48b' rel='noreferrer' target='_blank'>Alojado en Digital Ocean ❤️️</a>
+        <div className='services'>
+          <a className='alojado' href='https://m.do.co/c/66d901bee48b' rel='noreferrer' target='_blank'>Alojado en Digital Ocean 💧</a>
+          y <a className='alojado' href='https://vercel.com/' rel='noreferrer' target='_blank'>Vercel ❤️</a>
+        </div>
       </div>
       <style jsx>{`
         #Footer {
@@ -22,6 +25,14 @@ const Footer = (props) => {
           color: #ffffff;
           display: flex;
           align-items: center;
+        }
+
+        .services {
+          display: flex;
+          max-width: 260px;
+          justify-content: space-between;
+          margin: 0 auto;
+          width: 100%;
         }
 
         .text {          
