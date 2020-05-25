@@ -109,6 +109,8 @@ class Post extends Component {
     })
     window.addEventListener('scroll', this.handleScroll)
 
+    fbq('track', 'ViewContent', { content_name: this.props.data.title })
+
     // const elem = document.createElement('script')
     // elem.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
     // elem.async = true
@@ -198,6 +200,17 @@ class Post extends Component {
               {/* <article className='body' dangerouslySetInnerHTML={{ __html: data.html }} /> */}
             </Highlight>
           </article>
+
+          <div className='follow'>
+            <p>
+              Soy John Serrano. Desarrollador Web Full-Stack. Entusiasta de las tecnologías web: JavaScript, Node.js, Docker, Firebase, React, etc.
+            </p>
+            <ul className='follow__buttons'>
+              <li><a href='https://www.facebook.com/johnserrano15' title='Facebook' target='_blank'><img alt='en Facebook' src='/static/follow/Facebook.svg' /></a></li>
+              <li><a href='https://twitter.com/jandrey15' target='_blank' title='Twitter'><img alt='Twitter' src='/static/follow/Twitter.svg' /></a></li>
+              <li><a href='http://www.linkedin.com/in/jandreys15/' target='_blank' title='LinkedIn' ><img alt='LinkedIn' src='/static/follow/LinkedIn.svg' /></a></li>
+            </ul>
+          </div>
 
           <TrackVisibility once partialVisibility>
             {({ isVisible }) => isVisible && (
@@ -385,10 +398,22 @@ class Post extends Component {
             color: #ffffff;
           }
 
-          #Post img, #Post iframe, #Post video {
+          #Post .body img, #Post .body iframe, #Post .body video {
             width: auto;
             height: auto;
             max-width: 100%;
+          }
+
+          ul.follow__buttons {
+            list-style: none;
+            padding: 0;
+          }
+
+          ul.follow__buttons li{
+            display: inline;
+          }
+          ul.follow__buttons img{
+            width: 32px;
           }
         `}</style>
       </Layout>

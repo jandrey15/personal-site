@@ -6,9 +6,9 @@ const Footer = (props) => {
     <footer id='Footer'>
       <div className='text'>
         <div className='copyright'>
-          <Link href='/'>
-            <a>John Serrano</a>
-          </Link> <span>© 2015 - {ano}</span>
+          <span>© 2015 - {ano}</span>
+          {' '}
+          por johnserrano.co
         </div>
         <Link href='/legal'>
           <a className='legal' rel='nofollow'>Aviso legal y política de privacidad</a>
@@ -17,6 +17,7 @@ const Footer = (props) => {
           <a className='alojado' href='https://m.do.co/c/66d901bee48b' rel='noreferrer' target='_blank'>Alojado en Digital Ocean 💧</a>
           y <a className='alojado' href='https://vercel.com/' rel='noreferrer' target='_blank'>Vercel ❤️</a>
         </div>
+        <p>All rights reserved</p>
       </div>
       <style jsx>{`
         #Footer {
@@ -45,6 +46,8 @@ const Footer = (props) => {
         .copyright {
           margin-bottom: 10px;
         }
+
+        p { margin: 0 0 10px; }
 
         .copyright a {
           text-decoration: none;
