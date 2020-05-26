@@ -76,6 +76,8 @@ class MyDocument extends Document {
                 src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
               />
               <script dangerouslySetInnerHTML={this.setGoogleTags()} />
+              <script dangerouslySetInnerHTML={this.setFacebookPixel()} />
+              <noscript dangerouslySetInnerHTML={this.setFacebookNoScript()} />
             </Fragment>
           )}
         </Head>
@@ -88,13 +90,6 @@ class MyDocument extends Document {
               <script dangerouslySetInnerHTML={this.setGoogleAdsense()} />
             </Fragment>
           } */}
-
-          {
-            <Fragment>
-              <script dangerouslySetInnerHTML={this.setFacebookPixel()} />
-              <noscript dangerouslySetInnerHTML={this.setFacebookNoScript()} />
-            </Fragment>
-          }
         </body>
       </html>
     )
