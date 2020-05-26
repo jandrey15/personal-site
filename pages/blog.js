@@ -93,6 +93,9 @@ class Blog extends Component {
     // // elem.async = true
     // elem.defer = true
     // document.body.appendChild(elem)
+
+    // eslint-disable-next-line no-undef
+    fbq('track', 'ViewContent', { content_name: 'blog' })
   }
 
   handlePageClick = (event) => {
