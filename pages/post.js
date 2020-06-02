@@ -114,6 +114,14 @@ class Post extends Component {
       fbq('track', 'ViewContent', { content_name: this.props.data.title })
     }
 
+    const iframe = document.querySelector('#Post .body iframe')
+    if (iframe) {
+      const parent = iframe.parentElement
+      parent.className = 'kg-card kg-embed-card Video'
+    }
+
+    // twttr.widgets.load()
+
     // const elem = document.createElement('script')
     // elem.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
     // elem.async = true
@@ -536,6 +544,25 @@ class Post extends Component {
           }
           ul.follow__buttons img{
             width: 32px;
+          }
+
+          #Post .body .kg-embed-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+          }
+          #Post .body .kg-embed-card.Video {
+            padding-top: 56.25%;
+            width: 100%;
+            position: relative;
+          }
+          #Post .body .kg-embed-card.Video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
           }
 
           @media screen and (max-width: 768px) { 
