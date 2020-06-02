@@ -21,6 +21,7 @@ class Blog extends Component {
   static async getInitialProps ({ res }) {
     const API_URL = process.env.API_URL
     const API_KEY = process.env.API_KEY
+    const isProduction = process.env.NODE_ENV === 'production'
 
     try {
       // eslint-disable-next-line no-undef
@@ -55,7 +56,7 @@ class Blog extends Component {
 
       // console.log(json)
       // console.log(feature)
-      return { data: data, feature: feature[0], statusCode: 200, API_URL, API_KEY }
+      return { data: data, feature: feature[0], statusCode: 200, API_URL, API_KEY, isProduction }
     } catch (err) {
       // res.statusCode = 503
       if (res) res.statusCode = 503
@@ -94,8 +95,10 @@ class Blog extends Component {
     // elem.defer = true
     // document.body.appendChild(elem)
 
-    // eslint-disable-next-line no-undef
-    fbq('track', 'ViewContent', { content_name: 'blog' })
+    if (this.props.isProduction) {
+      // eslint-disable-next-line no-undef
+      fbq('track', 'ViewContent', { content_name: 'blog' })
+    }
   }
 
   handlePageClick = (event) => {
