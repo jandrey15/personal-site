@@ -25,6 +25,7 @@ class Post extends Component {
     const API_URL = process.env.API_URL
     const API_KEY = process.env.API_KEY
     const DOMAIN_URL = process.env.DOMAIN_URL
+    const isProduction = process.env.NODE_ENV === 'production'
 
     try {
       // eslint-disable-next-line no-undef
@@ -75,7 +76,7 @@ class Post extends Component {
       }
 
       // console.log(json)
-      return { data: post[0], morePost, domainUrl: DOMAIN_URL, statusCode: 200 }
+      return { data: post[0], morePost, domainUrl: DOMAIN_URL, statusCode: 200, isProduction }
     } catch (err) {
       // res.statusCode = 503
       if (res) res.statusCode = 503
@@ -109,7 +110,9 @@ class Post extends Component {
     })
     window.addEventListener('scroll', this.handleScroll)
 
-    fbq('track', 'ViewContent', { content_name: this.props.data.title })
+    if (this.props.isProduction) {
+      fbq('track', 'ViewContent', { content_name: this.props.data.title })
+    }
 
     // const elem = document.createElement('script')
     // elem.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
@@ -405,12 +408,113 @@ class Post extends Component {
             color: #ffffff;
           }
 
-          #Post .body img, #Post .body iframe, #Post .body video {
-            width: auto;
-            height: auto;
+          #Post .body .kg-image-card img,
+          #Post .body iframe, #Post .body video {
+            margin: 0 auto;
+            display: block;
             max-width: 100%;
           }
 
+          #Post .body figure {
+            margin: .8em 0 2.3em;
+          }
+
+          #Post .body .kg-bookmark-card {
+            width: 100%;
+          }
+          #Post .body .kg-card.kg-bookmark-card {
+            margin: .8em 0 2.3em;
+          }
+          #Post .body .kg-bookmark-container {
+            color: #15171a;
+            text-decoration: none;
+            box-shadow: 0 2px 5px -1px rgba(0,0,0,.15), 0 0 1px rgba(0,0,0,.09);
+
+            display: flex;
+            min-height: 148px;
+            border-radius: 3px;
+          }
+          #Post .body .kg-bookmark-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 20px;
+          }
+          #Post .body .kg-bookmark-thumbnail {
+            position: relative;
+            min-width: 33%;
+            max-height: 100%;
+          }
+          #Post .body .kg-bookmark-thumbnail img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 0 3px 3px 0;
+            -o-object-fit: cover;
+            object-fit: cover;
+          }
+          #Post .body .kg-bookmark-title {
+            color: #1c1c1c;
+            font-size: 1.2rem;
+            line-height: 1.3em;
+            font-weight: 600;
+            transition: color .2s ease-in-out;
+          }
+          #Post .body .kg-bookmark-description {
+            display: -webkit-box;
+            overflow-y: hidden;
+            margin-top: 12px;
+            max-height: 48px;
+            color: #5d7179;
+            font-size: 1rem;
+            line-height: 1.2em;
+            font-weight: 400;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+          }
+          #Post .body .kg-bookmark-metadata {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-top: 14px;
+            color: #5d7179;
+            font-size: 1.5rem;
+            font-weight: 400;
+          }
+          #Post .body .kg-bookmark-icon {
+            margin-right: 8px;
+            width: 22px;
+            height: 22px;
+          }
+          #Post .body .kg-bookmark-publisher {
+            overflow: hidden;
+            max-width: 240px;
+            line-height: 1.5em;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+
+          #Post .body .kg-gallery-container {
+            display: flex;
+            flex-direction: column;
+            max-width: 700px;
+            width: 100vw;
+          }
+          #Post .body .kg-gallery-row {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+          }
+          #Post .body .kg-gallery-image img {
+            display: block;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+          }
           
           .follow p {
             border: none;
@@ -432,6 +536,23 @@ class Post extends Component {
           }
           ul.follow__buttons img{
             width: 32px;
+          }
+
+          @media screen and (max-width: 768px) { 
+            #Post .body figure {
+              margin: .2em 0 1.3em;
+            }
+
+            #Post .body .kg-bookmark-container {
+              flex-direction: column;
+            }
+            #Post .body .kg-bookmark-content { order: 2; }
+            #Post .body .kg-bookmark-thumbnail { 
+              order: 1; 
+              min-height: 160px;
+              width: 100%;
+            }
+
           }
         `}</style>
       </Layout>
