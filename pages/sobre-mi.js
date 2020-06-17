@@ -4,11 +4,11 @@ import Link from 'next/link'
 
 const SobreMi = () => {
   const SEO = {
-    title: 'John Serrano - Sobre mí',
+    title: 'Sobre mí - John Serrano',
     description: '',
     image: '',
-    url: '',
-    titleOpenGraph: '',
+    url: 'https://johnserrano.co/sobre-mi',
+    titleOpenGraph: 'Sobre mí - John Serrano',
     date: '',
     modified: '',
     imagenFacebook: '',

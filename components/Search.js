@@ -11,11 +11,7 @@ const Search = () => {
     <div id='Search'>
       <form className='search__form' onSubmit={handleSubmit}>
         <input type='text' value={search} placeholder='Buscar' onChange={onChange} />
-        <button type='submit'>
-          <Link href={{ pathname: '/search', query: { word: search } }}>
-            <a />
-          </Link>
-        </button>
+        <button type='submit' />
       </form>
       {search.length >= 3 && data.length >= 1 && (
         <div className='search__results'>

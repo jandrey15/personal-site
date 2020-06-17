@@ -4,11 +4,11 @@ import Layout from '../components/Layout'
 class Portafolio extends Component {
   render () {
     const SEO = {
-      title: 'John Serrano - Portafolio',
+      title: 'Portafolio - John Serrano',
       description: '',
       image: '',
-      url: '',
-      titleOpenGraph: '',
+      url: 'https://johnserrano.co/portafolio',
+      titleOpenGraph: 'Portafolio - John Serrano',
       date: '',
       modified: '',
       imagenFacebook: '',
