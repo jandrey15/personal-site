@@ -1,5 +1,5 @@
 export const DEFAULT_SEO = {
-  title: 'John Serrano',
+  title: 'Desarrollador web - John Serrano',
   description:
     'Desarrollador web un apasionado y entusiasta de las tecnología web: JavaScript, Node.js, Docker, Firebase, React, etc..',
   lang: 'es',
@@ -7,7 +7,7 @@ export const DEFAULT_SEO = {
     type: 'website',
     locale: 'es_CO',
     url: 'https://johnserrano.co',
-    title: 'John Serrano',
+    title: 'Desarrollador web - John Serrano',
     description:
       'Desarrollador web un apasionado y entusiasta de las tecnología web: JavaScript, Node.js, Docker, Firebase, React, etc..',
     image: 'https://johnserrano.co/static/default.jpg',
