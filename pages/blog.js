@@ -129,7 +129,7 @@ class Blog extends Component {
 
     const SEO = {
       title: 'Blog - John Serrano',
-      description: '',
+      description: 'De qué hablo en mi blog: Desarrollo web, Tutoriales, artículos sobre tecnologías: JavaScript, Node.js, Docker, React, python, etc.',
       image: '',
       url: 'https://johnserrano.co/blog',
       titleOpenGraph: 'Blog - John Serrano',
