@@ -1,7 +1,7 @@
-require('dotenv').config()
+// require('dotenv').config()
 
 const path = require('path')
-const Dotenv = require('dotenv-webpack')
+// const Dotenv = require('dotenv-webpack')
 const withOffline = require('next-offline')
 
 const nextConfig = {
@@ -11,7 +11,7 @@ const nextConfig = {
   // turn on the SW in dev mode so that we can actually test it
   generateInDevMode: true,
   workboxOpts: {
-    swDest: 'static/service-worker.js',
+    swDest: 'service-worker.js',
     runtimeCaching: [
       {
         urlPattern: /^https?.*/,
@@ -29,21 +29,6 @@ const nextConfig = {
         }
       }
     ]
-  },
-  webpack: config => {
-    config.plugins = config.plugins || []
-
-    config.plugins = [
-      ...config.plugins,
-
-      // Read the .env file
-      new Dotenv({
-        path: path.join(__dirname, '.env'),
-        systemvars: true
-      })
-    ]
-
-    return config
   }
 }
 

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Head from 'next/head'
 import Header from './Header'
 import Footer from './Footer'
-import globalStyles from '../styles/global'
 import NProgress from 'nprogress'
 import Router from 'next/router'
 import * as gtag from '../helpers/gtag'
@@ -164,7 +163,6 @@ class Layout extends Component {
           )}
         />
 
-        <style jsx global>{globalStyles}</style>
       </div>
     )
   }
