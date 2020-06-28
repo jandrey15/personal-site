@@ -65,8 +65,8 @@ class Layout extends Component {
     image = image !== '' ? image : DEFAULT_SEO.openGraph.image
     imagenFacebook = imagenFacebook !== '' ? imagenFacebook : DEFAULT_SEO.openGraph.image
     imagenTwitter = imagenTwitter !== '' ? imagenTwitter : DEFAULT_SEO.openGraph.image
-    date = date !== '' ? date : null
-    modified = modified !== '' ? modified : null
+    date = date !== '' ? date : '2015-09-15T15:49:50-05:00'
+    modified = modified !== '' ? modified : ''
     type = type !== '' ? type : DEFAULT_SEO.openGraph.type
 
     return (

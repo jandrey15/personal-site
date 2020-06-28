@@ -4,11 +4,11 @@ import Link from 'next/link'
 
 const SobreMi = () => {
   const SEO = {
-    title: 'John Serrano - Sobre mí',
-    description: '',
+    title: 'Sobre mí - John Serrano',
+    description: '¡Hola! Mi nombre es John Andrey Serrano. Nací en Cúcuta - Colombia tengo 26 años actualmente me dedico al Desarrollo web un apasionado y entusiasta de las tecnología web: JavaScript, Node.js, Docker, Firebase, React, etc..',
     image: '',
-    url: '',
-    titleOpenGraph: '',
+    url: 'https://johnserrano.co/sobre-mi',
+    titleOpenGraph: 'Sobre mí - John Serrano',
     date: '',
     modified: '',
     imagenFacebook: '',
