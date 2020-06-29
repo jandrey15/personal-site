@@ -6,7 +6,7 @@ const PostsDetailHome = ({ slug, feature_image, title, custom_excerpt = '', exce
   return (
     <>
       <article className='post'>
-        <Link prefetch href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
+        <Link href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
           <a>
             <img
               className='feature_image'
@@ -16,7 +16,7 @@ const PostsDetailHome = ({ slug, feature_image, title, custom_excerpt = '', exce
           </a>
         </Link>
         <div className='content'>
-          <Link prefetch href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
+          <Link href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
             <a className='title'>
               <h2>{title}</h2>
             </a>

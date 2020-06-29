@@ -2,7 +2,7 @@ const Cover = ({ children, cover = '/background.jpg' }) => {
   return (
     <section id='Cover'>
       {children}
-      <style jsx>{`
+      <style jsx global>{`
         #Cover {
           position: relative;
           padding-top: 12px;

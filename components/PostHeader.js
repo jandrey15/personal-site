@@ -12,11 +12,11 @@ const PostHeader = ({ title, cover, profile = true, caption = true, capitalize =
         {profile &&
           <Link prefetch href='/'>
             <a className='profile'>
-              <img className='profile__avatar' src='/static/profile.jpg' alt='Profile' />
+              <img className='profile__avatar' src='/profile.jpg' alt='Profile' />
             </a>
           </Link>
         }
-        <PostTitle capitalize={capitalize}>{title}</PostTitle>
+        <PostTitle capitalize={capitalize && 'capitalize'}>{title}</PostTitle>
         {caption && <p>Desarrollador Web Full-Stack</p>}
         {post &&
           <PostProfile
@@ -26,7 +26,7 @@ const PostHeader = ({ title, cover, profile = true, caption = true, capitalize =
           />
         }
       </div>
-      <style jsx>{`
+      <style jsx global>{`
         .profile .profile__avatar {
           border-radius: 50%;
           max-width: 120px;

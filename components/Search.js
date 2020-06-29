@@ -18,7 +18,7 @@ const Search = () => {
           {data.map(({ id, title, slug }) => {
             return (
               <article className='post-item' key={id}>
-                <Link prefetch href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
+                <Link href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
                   <a className='title'>{title}</a>
                 </Link>
               </article>
@@ -67,7 +67,7 @@ const Search = () => {
         }
 
         .search__form button {
-          background: #0078ae url('/static/lupa.svg') center/20px no-repeat;
+          background: #0078ae url('/lupa.svg') center/20px no-repeat;
           height: 100%;
           border: 1px solid #0078ae;
           border-radius: 0 2px 2px 0;

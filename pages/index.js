@@ -2,13 +2,16 @@ import React from 'react'
 import Link from 'next/link'
 import Layout from '../components/Layout'
 import Cover from '../components/Cover'
+import PostHeader from 'components/PostHeader'
 import Posts from '../components/PostsGrid'
 import Error from './_error'
 import 'isomorphic-unfetch'
 import useSWR from 'swr'
 
-const API_URL = process.env.API_URL
-const API_KEY = process.env.API_KEY
+// const API_URL = process.env.API_URL
+const API_URL = 'https://johnserrano.herokuapp.com/ghost/api/v2/content'
+const API_KEY = '89d49d9098c4a80eca9737f2da'
+// const API_KEY = process.env.API_KEY
 
 async function fetcher (path) {
   const res = await fetch(API_URL + path)
@@ -38,18 +41,20 @@ const Home = () => {
 
   return (
     <Layout {...SEO}>
-      <Cover title='John Serrano' />
+      <Cover>
+        <PostHeader title='John Serrano' />
+      </Cover>
       <section id='Home' className='container'>
         <div className='main'>
           <h2>¿Quién soy?</h2>
           <p>Tecnólogo en análisis y desarrollo de sistemas de la información graduado en el SENA(Colombia) y <strong>Desarrollador Web Full-Stack</strong>. Entusiasta de las tecnologías web: JavaScript, Node.js, Docker, Firebase, React, etc.. Comparto mis conocimientos a través de mi
-            <Link prefetch href='/blog'>
+            <Link href='/blog'>
               <a> blog</a>
-            </Link>. Puedes leer más <Link prefetch href='/sobre-mi'><a>sobre mi</a></Link>.</p>
+            </Link>. Puedes leer más <Link href='/sobre-mi'><a>sobre mi</a></Link>.</p>
 
           <h2>De qué hablo en mi blog</h2>
           <p>
-            <Link prefetch href='/tag?slug=desarrollo-web' as='/tags/desarrollo-web'>
+            <Link href='/tag?slug=desarrollo-web' as='/tags/desarrollo-web'>
               <a >Desarrollo web</a>
             </Link>, Tutoriales, artículos sobre tecnologías: JavaScript, Node.js, Docker, React, python, etc.</p>
 
