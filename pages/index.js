@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import Layout from '../components/Layout'
 import Cover from '../components/Cover'
-import PostHeader from 'components/PostHeader'
+import ProfileHome from 'components/ProfileHome'
 import Posts from '../components/PostsGrid'
 import Error from './_error'
 import 'isomorphic-unfetch'
@@ -42,7 +42,7 @@ const Home = () => {
   return (
     <Layout {...SEO}>
       <Cover>
-        <PostHeader title='John Serrano' />
+        <ProfileHome title='John Serrano' />
       </Cover>
       <section id='Home' className='container'>
         <div className='main'>

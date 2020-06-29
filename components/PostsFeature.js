@@ -12,7 +12,7 @@ const PostsFeature = ({ title, feature_image = '', slug, custom_excerpt = '', ex
   // console.log(moment(published_at).format('DD/MM/YYYY'))
   return (
     <article id='PostsFeature'>
-      <Link prefetch href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
+      <Link href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
         <a>
           <img className='picture' src={feature_image.replace('admin', 'static')} alt={title} />
         </a>
@@ -20,14 +20,14 @@ const PostsFeature = ({ title, feature_image = '', slug, custom_excerpt = '', ex
 
       <div className='content'>
         <header className='post__header'>
-          <Link prefetch href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
+          <Link href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
             <a className='title'><h2>{title}</h2></a>
           </Link>
           <p>{ custom_excerpt ? custom_excerpt.substring(0, 160) : excerpt ? excerpt.substring(0, 160) : null}</p>
         </header>
         <footer className='post__meta'>
           <div className='profile'>
-            <Link prefetch href='/sobre-mi'>
+            <Link href='/sobre-mi'>
               <a className='profile_avatar'>
                 <img
                   className='profile__image'
@@ -41,7 +41,7 @@ const PostsFeature = ({ title, feature_image = '', slug, custom_excerpt = '', ex
             <span className='profile__name'>{primary_author.name}</span>
           </div>
           <span>{moment(published_at, 'YYYYMMDD').fromNow()}</span>
-          <Link prefetch href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
+          <Link href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
             <a>
               <span>Leer más</span>
             </a>

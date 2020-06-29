@@ -13,27 +13,27 @@ const Header = () => {
         <nav>
           <ul className='menu'>
             <li>
-              <Link prefetch href='/'>
+              <Link href='/'>
                 <a>Inicio</a>
               </Link>
             </li>
             <li>
-              <Link prefetch href='/sobre-mi'>
+              <Link href='/sobre-mi'>
                 <a>Sobre mi</a>
               </Link>
             </li>
             <li>
-              <Link prefetch href='/blog'>
+              <Link href='/blog'>
                 <a>Blog</a>
               </Link>
             </li>
             <li>
-              <Link prefetch href='/tag?slug=react' as='/tags/react'>
+              <Link href='/tag?slug=react' as='/tags/react'>
                 <a>React</a>
               </Link>
             </li>
             <li>
-              <Link prefetch href='/portafolio'>
+              <Link href='/portafolio'>
                 <a>Portafolio</a>
               </Link>
             </li>
