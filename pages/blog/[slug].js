@@ -14,7 +14,7 @@ import useProgress from 'hooks/useProgress'
 import ErrorPage from '../404'
 import { getAllPostsWithSlug, getPostSlug, getMorePosts } from '../../lib/api'
 
-export default function Post ({ post, posts, isProduction, domainUrl }) {
+export default function Post ({ post, posts, isProduction, DOMAIN_URL }) {
   const router = useRouter()
   const morePosts = posts
 
@@ -33,6 +33,7 @@ export default function Post ({ post, posts, isProduction, domainUrl }) {
 
   useEffect(() => {
     if (isProduction) {
+      // eslint-disable-next-line no-undef
       fbq('track', 'ViewContent', { content_name: post.title })
     }
 
@@ -43,8 +44,34 @@ export default function Post ({ post, posts, isProduction, domainUrl }) {
     }
   }, [])
 
+  let description = post.meta_description || post.custom_excerpt || post.excerpt
+
+  description = description.replace(/(\r\n|\n|\r)/gm, '')
+
+  const SEO = {
+    title: post.title,
+    description: description,
+    image: post.feature_image ? post.feature_image.replace(
+      'admin',
+      'static'
+    ) : `${DOMAIN_URL}/static/default.jpg`,
+    url: post.canonical_url || `${DOMAIN_URL}/blog/${post.slug}`,
+    titleOpenGraph: post.meta_title || post.title,
+    date: post.published_at,
+    modified: post.updated_at,
+    imagenFacebook: post.feature_image ? post.feature_image.replace(
+      'admin',
+      'static'
+    ) : `${DOMAIN_URL}/static/default.jpg`,
+    imagenTwitter: post.feature_image ? post.feature_image.replace(
+      'admin',
+      'static'
+    ) : `${DOMAIN_URL}/static/default.jpg`,
+    type: 'article'
+  }
+
   return (
-    <Layout>
+    <Layout {...SEO}>
       <progress id='progress' ref={refProgress} value={0} max={max} />
       {
         router.isFallback ? (
@@ -52,13 +79,13 @@ export default function Post ({ post, posts, isProduction, domainUrl }) {
         ) : (
           <>
             <Head>
-              <link rel='canonical' href={`${domainUrl}/blog/${post.slug}`} />
+              <link rel='canonical' href={`${DOMAIN_URL}/blog/${post.slug}`} />
             </Head>
             <PostHeader
               title={post.title}
               profile={false}
               caption={false}
-              cover={post.feature_image ? post.feature_image : '/static/gallery.jpg'}
+              cover={post.feature_image ? post.feature_image : '/gallery.jpg'}
               post
               published_at={post.published_at}
               primary_author={post.primary_author}
@@ -145,14 +172,14 @@ export async function getStaticProps ({ params }) {
   // console.log('THis is post:')
   // console.log(post)
   const isProduction = process.env.NODE_ENV === 'production'
-  const domainUrl = process.env.DOMAIN_URL
+  const DOMAIN_URL = process.env.DOMAIN_URL
 
   return {
     props: {
       post,
       posts,
       isProduction,
-      domainUrl
+      DOMAIN_URL
     }
   }
 }
