@@ -1,6 +1,6 @@
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import { useRouter } from 'next/router'
-// import ErrorPage from 'next/error'
+import Head from 'next/head'
 import ReactDisqusComments from 'react-disqus-comments'
 import Layout from 'components/layout'
 import PostHeader from 'components/PostHeader'
@@ -14,20 +14,21 @@ import useProgress from 'hooks/useProgress'
 import ErrorPage from '../404'
 import { getAllPostsWithSlug, getPostSlug, getMorePosts } from '../../lib/api'
 
-export default function Post ({ post, posts, isProduction }) {
+export default function Post ({ post, posts, isProduction, domainUrl }) {
   const router = useRouter()
-  // const morePosts = posts?.edges
   const morePosts = posts
 
-  console.log('This is router -> ', router.isFallback)
-  console.log(post?.slug)
-  if (!router.isFallback && !post?.slug) {
-    console.log('ok paso 404')
-    return <ErrorPage statusCode={404} />
+  if (!router.isFallback && !post) {
+    // console.log('ok paso 404')
+    return <>
+      <Head>
+        <meta name='robots' content='noindex' />
+      </Head>
+      <ErrorPage statusCode={404} />
+    </>
   }
 
-  const refProgress = useRef(0)
-  const max = useProgress(refProgress)
+  const [max, refProgress] = useProgress()
   // console.log(isProduction)
 
   useEffect(() => {
@@ -44,48 +45,50 @@ export default function Post ({ post, posts, isProduction }) {
 
   return (
     <Layout>
-      {router.isFallback ? (
-        <PostTitle>Loading…</PostTitle>
-      ) : (
-        <PostHeader
-          title={post.title}
-          profile={false}
-          caption={false}
-          cover={post.feature_image ? post.feature_image : '/static/gallery.jpg'}
-          post
-          published_at={post.published_at}
-          primary_author={post.primary_author}
-          primary_tag={post.primary_tag}
-        />
-      )}
       <progress id='progress' ref={refProgress} value={0} max={max} />
-
-      <section id='Post' className='container'>
-        {router.isFallback ? (
+      {
+        router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
           <>
-            <PostBody html={post.html} />
-
-            <ProfileFollow />
-
-            <ProfileApoyar />
-
-            <Newsletter />
-
-            <ReactDisqusComments
-              shortname='johnserrano'
-              identifier={post.slug}
+            <Head>
+              <link rel='canonical' href={`${domainUrl}/blog/${post.slug}`} />
+            </Head>
+            <PostHeader
               title={post.title}
-              url={`http://johnserrano.co/blog/${post.slug}`}
-              className='disqus'
+              profile={false}
+              caption={false}
+              cover={post.feature_image ? post.feature_image : '/static/gallery.jpg'}
+              post
+              published_at={post.published_at}
+              primary_author={post.primary_author}
+              primary_tag={post.primary_tag}
             />
-            <h2 className='more__posts'>Otros artículos</h2>
-            {morePosts.length > 0 && <PostsGrid posts={morePosts} columns='3' />}
-          </>
-        )}
 
-      </section>
+            <section id='Post' className='container'>
+              <PostBody html={post.html} />
+
+              <ProfileFollow />
+
+              <ProfileApoyar />
+
+              <Newsletter />
+
+              <ReactDisqusComments
+                shortname='johnserrano'
+                identifier={post.slug}
+                title={post.title}
+                url={`http://johnserrano.co/blog/${post.slug}`}
+                className='disqus'
+              />
+              <h2 className='more__posts'>Otros artículos</h2>
+              {morePosts.length > 0 && <PostsGrid posts={morePosts} columns='3' />}
+
+            </section>
+          </>
+        )
+      }
+
       <style jsx global>{`
         .pauta {
           margin: 20px 0;
@@ -142,12 +145,14 @@ export async function getStaticProps ({ params }) {
   // console.log('THis is post:')
   // console.log(post)
   const isProduction = process.env.NODE_ENV === 'production'
+  const domainUrl = process.env.DOMAIN_URL
 
   return {
     props: {
       post,
       posts,
-      isProduction
+      isProduction,
+      domainUrl
     }
   }
 }

@@ -1,9 +1,9 @@
 import { useEffect, useState, useRef } from 'react'
 
-function useProgress (refProgress) {
+function useProgress () {
   const [max, setMax] = useState(0)
 
-  // const refProgress = useRef(0)
+  const refProgress = useRef(0)
 
   useEffect(() => {
     const docHeight = document.body.clientHeight
@@ -25,6 +25,6 @@ function useProgress (refProgress) {
     refProgress.current.value = scrollTop
   }
 
-  return max
+  return [max, refProgress]
 }
 export default useProgress
