@@ -1,55 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import ReactPaginate from 'react-paginate'
+
 import Layout from 'components/Layout'
 import Posts from 'components/PostsGrid'
 import PostsFeature from 'components/PostsFeature'
-import ReactPaginate from 'react-paginate'
-// import Error from './_error'
-// import 'isomorphic-unfetch'
+import usePagination from 'hooks/usePagination'
+
 import { getAllPostsForBlog } from '../lib/api'
 
 export default function Blog ({ posts, meta, feature, isProduction, API_URL, API_KEY }) {
-  const [page, setPage] = useState(1)
-  const [pageCount, setPageCount] = useState(0)
-  const [data, setData] = useState([])
-  // console.log(meta)
-
-  useEffect(() => {
-    // loadPosts()
-    setPageCount(Math.ceil(meta.pagination.total / meta.pagination.limit))
-
-    if (isProduction) {
-      // eslint-disable-next-line no-undef
-      fbq('track', 'ViewContent', { content_name: 'blog' })
-    }
-  }, [])
-
-  useEffect(() => {
-    let ignore = false
-    async function loadPosts () {
-      try {
-        // console.log('This is page ->', page)
-        const res = await fetch(`${API_URL}/posts/?key=${API_KEY}&limit=5&filter=featured:false&include=authors&page=${page}`)
-
-        let { posts } = await res.json()
-        // console.log(posts)
-        if (!ignore) setData(posts)
-      } catch (err) {
-        console.error('Algo salio mal ', err)
-      }
-    }
-
-    loadPosts()
-    return () => { ignore = true }
-  }, [page])
-
-  const handlePageClick = (event) => {
-    // console.log('Event select', event.selected)
-    let page = event.selected + 1
-    // console.log('This si page handle Click ', page)
-    setPage(page)
-
-    window.scrollTo(0, 0)
-  }
+  const { handlePageClick, data, page, pageCount } = usePagination({ meta, isProduction, API_URL, API_KEY })
 
   const SEO = {
     title: 'Blog - John Serrano',
@@ -64,7 +24,8 @@ export default function Blog ({ posts, meta, feature, isProduction, API_URL, API
     type: 'article'
   }
 
-  if (data.length > 0) {
+  if (data.length > 0 && page > 1) {
+    // console.log('ok paso ')
     posts = data
   }
 

@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import ReactDisqusComments from 'react-disqus-comments'
+
 import Layout from 'components/layout'
 import PostHeader from 'components/PostHeader'
 import PostTitle from 'components/PostTitle'
@@ -12,6 +13,7 @@ import ProfileFollow from 'components/ProfileFollow'
 import ProfileApoyar from 'components/ProfileApoyar'
 import useProgress from 'hooks/useProgress'
 import ErrorPage from '../404'
+
 import { getAllPostsWithSlug, getPostSlug, getMorePosts } from '../../lib/api'
 
 export default function Post ({ post, posts, isProduction, DOMAIN_URL }) {

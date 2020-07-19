@@ -1,6 +1,8 @@
-import Layout from '../components/Layout'
-import Cover from '../components/Cover'
 import Link from 'next/link'
+
+import Layout from 'components/Layout'
+import Cover from 'components/Cover'
+import PostTitle from 'components/PostTitle'
 
 const SobreMi = () => {
   const SEO = {
@@ -18,7 +20,9 @@ const SobreMi = () => {
 
   return (
     <Layout {...SEO}>
-      <Cover title='Quién es John Serrano' profile={false} caption={false} cover='/static/background_2.jpg' />
+      <Cover cover='/background_2.jpg'>
+        <PostTitle>Quién es John Serrano</PostTitle>
+      </Cover>
       <section id='Home' className='container'>
         <div className='main'>
           <h2>Sobre mí</h2>

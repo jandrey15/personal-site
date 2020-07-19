@@ -1,6 +1,7 @@
 const PostTitle = ({ children, capitalize }) => {
   return (
-    <h1 className={capitalize ? 'capitalize' : undefined}>{children}
+    <h1 className={capitalize ? 'capitalize' : undefined}>
+      {children}
       <style jsx>{`
         h1 {
           font-size: 3.75rem;            
