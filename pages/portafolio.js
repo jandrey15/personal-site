@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import Layout from '../components/Layout'
+
+import Layout from 'components/Layout'
 
 class Portafolio extends Component {
   render () {
@@ -105,28 +106,28 @@ class Portafolio extends Component {
             display: block;
           }
           .project.laopinion {
-            background: url('/static/laopinion.jpg') no-repeat;
+            background: url('/laopinion.jpg') no-repeat;
           }
           .project.deleitese {
-            background: url('/static/deleitese.jpg') no-repeat;
+            background: url('/deleitese.jpg') no-repeat;
           }
           .project.suscripciones {
-            background: url('/static/suscripciones.jpg') no-repeat;
+            background: url('/suscripciones.jpg') no-repeat;
           }
           .project.promociones {
-            background: url('/static/promociones.jpg') no-repeat;
+            background: url('/promociones.jpg') no-repeat;
           }
           .project.especial__transito {
-            background: url('/static/especial1.jpg') no-repeat;
+            background: url('/especial1.jpg') no-repeat;
           }
           .project.especial__frontera {
-            background: url('/static/especial2.jpg') no-repeat;
+            background: url('/especial2.jpg') no-repeat;
           }
           .project.podcast {
-            background: url('/static/podcast.jpg') no-repeat;
+            background: url('/podcast.jpg') no-repeat;
           }
           .project.spotify {
-            background: url('/static/spotify.jpg') no-repeat;
+            background: url('/spotify.jpg') no-repeat;
           }
           .project:before {
             content: "";

@@ -1,31 +1,14 @@
 import React from 'react'
 import Link from 'next/link'
-import Layout from '../components/Layout'
-import Cover from '../components/Cover'
+
+import Layout from 'components/Layout'
+import Cover from 'components/Cover'
 import ProfileHome from 'components/ProfileHome'
-import Posts from '../components/PostsGrid'
-import Error from './_error'
-import 'isomorphic-unfetch'
-import useSWR from 'swr'
+import Posts from 'components/PostsGrid'
 
-// const API_URL = process.env.API_URL
-const API_URL = 'https://johnserrano.herokuapp.com/ghost/api/v2/content'
-const API_KEY = '89d49d9098c4a80eca9737f2da'
-// const API_KEY = process.env.API_KEY
+import { getAllPostsForHome } from '../lib/api'
 
-async function fetcher (path) {
-  const res = await fetch(API_URL + path)
-  const { posts } = await res.json()
-  return posts
-}
-
-const Home = () => {
-  const { data, error } = useSWR(`/posts/?key=${API_KEY}&limit=4`, fetcher)
-  // console.log(data)
-
-  if (error) return <Error statusCode={500} />
-  // if (!data) return <div>loading...</div>
-
+const Home = ({ posts }) => {
   const SEO = {
     title: '',
     description: '',
@@ -59,7 +42,7 @@ const Home = () => {
             </Link>, Tutoriales, artículos sobre tecnologías: JavaScript, Node.js, Docker, React, python, etc.</p>
 
           <h2>Últimos artículos publicados</h2>
-          <Posts posts={data} columns='2' />
+          {posts.length > 0 && <Posts posts={posts} columns='2' />}
 
           <h2>Contacto</h2>
           <p className='contact'>Puedes ponerte en contacto conmigo públicamente por las redes sociales Mencíoname en Twitter <a href='https://twitter.com/Jandrey15' rel='noreferrer' target='_blank'>(soy @jandrey15)</a>.</p>
@@ -73,14 +56,6 @@ const Home = () => {
             <input type='image' src='https://www.paypalobjects.com/webstatic/en_US/btn/btn_donate_pp_142x27.png' border='0' name='submit' title='PayPal - The safer, easier way to pay online!' alt='Donate with PayPal button' />
           </form>
         </div>
-        {/* <div className='pauta'>
-            <ins className='adsbygoogle'
-              style={{ display: 'block' }}
-              data-ad-client='ca-pub-3083367533294626'
-              data-ad-slot='3127795481'
-              data-ad-format='auto'
-              data-full-width-responsive='true' />
-          </div> */}
       </section>
       <style jsx>{`
           .main {
@@ -157,6 +132,17 @@ const Home = () => {
         `}</style>
     </Layout>
   )
+}
+
+export async function getStaticProps () {
+  const { data: { posts } } = await getAllPostsForHome()
+  // console.log(posts)
+
+  return {
+    props: {
+      posts
+    }
+  }
 }
 
 export default Home

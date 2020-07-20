@@ -8,7 +8,7 @@ import usePagination from 'hooks/usePagination'
 
 import { getAllPostsForBlog } from '../lib/api'
 
-export default function Blog ({ posts, meta, feature, isProduction, API_URL, API_KEY }) {
+const Blog = ({ posts, meta, feature, isProduction, API_URL, API_KEY }) {
   const { handlePageClick, data, page, pageCount } = usePagination({ meta, isProduction, API_URL, API_KEY })
 
   const SEO = {
@@ -25,7 +25,6 @@ export default function Blog ({ posts, meta, feature, isProduction, API_URL, API
   }
 
   if (data.length > 0 && page > 1) {
-    // console.log('ok paso ')
     posts = data
   }
 
@@ -193,3 +192,5 @@ export async function getStaticProps () {
     }
   }
 }
+
+export default Blog
