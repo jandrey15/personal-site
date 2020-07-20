@@ -46,30 +46,34 @@ export default function Post ({ post, posts, isProduction, DOMAIN_URL }) {
     }
   }, [])
 
-  let description = post.meta_description || post.custom_excerpt || post.excerpt
+  let SEO
 
-  description = description.replace(/(\r\n|\n|\r)/gm, '')
+  if (post) {
+    let description = post.meta_description || post.custom_excerpt || post.excerpt
 
-  const SEO = {
-    title: post.title,
-    description: description,
-    image: post.feature_image ? post.feature_image.replace(
-      'admin',
-      'static'
-    ) : `${DOMAIN_URL}/static/default.jpg`,
-    url: post.canonical_url || `${DOMAIN_URL}/blog/${post.slug}`,
-    titleOpenGraph: post.meta_title || post.title,
-    date: post.published_at,
-    modified: post.updated_at,
-    imagenFacebook: post.feature_image ? post.feature_image.replace(
-      'admin',
-      'static'
-    ) : `${DOMAIN_URL}/static/default.jpg`,
-    imagenTwitter: post.feature_image ? post.feature_image.replace(
-      'admin',
-      'static'
-    ) : `${DOMAIN_URL}/static/default.jpg`,
-    type: 'article'
+    description = description.replace(/(\r\n|\n|\r)/gm, '')
+
+    SEO = {
+      title: post.title,
+      description: description,
+      image: post.feature_image ? post.feature_image.replace(
+        'admin',
+        'static'
+      ) : `${DOMAIN_URL}/static/default.jpg`,
+      url: post.canonical_url || `${DOMAIN_URL}/blog/${post.slug}`,
+      titleOpenGraph: post.meta_title || post.title,
+      date: post.published_at,
+      modified: post.updated_at,
+      imagenFacebook: post.feature_image ? post.feature_image.replace(
+        'admin',
+        'static'
+      ) : `${DOMAIN_URL}/static/default.jpg`,
+      imagenTwitter: post.feature_image ? post.feature_image.replace(
+        'admin',
+        'static'
+      ) : `${DOMAIN_URL}/static/default.jpg`,
+      type: 'article'
+    }
   }
 
   return (
