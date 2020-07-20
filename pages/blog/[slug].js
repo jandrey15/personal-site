@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 import ReactDisqusComments from 'react-disqus-comments'
 
-import Layout from 'components/layout'
+import Layout from 'components/Layout'
 import PostHeader from 'components/PostHeader'
 import PostTitle from 'components/PostTitle'
 import Newsletter from 'components/Newsletter'
