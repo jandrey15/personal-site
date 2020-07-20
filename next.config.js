@@ -1,7 +1,3 @@
-// require('dotenv').config()
-
-const path = require('path')
-// const Dotenv = require('dotenv-webpack')
 const withOffline = require('next-offline')
 
 const nextConfig = {

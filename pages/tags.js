@@ -71,7 +71,7 @@ class Tags extends Component {
       title: title,
       description: '',
       image: '',
-      url: '',
+      url: 'https://johnserrano.co/tags',
       titleOpenGraph: '',
       date: '',
       modified: '',

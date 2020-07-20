@@ -76,7 +76,7 @@ class Tag extends Component {
       title: this.capitalize(slug),
       description: '',
       image: '',
-      url: '',
+      url: `https://johnserrano.co/tags/${slug}`,
       titleOpenGraph: '',
       date: '',
       modified: '',
