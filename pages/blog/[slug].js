@@ -80,9 +80,6 @@ export default function Post ({ post, posts, isProduction, DOMAIN_URL }) {
           <PostTitle>Loading…</PostTitle>
         ) : (
           <>
-            <Head>
-              <link rel='canonical' href={`${DOMAIN_URL}/blog/${post.slug}`} />
-            </Head>
             <PostHeader
               title={post.title}
               profile={false}
