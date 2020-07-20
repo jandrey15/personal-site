@@ -8,7 +8,7 @@ import usePagination from 'hooks/usePagination'
 
 import { getAllPostsForBlog } from '../lib/api'
 
-const Blog = ({ posts, meta, feature, isProduction, API_URL, API_KEY }) {
+const Blog = ({ posts, meta, feature, isProduction, API_URL, API_KEY }) => {
   const { handlePageClick, data, page, pageCount } = usePagination({ meta, isProduction, API_URL, API_KEY })
 
   const SEO = {
