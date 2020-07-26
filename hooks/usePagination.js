@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 
 function usePagination ({ meta, isProduction, API_URL, API_KEY }) {
   const [page, setPage] = useState(1)
@@ -35,14 +35,26 @@ function usePagination ({ meta, isProduction, API_URL, API_KEY }) {
     return () => { ignore = true }
   }, [page])
 
-  const handlePageClick = (event) => {
-    // console.log('Event select', event.selected)
-    let page = event.selected + 1
-    // console.log('This si page handle Click ', page)
-    setPage(page)
+  // const handlePageClick = (event) => {
+  //   // console.log('Event select', event.selected)
+  //   let page = event.selected + 1
+  //   // console.log('This si page handle Click ', page)
+  //   setPage(page)
 
-    window.scrollTo(0, 0)
-  }
+  //   window.scrollTo(0, 0)
+  // }
+
+  const handlePageClick = useCallback(
+    (event) => {
+      // console.log('Event select', event.selected)
+      let page = event.selected + 1
+      // console.log('This si page handle Click ', page)
+      setPage(page)
+
+      window.scrollTo(0, 0)
+    },
+    [page]
+  )
 
   return { handlePageClick, data, page, pageCount }
 }

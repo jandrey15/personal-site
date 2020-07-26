@@ -62,13 +62,6 @@ class MyDocument extends Document {
     return (
       <html lang='es'>
         <Head>
-          {
-            <Fragment>
-              <link
-                rel='stylesheet'
-                href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/railscasts.min.css' />
-            </Fragment>
-          }
           {isProduction && (
             <Fragment>
               <script

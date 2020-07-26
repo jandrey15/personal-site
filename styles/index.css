@@ -104,6 +104,12 @@ body {
   }
 }
 
+@media screen and (max-width: 768px) {
+  .container {
+    width: 96%;
+  }
+}
+
 /* @media screen and (max-width: 1024px) {
   .text img,
   .text figure img,

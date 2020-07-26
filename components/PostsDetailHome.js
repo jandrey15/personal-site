@@ -3,6 +3,7 @@ import Link from 'next/link'
 import PropTypes from 'prop-types'
 
 const PostsDetailHome = ({ slug, feature_image, title, custom_excerpt = '', excerpt = '' }) => {
+  let excerpt_custom = custom_excerpt ? custom_excerpt.slice(0, 160) : excerpt ? excerpt.slice(0, 160) : ''
   return (
     <>
       <article className='post'>
@@ -21,7 +22,7 @@ const PostsDetailHome = ({ slug, feature_image, title, custom_excerpt = '', exce
               <h2>{title}</h2>
             </a>
           </Link>
-          <p className='excerpt'>{ custom_excerpt ? custom_excerpt.substring(0, 160) : excerpt ? excerpt.substring(0, 160) : null}</p>
+          <p className='excerpt'>{excerpt_custom}...</p>
         </div>
       </article>
       <style jsx>{`        

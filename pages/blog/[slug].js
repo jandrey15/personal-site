@@ -84,6 +84,11 @@ export default function Post ({ post, posts, isProduction, DOMAIN_URL }) {
           <PostTitle>Loading…</PostTitle>
         ) : (
           <>
+            <Head>
+              <link
+                rel='stylesheet'
+                href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/railscasts.min.css' />
+            </Head>
             <PostHeader
               title={post.title}
               profile={false}

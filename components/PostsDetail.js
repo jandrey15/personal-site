@@ -5,6 +5,8 @@ import moment from 'moment'
 moment.locale('es')
 
 const PostsDetail = ({ slug, feature_image, title, custom_excerpt = '', excerpt = '', primary_author = '', published_at }) => {
+  // {post.excerpt.slice(0, 92)}...
+  let excerpt_custom = custom_excerpt ? custom_excerpt.slice(0, 160) : excerpt ? excerpt.slice(0, 160) : ''
   return (
     <>
       <article className='post'>
@@ -23,7 +25,7 @@ const PostsDetail = ({ slug, feature_image, title, custom_excerpt = '', excerpt 
                 <h2>{title}</h2>
               </a>
             </Link>
-            <p className='excerpt'>{ custom_excerpt ? custom_excerpt.substring(0, 160) : excerpt ? excerpt.substring(0, 160) : null}</p>
+            <p className='excerpt'>{excerpt_custom}...</p>
           </div>
         </header>
         <footer className='post__meta'>

@@ -10,8 +10,13 @@ const Search = () => {
   return (
     <div id='Search'>
       <form className='search__form' onSubmit={handleSubmit}>
-        <input type='text' value={search} placeholder='Buscar' onChange={onChange} />
-        <button type='submit' />
+        <label htmlFor='search__input'>Buscador</label>
+        <input id='search__input'
+          type='text' value={search}
+          placeholder='Buscar'
+          onChange={onChange}
+        />
+        <button type='submit'>Buscar</button>
       </form>
       {search.length >= 3 && data.length >= 1 && (
         <div className='search__results'>
@@ -65,6 +70,7 @@ const Search = () => {
           color: #1c1c1c;
           padding: 5px;
         }
+        .search__form label { display: none; }
 
         .search__form button {
           background: #0078ae url('/lupa.svg') center/20px no-repeat;
@@ -73,6 +79,7 @@ const Search = () => {
           border-radius: 0 2px 2px 0;
           cursor: pointer;
           padding: 0;
+          text-indent: -9999px;
           width: 45px;
         }
 
