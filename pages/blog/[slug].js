@@ -11,6 +11,7 @@ import PostsGrid from 'components/PostsGrid'
 import PostBody from 'components/PostBody'
 import ProfileFollow from 'components/ProfileFollow'
 import ProfileApoyar from 'components/ProfileApoyar'
+import Seo from 'components/Seo'
 import useProgress from 'hooks/useProgress'
 import ErrorPage from '../404'
 
@@ -77,18 +78,18 @@ export default function Post ({ post, posts, isProduction, DOMAIN_URL }) {
   }
 
   return (
-    <Layout {...SEO}>
+    <Layout>
       <progress id='progress' ref={refProgress} value={0} max={max} />
       {
         router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
           <>
-            <Head>
+            <Seo {...SEO}>
               <link
                 rel='stylesheet'
                 href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/railscasts.min.css' />
-            </Head>
+            </Seo>
             <PostHeader
               title={post.title}
               profile={false}
