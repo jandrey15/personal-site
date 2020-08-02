@@ -4,6 +4,7 @@ import ReactPaginate from 'react-paginate'
 import Layout from 'components/Layout'
 import Posts from 'components/PostsGrid'
 import PostsFeature from 'components/PostsFeature'
+import Seo from 'components/Seo'
 import usePagination from 'hooks/usePagination'
 
 import { getAllPostsForBlog } from '../lib/api'
@@ -31,7 +32,8 @@ const Blog = ({ posts, meta, feature, isProduction, API_URL, API_KEY }) => {
   // console.log(posts)
 
   return (
-    <Layout {...SEO}>
+    <Layout>
+      <Seo {...SEO} />
       <section id='Blog' className='container'>
         {feature && <PostsFeature {...feature} />}
 
