@@ -3,6 +3,7 @@ import Layout from 'components/Layout'
 import Cover from 'components/Cover'
 import PostTitle from 'components/PostTitle'
 import PostsGrid from 'components/PostsGrid'
+import Seo from 'components/Seo'
 
 import { getAllTags } from '../lib/api'
 
@@ -23,7 +24,8 @@ const Tags = ({ posts }) => {
   }
 
   return (
-    <Layout {...SEO}>
+    <Layout>
+      <Seo {...SEO} />
       <Cover cover='/'>
         <PostTitle capitalize='capitalize'>{title}</PostTitle>
       </Cover>

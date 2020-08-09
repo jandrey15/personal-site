@@ -1,12 +1,28 @@
 import Layout from '../components/Layout'
 import Posts from '../components/PostsGrid'
+import Seo from 'components/Seo'
+
 import useSearchPage from '../hooks/useSearchPage'
 
 const SearchPage = () => {
   const { state, onChange } = useSearchPage()
 
+  let SEO = {
+    title: `${state.search} - John Serrano`,
+    description: '',
+    image: '',
+    url: `https://johnserrano.co/search`,
+    titleOpenGraph: '',
+    date: '',
+    modified: '',
+    imagenFacebook: '',
+    imagenTwitter: '',
+    type: 'article'
+  }
+
   return (
     <Layout>
+      <Seo {...SEO} />
       <section id='SearchPage'>
         <div className='searcher__container'>
           <form className='search__form'>

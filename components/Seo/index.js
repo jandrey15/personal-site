@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { DEFAULT_SEO } from '../../config'
 
-function Seo ({ children, title, titleOpenGraph, description, url, image, imagenFacebook, imagenTwitter, date, modified, type }) {
+function Seo ({ children, title, titleOpenGraph, description, url, image, imagenFacebook, imagenTwitter, date, modified, type = 'article' }) {
   const addJSONLD = (title, description, url, image, date, modified) => {
     return {
       __html: `{
@@ -55,6 +55,7 @@ function Seo ({ children, title, titleOpenGraph, description, url, image, imagen
           name='viewport'
           content='width=device-width, initial-scale=1, maximum-scale=5'
         />
+
         <meta key='title' name='title' content={titleOpenGraph} />
         <meta key='description' name='description' content={description} />
 

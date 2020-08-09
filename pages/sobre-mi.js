@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Layout from 'components/Layout'
 import Cover from 'components/Cover'
 import PostTitle from 'components/PostTitle'
+import Seo from 'components/Seo'
 
 const SobreMi = () => {
   const SEO = {
@@ -19,7 +20,8 @@ const SobreMi = () => {
   }
 
   return (
-    <Layout {...SEO}>
+    <Layout>
+      <Seo {...SEO} />
       <Cover cover='/background_2.jpg'>
         <PostTitle>Quién es John Serrano</PostTitle>
       </Cover>

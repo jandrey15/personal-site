@@ -5,6 +5,7 @@ import Layout from 'components/Layout'
 import Cover from 'components/Cover'
 import PostTitle from 'components/PostTitle'
 import PostsGrid from 'components/PostsGrid'
+import Seo from 'components/Seo'
 import ErrorPage from '../404'
 
 import { getAllTagsWithSlug, getPostTagSlug } from '../../lib/api'
@@ -31,10 +32,10 @@ export default function Tag ({ posts, slug }) {
     }
     SEO = {
       title: capitalize(slug),
-      description: '',
+      description: `Estos son los artículos para el tag ${capitalize(slug)}`,
       image: '',
       url: `https://johnserrano.co/tags/${slug}`,
-      titleOpenGraph: '',
+      titleOpenGraph: capitalize(slug) + ' - John Serrano',
       date: '',
       modified: '',
       imagenFacebook: '',
@@ -44,12 +45,13 @@ export default function Tag ({ posts, slug }) {
   }
 
   return (
-    <Layout {...SEO}>
+    <Layout>
       {
         router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
           <>
+            <Seo {...SEO} />
             <Cover cover='/'>
               <PostTitle capitalize='capitalize'>{slug}</PostTitle>
             </Cover>

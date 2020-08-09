@@ -1,4 +1,5 @@
 /* eslint-disable camelcase */
+import React from 'react'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import moment from 'moment'
@@ -35,7 +36,7 @@ const PostsDetail = ({ slug, feature_image, title, custom_excerpt = '', excerpt 
                 <img
                   className='profile__image'
                   src={primary_author.profile_image
-                    ? primary_author.profile_image
+                    ? primary_author.profile_image.replace('admin', 'static')
                     : 'https://static.ghost.org/v3.0.0/images/ghost.png'}
                   alt={primary_author.name}
                 />
@@ -196,4 +197,4 @@ PostsDetail.propTypes = {
   ])
 }
 
-export default PostsDetail
+export default React.memo(PostsDetail)

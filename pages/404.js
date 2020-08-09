@@ -1,11 +1,16 @@
-import Layout from '../components/Layout'
 import Link from 'next/link'
+
+import Layout from 'components/Layout'
+import Seo from 'components/Seo'
 
 const Error404 = () => {
   let title = `John Serrano - 404`
 
   return (
-    <Layout title={title}>
+    <Layout>
+      <Seo title={title}>
+        <meta name='robots' content='noindex' />
+      </Seo>
       <section id='Error'>
         <div className='message'>
           <h2>{404}</h2>

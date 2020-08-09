@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import TrackVisibility from 'react-on-screen'
 
 import Layout from 'components/Layout'
+import Seo from 'components/Seo'
 
 class Portafolio extends Component {
   render () {
@@ -19,7 +20,8 @@ class Portafolio extends Component {
     }
 
     return (
-      <Layout {...SEO}>
+      <Layout>
+        <Seo {...SEO} />
         <section id='Portafolio'>
           <ul className='projects'>
             <li>

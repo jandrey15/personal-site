@@ -1,4 +1,5 @@
 /* eslint-disable camelcase */
+import React from 'react'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import moment from 'moment'
@@ -191,4 +192,4 @@ PostsFeature.propTypes = {
   ])
 }
 
-export default PostsFeature
+export default React.memo(PostsFeature)

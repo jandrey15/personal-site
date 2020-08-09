@@ -5,6 +5,7 @@ import Layout from 'components/Layout'
 import Cover from 'components/Cover'
 import ProfileHome from 'components/ProfileHome'
 import Posts from 'components/PostsGrid'
+import Seo from 'components/Seo'
 
 import { getAllPostsForHome } from '../lib/api'
 
@@ -23,7 +24,8 @@ const Home = ({ posts }) => {
   }
 
   return (
-    <Layout {...SEO}>
+    <Layout>
+      <Seo {...SEO} />
       <Cover>
         <ProfileHome title='John Serrano' />
       </Cover>

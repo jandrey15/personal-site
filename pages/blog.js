@@ -1,16 +1,16 @@
 import React from 'react'
-import ReactPaginate from 'react-paginate'
+// import ReactPaginate from 'react-paginate'
 
 import Layout from 'components/Layout'
-import Posts from 'components/PostsGrid'
+import PostsPagination from 'components/PostsPagination'
 import PostsFeature from 'components/PostsFeature'
 import Seo from 'components/Seo'
-import usePagination from 'hooks/usePagination'
+// import usePagination from 'hooks/usePagination'
 
 import { getAllPostsForBlog } from '../lib/api'
 
 const Blog = ({ posts, meta, feature, isProduction, API_URL, API_KEY }) => {
-  const { handlePageClick, data, page, pageCount } = usePagination({ meta, isProduction, API_URL, API_KEY })
+  // const { handlePageClick, data, page, pageCount } = usePagination({ meta, isProduction, API_URL, API_KEY })
 
   const SEO = {
     title: 'Blog - John Serrano',
@@ -25,10 +25,10 @@ const Blog = ({ posts, meta, feature, isProduction, API_URL, API_KEY }) => {
     type: 'article'
   }
 
-  if (data.length > 0 && page > 1) {
-    posts = data
-  }
-
+  // if (data.length > 0) {
+  //   posts = data
+  // }
+  // console.log('this is data -> ', data)
   // console.log(posts)
 
   return (
@@ -36,21 +36,12 @@ const Blog = ({ posts, meta, feature, isProduction, API_URL, API_KEY }) => {
       <Seo {...SEO} />
       <section id='Blog' className='container'>
         {feature && <PostsFeature {...feature} />}
-
-        {posts.length > 0 && <Posts posts={posts} columns='3' />}
-
-        <ReactPaginate
-          previousLabel={'Anterior'}
-          nextLabel={'Siguiente'}
-          breakLabel={'...'}
-          breakClassName={'break-me'}
-          pageCount={pageCount}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={5}
-          onPageChange={handlePageClick}
-          containerClassName={'pagination'}
-          subContainerClassName={'pages pagination'}
-          activeClassName={'active'}
+        <PostsPagination
+          posts={posts}
+          meta={meta}
+          isProduction={isProduction}
+          API_URL={API_URL}
+          API_KEY={API_KEY}
         />
       </section>
       <style jsx>{`
