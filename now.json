@@ -41,6 +41,11 @@
       "headers": { "Location": "https://johnserrano.co/blog/$slug" }
     },
     {
+      "src": "/ebook",
+      "status": 301,
+      "headers": { "Location": "https://johnserrano.co/blog/fundamentos-de-programacion-con-javascript-mi-primer-ebook" }
+    },
+    {
       "src": "^/service-worker.js$",
       "dest": "/_next/static/service-worker.js",
       "headers": {
