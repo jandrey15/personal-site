@@ -38,66 +38,72 @@ const SobreMi = () => {
 
           <h2>Actualmente</h2>
           <p className='actual'>Desde entonces he estado estudiando aprendiendo cosas nuevas pensando siempre en mejorar en ser uno de los mejores desarrolladores de Colombia, estoy por ser un egresado de la Universidad Santo Tomás como <strong>ingeniero en informática</strong>. Creo que gracias a mi disciplina y al ser autodidacta pude mejorar un monto en el desarrollo web también a plataformas como <a href='https://platzi.com/r/jandrey/' rel='noreferrer' target='_blank'>platzi</a>, me ayudó a ser mejor profesional a seguir aprendiendo a no desfallecer y sobre todo a nunca parar de aprender. Actualmente puedo decir que tengo buenos conocimientos de <strong>Front-End</strong>, <strong>Back-End</strong> y también sobre <strong>DevOps</strong>. Me puedes encontrar en <a href='https://www.facebook.com/johnserrano15'>Facebook</a>, <a href='https://twitter.com/Jandrey15'>Twitter</a>, <a href='https://github.com/johnsi15'>GitHub</a> y <a href='https://www.linkedin.com/in/jandreys15'>Linkedin</a> gracias por leer y saludos.</p>
+
+          <q className='citaBible'>El que cree en mí, como dice la Escritura, de su interior correrán ríos de agua viva. Juan 7:38</q>
         </div>
       </section>
       <style jsx>{`
-          .main {
-            margin: 70px auto 50px auto;
-            max-width: 700px;
-          }
+        .main {
+          margin: 70px auto 50px auto;
+          max-width: 700px;
+        }
 
-          h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin: 70px 0 0;
-          }
+        .citaBible {
+          font-style: italic;
+        }
 
-          p {
-            font-size: 1.25rem;
-            line-height: 2rem;
-            font-weight: 400;
-            margin: 20px 0 0;
-            border-bottom: 2px solid #eeeeee;
-            padding-bottom: 35px;
-          }
+        h2 {
+          font-size: 2rem;
+          font-weight: 700;
+          margin: 70px 0 0;
+        }
 
-          p strong {
-            font-weight: 700;
-          }
+        p {
+          font-size: 1.25rem;
+          line-height: 2rem;
+          font-weight: 400;
+          margin: 20px 0 0;
+          border-bottom: 2px solid #eeeeee;
+          padding-bottom: 35px;
+        }
 
-          p > a {
-            position: relative;
-            font-weight: 700;
-            color: #0078ae;
-            text-decoration: none;
-          }
+        p strong {
+          font-weight: 700;
+        }
 
-          p > a:hover {
-            color: #1c1c1c;
-          }
+        p > a {
+          position: relative;
+          font-weight: 700;
+          color: #0078ae;
+          text-decoration: none;
+        }
 
-          p > a:before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #0078ae;
-            visibility: visible;
-            transform: scaleX(1);
-            transition: all 0.3s ease-in-out 0s;
-          }
+        p > a:hover {
+          color: #1c1c1c;
+        }
 
-          p > a:hover:before {
-            visibility: hidden;
-            transform: scaleX(0);
-          }
+        p > a:before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 2px;
+          bottom: 0;
+          left: 0;
+          background-color: #0078ae;
+          visibility: visible;
+          transform: scaleX(1);
+          transition: all 0.3s ease-in-out 0s;
+        }
 
-          .actual {
-            border: none;
-          } 
-        `}</style>
+        p > a:hover:before {
+          visibility: hidden;
+          transform: scaleX(0);
+        }
+
+        .actual {
+          border: none;
+        } 
+      `}</style>
     </Layout>
   )
 }

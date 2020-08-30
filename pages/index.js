@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import TrackVisibility from 'react-on-screen'
 
 import Layout from 'components/Layout'
 import Cover from 'components/Cover'
@@ -50,88 +51,100 @@ const Home = ({ posts }) => {
           <p className='contact'>Puedes ponerte en contacto conmigo públicamente por las redes sociales Mencíoname en Twitter <a href='https://twitter.com/Jandrey15' rel='noreferrer' target='_blank'>(soy @jandrey15)</a>.</p>
         </div>
 
-        <div className='apoyar'>
-          <p>Si te gusta lo que lees puedes apoyarme haciendo una donación con PayPal, de antemano gracias por su apoyo.</p>
-          <form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_top'>
-            <input type='hidden' name='cmd' value='_s-xclick' />
-            <input type='hidden' name='hosted_button_id' value='SJZPTCRX7TYGA' />
-            <input type='image' src='https://www.paypalobjects.com/webstatic/en_US/btn/btn_donate_pp_142x27.png' border='0' name='submit' title='PayPal - The safer, easier way to pay online!' alt='Donate with PayPal button' />
-          </form>
-        </div>
+        <TrackVisibility once partialVisibility>
+          {({ isVisible }) =>
+            isVisible && (
+              <div className='apoyar'>
+                <p>Si te gusta lo que lees puedes apoyarme haciendo una donación con PayPal, de antemano gracias por tu apoyo.</p>
+                <form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_top'>
+                  <input type='hidden' name='cmd' value='_s-xclick' />
+                  <input type='hidden' name='hosted_button_id' value='SJZPTCRX7TYGA' />
+                  <input type='image' src='https://www.paypalobjects.com/webstatic/en_US/btn/btn_donate_pp_142x27.png' border='0' name='submit' title='PayPal - The safer, easier way to pay online!' alt='Donate with PayPal button' />
+                </form>
+                <hr />
+                <q className='citaBible'>Jesús le dijo: Yo soy el camino, y la verdad, y la vida; nadie viene al Padre, sino por mí. Juan 14:6</q>
+              </div>
+            )
+          }
+        </TrackVisibility>
       </section>
       <style jsx>{`
-          .main {
-            margin: 70px auto 0 auto;
-            max-width: 700px;
-          }
+        .main {
+          margin: 70px auto 0 auto;
+          max-width: 700px;
+        }
 
-          .apoyar {
-            max-width: 700px;
-            margin: 0 auto 100px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-          }
-          .apoyar p {            
-            text-align: center; 
-            border: none;
-          }
+        .apoyar {
+          max-width: 700px;
+          margin: 0 auto 100px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .apoyar p {            
+          text-align: center; 
+          border: none;
+        }
 
-          .pauta {
-            margin: 20px 0;
-          }
+        .pauta {
+          margin: 20px 0;
+        }
 
-          h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin: 70px 0 0;
-          }
+        .citaBible {
+          font-style: italic;
+        }
 
-          p {
-            font-size: 1.25rem;
-            line-height: 2rem;
-            font-weight: 400;
-            margin: 20px 0 0;
-            border-bottom: 2px solid #eeeeee;
-            padding-bottom: 35px;
-          }
+        h2 {
+          font-size: 2rem;
+          font-weight: 700;
+          margin: 70px 0 0;
+        }
 
-          p strong {
-            font-weight: 700;
-          }
+        p {
+          font-size: 1.25rem;
+          line-height: 2rem;
+          font-weight: 400;
+          margin: 20px 0 0;
+          border-bottom: 2px solid #eeeeee;
+          padding-bottom: 35px;
+        }
 
-          p > a {
-            position: relative;
-            font-weight: 700;
-            color: #0078ae;
-            text-decoration: none;
-          }
+        p strong {
+          font-weight: 700;
+        }
 
-          p > a:hover {
-            color: #1c1c1c;
-          }
+        p > a {
+          position: relative;
+          font-weight: 700;
+          color: #0078ae;
+          text-decoration: none;
+        }
 
-          p > a:before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #0078ae;
-            visibility: visible;
-            transform: scaleX(1);
-            transition: all 0.3s ease-in-out 0s;
-          }
+        p > a:hover {
+          color: #1c1c1c;
+        }
 
-          p > a:hover:before {
-            visibility: hidden;
-            transform: scaleX(0);
-          }
-          .contact {
-            margin-bottom: 70px;
-          }
-        `}</style>
+        p > a:before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 2px;
+          bottom: 0;
+          left: 0;
+          background-color: #0078ae;
+          visibility: visible;
+          transform: scaleX(1);
+          transition: all 0.3s ease-in-out 0s;
+        }
+
+        p > a:hover:before {
+          visibility: hidden;
+          transform: scaleX(0);
+        }
+        .contact {
+          margin-bottom: 70px;
+        }
+      `}</style>
     </Layout>
   )
 }

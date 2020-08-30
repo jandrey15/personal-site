@@ -8,6 +8,8 @@ moment.locale('es')
 const PostsDetail = ({ slug, feature_image, title, custom_excerpt = '', excerpt = '', primary_author = '', published_at }) => {
   // {post.excerpt.slice(0, 92)}...
   let excerpt_custom = custom_excerpt ? custom_excerpt.slice(0, 160) : excerpt ? excerpt.slice(0, 160) : ''
+  // console.log(published_at)
+  // https://github.com/you-dont-need/You-Dont-Need-Momentjs
   return (
     <>
       <article className='post'>
