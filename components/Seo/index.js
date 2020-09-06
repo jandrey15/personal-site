@@ -67,7 +67,7 @@ function Seo ({ children, title, titleOpenGraph, description, url, image, imagen
         <meta name='msapplication-TileColor' content='#da532c' />
         <meta name='theme-color' content='#ffffff' />
 
-        <link rel='canonical' href={`${url}`} />
+        <link rel='canonical' href={url} />
 
         {children}
 
