@@ -7,6 +7,9 @@ const ProfileApoyar = () => {
         <input type='hidden' name='hosted_button_id' value='SJZPTCRX7TYGA' />
         <input type='image' src='https://www.paypalobjects.com/webstatic/en_US/btn/btn_donate_pp_142x27.png' border='0' name='submit' title='PayPal - The safer, easier way to pay online!' alt='Donate with PayPal button' />
       </form>
+      <q className='citaBible'>
+      No hay un amor más grande que el dar la vida por los amigos. Juan 15:13
+      </q>
       <style jsx>{`
         .apoyar {
           max-width: 700px;
@@ -14,15 +17,19 @@ const ProfileApoyar = () => {
           display: flex;
           flex-direction: column;
           align-items: center;
-          font-size: 1.25rem;
           border-top: 2px solid #eeeeee;
           padding-top: 30px;
         }
         .apoyar p {            
           text-align: center; 
+          font-size: 1.25rem;
           line-height: 1.5rem;
           border: none;
-        }  
+        }
+        .citaBible {
+          font-style: italic;
+          margin-top: 20px;
+        }
       `}</style>
     </div>
   )

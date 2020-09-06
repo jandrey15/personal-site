@@ -18,7 +18,7 @@ function useProgress () {
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
-  })
+  }, [])
 
   const handleScroll = () => {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0

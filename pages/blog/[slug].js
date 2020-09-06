@@ -12,7 +12,7 @@ import PostBody from 'components/PostBody'
 import ProfileFollow from 'components/ProfileFollow'
 import ProfileApoyar from 'components/ProfileApoyar'
 import Seo from 'components/Seo'
-import useProgress from 'hooks/useProgress'
+import ProgressBar from 'components/ProgressBar'
 import ErrorPage from '../404'
 
 import { getAllPostsWithSlug, getPostSlug, getMorePosts } from '../../lib/api'
@@ -31,7 +31,6 @@ export default function Post ({ post, posts, isProduction, DOMAIN_URL }) {
     </>
   }
 
-  const [max, refProgress] = useProgress()
   // console.log(isProduction)
 
   useEffect(() => {
@@ -79,7 +78,8 @@ export default function Post ({ post, posts, isProduction, DOMAIN_URL }) {
 
   return (
     <Layout>
-      <progress id='progress' ref={refProgress} value={0} max={max} />
+      {/* <progress id='progress' ref={refProgress} value={0} max={max} />  Se creo en un componente porque el hook me hacia render de todo por performance es mejor tenerlo en un component */}
+      <ProgressBar />
       {
         router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
