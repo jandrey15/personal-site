@@ -2,15 +2,12 @@
 import React from 'react'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
-import moment from 'moment'
-moment.locale('es')
+import { formatDistanceStrict } from 'date-fns'
+import { es } from 'date-fns/locale'
 
 const PostsFeature = ({ title, feature_image = '', slug, custom_excerpt = '', excerpt = '', published_at, primary_author = '' }) => {
   // console.log(props)
-  // console.log(moment().format())
-  // console.log(moment().format('MMMM Do YYYY, h:mm:ss a'))
-  // console.log(moment(published_at, 'YYYYMMDD').fromNow())
-  // console.log(moment(published_at).format('DD/MM/YYYY'))
+  const timeAgo = formatDistanceStrict(new Date(published_at), new Date(), { locale: es, addSuffix: true })
   return (
     <article id='PostsFeature'>
       <Link href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
@@ -41,7 +38,7 @@ const PostsFeature = ({ title, feature_image = '', slug, custom_excerpt = '', ex
             </Link>
             <span className='profile__name'>{primary_author.name}</span>
           </div>
-          <span>{moment(published_at, 'YYYYMMDD').fromNow()}</span>
+          <span>{timeAgo}</span>
           <Link href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
             <a>
               <span>Leer más</span>

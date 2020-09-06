@@ -2,14 +2,15 @@
 import React from 'react'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
-import moment from 'moment'
-moment.locale('es')
+import { formatDistanceStrict } from 'date-fns'
+import { es } from 'date-fns/locale'
 
 const PostsDetail = ({ slug, feature_image, title, custom_excerpt = '', excerpt = '', primary_author = '', published_at }) => {
   // {post.excerpt.slice(0, 92)}...
   let excerpt_custom = custom_excerpt ? custom_excerpt.slice(0, 160) : excerpt ? excerpt.slice(0, 160) : ''
   // console.log(published_at)
   // https://github.com/you-dont-need/You-Dont-Need-Momentjs
+  const timeAgo = formatDistanceStrict(new Date(published_at), new Date(), { locale: es, addSuffix: true })
   return (
     <>
       <article className='post'>
@@ -46,7 +47,7 @@ const PostsDetail = ({ slug, feature_image, title, custom_excerpt = '', excerpt 
             </Link>
             <span className='profile__name'>{primary_author.name}</span>
           </div>
-          <span>{moment(published_at, 'YYYYMMDD').fromNow()}</span>
+          <span>{timeAgo}</span>
           <Link href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
             <a>
               <span>Leer más</span>

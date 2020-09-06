@@ -1,9 +1,11 @@
 /* eslint-disable camelcase */
 import Link from 'next/link'
-import moment from 'moment'
-moment.locale('es')
+import format from 'date-fns/format'
+import { es } from 'date-fns/locale'
 
 const PostProfile = ({ primary_author, primary_tag, published_at }) => {
+  const formatDate = format(new Date(published_at), 'dd MMMM - yyyy', { locale: es })
+  // console.info(formatDate)
   return (
     <section className='profile__section'>
       <div className='profile__post'>
@@ -22,8 +24,7 @@ const PostProfile = ({ primary_author, primary_tag, published_at }) => {
           </Link>
           <span className='profile__name'>{primary_author.name}</span>
         </div>
-        {/* <span>{moment(published_at, 'YYYYMMDD').fromNow()}</span> */}
-        <span>{moment(published_at).format('DD MMMM - YYYY')}</span>
+        <span>{formatDate}</span>
       </div>
       {primary_tag && (
         <section className='category'>
