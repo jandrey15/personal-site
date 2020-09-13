@@ -53,8 +53,9 @@ function Seo ({ children, title, titleOpenGraph, description, url, image, imagen
         <meta charSet='UTF-8' />
         <meta
           name='viewport'
-          content='width=device-width, initial-scale=1,minimum-scale=1, maximum-scale=1, user-scalable=no'
+          content='width=device-width, initial-scale=1,minimum-scale=1, maximum-scale=5'
         />
+        {/* Por accessibility en Lighthouse se deja el meta viewport de esa manera */}
 
         <meta key='title' name='title' content={titleOpenGraph} />
         <meta key='description' name='description' content={description} />
