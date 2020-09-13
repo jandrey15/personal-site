@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import ReactDisqusComments from 'react-disqus-comments'
+import TrackVisibility from 'react-on-screen'
 
 import Layout from 'components/Layout'
 import PostHeader from 'components/PostHeader'
@@ -110,13 +111,17 @@ export default function Post ({ post, posts, isProduction, DOMAIN_URL }) {
 
               <Newsletter />
 
-              <ReactDisqusComments
-                shortname='johnserrano'
-                identifier={post.slug}
-                title={post.title}
-                url={`http://johnserrano.co/blog/${post.slug}`}
-                className='disqus'
-              />
+              <TrackVisibility once partialVisibility>
+                {({ isVisible }) => isVisible && (
+                  <ReactDisqusComments
+                    shortname='johnserrano'
+                    identifier={post.slug}
+                    title={post.title}
+                    url={`http://johnserrano.co/blog/${post.slug}`}
+                    className='disqus'
+                  />
+                )}
+              </TrackVisibility>
               <h2 className='more__posts'>Otros artículos</h2>
               {morePosts.length > 0 && <PostsGrid posts={morePosts} columns='3' />}
 
