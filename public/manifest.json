@@ -22,6 +22,6 @@
   "background_color": "#FFFFFF",
   "description": "Desarrollador web un apasionado y entusiasta de las tecnología web: JavaScript, Node.js, Docker, Firebase, React, etc..",
   "display": "fullscreen",
-  "start_url": "https://dev.johnserrano.co/",
+  "start_url": "/",
   "theme_color": "#000"
 }
