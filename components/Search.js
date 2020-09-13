@@ -11,8 +11,9 @@ const Search = () => {
     <div id='Search'>
       <form className='search__form' onSubmit={handleSubmit}>
         <label>
-          <input id='search__input'
-            type='text' value={search}
+          <input
+            type='text'
+            value={search}
             placeholder='Buscar'
             onChange={onChange}
           />
@@ -70,7 +71,7 @@ const Search = () => {
           border-radius: 2px 0 0 2px;
           color: #1c1c1c;
           padding: 5px;
-          width: 100%;
+          width: 95%;
         }
 
         .search__form button {

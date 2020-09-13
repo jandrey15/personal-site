@@ -14,7 +14,7 @@
     },
     {
       "src": "/maskable_icon.png",
-      "sizes": "196x196",
+      "sizes": "213x213",
       "type": "image/png",
       "purpose": "any maskable"
     }
@@ -22,6 +22,6 @@
   "background_color": "#FFFFFF",
   "description": "Desarrollador web un apasionado y entusiasta de las tecnología web: JavaScript, Node.js, Docker, Firebase, React, etc..",
   "display": "fullscreen",
-  "start_url": "/",
+  "start_url": "https://dev.johnserrano.co/",
   "theme_color": "#000"
 }
