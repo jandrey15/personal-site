@@ -4,6 +4,10 @@
     {
       "source": "/service-worker.js",
       "destination": "/_next/static/service-worker.js"
+    },
+    {
+      "source": "/ebook",
+      "destination": "https://johnserrano.co/blog/fundamentos-de-programacion-con-javascript-mi-primer-ebook"
     }
   ],
   "headers": [
