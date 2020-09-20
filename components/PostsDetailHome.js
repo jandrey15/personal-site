@@ -7,7 +7,7 @@ const PostsDetailHome = ({ slug, feature_image, title, custom_excerpt = '', exce
   return (
     <>
       <article className='post'>
-        <Link href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
+        <Link href={`/blog/${encodeURIComponent(slug)}`}>
           <a>
             <img
               className='feature_image'
@@ -17,11 +17,13 @@ const PostsDetailHome = ({ slug, feature_image, title, custom_excerpt = '', exce
           </a>
         </Link>
         <div className='content'>
-          <Link href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
-            <a className='title'>
-              <h2>{title}</h2>
-            </a>
-          </Link>
+          <h2>
+            <Link href={`/blog/${encodeURIComponent(slug)}`}>
+              <a>
+                {title}
+              </a>
+            </Link>
+          </h2>
           <p className='excerpt'>{excerpt_custom}...</p>
         </div>
       </article>
@@ -37,7 +39,7 @@ const PostsDetailHome = ({ slug, feature_image, title, custom_excerpt = '', exce
           width: 100%;
         }
 
-        .title h2 {
+        h2 {
           font-size: 1.7rem;
           line-height: 2rem;
           margin: 0 0 15px;
@@ -50,13 +52,13 @@ const PostsDetailHome = ({ slug, feature_image, title, custom_excerpt = '', exce
           margin: 0;
         }
 
-        .title {
+        h2 > a {
           text-decoration: none;
           color: #1c1c1c;
           display: flex;
         }
 
-        .title:hover h2 {
+        h2 > a:hover {
           opacity: 0.9;
           color: #0078ae;
         }

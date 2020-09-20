@@ -23,7 +23,7 @@
     "helmet": "^3.21.2",
     "isomorphic-unfetch": "^3.0.0",
     "mailchimp-api-v3": "1.13.0",
-    "next": "^9.4.4",
+    "next": "^9.5.3",
     "next-offline": "5.0.2",
     "nprogress": "0.2.0",
     "prop-types": "^15.7.2",

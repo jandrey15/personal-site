@@ -10,7 +10,7 @@ const PostsFeature = ({ title, feature_image = '', slug, custom_excerpt = '', ex
   const timeAgo = formatDistanceStrict(new Date(published_at), new Date(), { locale: es, addSuffix: true })
   return (
     <article id='PostsFeature'>
-      <Link href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
+      <Link href={`/blog/${encodeURIComponent(slug)}`}>
         <a>
           <img className='picture' src={feature_image.replace('admin', 'static')} alt={title} />
         </a>
@@ -18,7 +18,7 @@ const PostsFeature = ({ title, feature_image = '', slug, custom_excerpt = '', ex
 
       <div className='content'>
         <header className='post__header'>
-          <Link href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
+          <Link href={`/blog/${encodeURIComponent(slug)}`}>
             <a className='title'><h2>{title}</h2></a>
           </Link>
           <p>{ custom_excerpt ? custom_excerpt.substring(0, 160) : excerpt ? excerpt.substring(0, 160) : null}</p>
@@ -39,7 +39,7 @@ const PostsFeature = ({ title, feature_image = '', slug, custom_excerpt = '', ex
             <span className='profile__name'>{primary_author.name}</span>
           </div>
           <span>{timeAgo}</span>
-          <Link href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
+          <Link href={`/blog/${encodeURIComponent(slug)}`}>
             <a>
               <span>Leer más</span>
             </a>

@@ -25,7 +25,7 @@ const Search = () => {
           {data.map(({ id, title, slug }) => {
             return (
               <article className='post-item' key={id}>
-                <Link href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
+                <Link href={`/blog/${encodeURIComponent(slug)}`}>
                   <a className='title'>{title}</a>
                 </Link>
               </article>

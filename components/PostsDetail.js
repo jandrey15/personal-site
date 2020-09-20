@@ -15,7 +15,7 @@ const PostsDetail = ({ slug, feature_image, title, custom_excerpt = '', excerpt 
     <>
       <article className='post'>
         <header className='post__header'>
-          <Link href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
+          <Link href={`/blog/${encodeURIComponent(slug)}`} >
             <a>
               <img
                 src={feature_image ? feature_image.replace('admin', 'static') : '/static/gallery.jpg'}
@@ -24,7 +24,7 @@ const PostsDetail = ({ slug, feature_image, title, custom_excerpt = '', excerpt 
             </a>
           </Link>
           <div className='content'>
-            <Link href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
+            <Link href={`/blog/${encodeURIComponent(slug)}`} >
               <a className='title'>
                 <h2>{title}</h2>
               </a>
@@ -48,7 +48,7 @@ const PostsDetail = ({ slug, feature_image, title, custom_excerpt = '', excerpt 
             <span className='profile__name'>{primary_author.name}</span>
           </div>
           <span>{timeAgo}</span>
-          <Link href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
+          <Link href={`/blog/${encodeURIComponent(slug)}`}>
             <a>
               <span>Leer más</span>
             </a>

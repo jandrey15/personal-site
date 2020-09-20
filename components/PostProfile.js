@@ -28,7 +28,7 @@ const PostProfile = ({ primary_author, primary_tag, published_at }) => {
       </div>
       {primary_tag && (
         <section className='category'>
-          <Link href={`/tag?slug=${primary_tag.slug}`} as={`/tags/${primary_tag.slug}`}>
+          <Link href={`/tags/${encodeURIComponent(primary_tag.slug)}`}>
             <a>{primary_tag.name}</a>
           </Link>
         </section>

@@ -35,7 +35,7 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link href='/tags/[slug]' as={`/tags/react`}>
+              <Link href={`/tags/react`}>
                 <a>React</a>
               </Link>
             </li>

@@ -40,7 +40,7 @@ const Home = ({ posts }) => {
 
           <h2>De qué hablo en mi blog</h2>
           <p>
-            <Link href='/tags/[slug]' as='/tags/desarrollo-web'>
+            <Link href='/tags/desarrollo-web'>
               <a >Desarrollo web</a>
             </Link>, Tutoriales, artículos sobre tecnologías: JavaScript, Node.js, Docker, React, python, etc.
           </p>
