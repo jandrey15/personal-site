@@ -42,7 +42,13 @@ const Home = ({ posts }) => {
           <p>
             <Link href='/tags/[slug]' as='/tags/desarrollo-web'>
               <a >Desarrollo web</a>
-            </Link>, Tutoriales, artículos sobre tecnologías: JavaScript, Node.js, Docker, React, python, etc.</p>
+            </Link>, Tutoriales, artículos sobre tecnologías: JavaScript, Node.js, Docker, React, python, etc.
+          </p>
+
+          <h2>Ebooks publicados</h2>
+          <p>
+            <a href='https://leanpub.com/fundamentos-de-programacin-con-javascript' target='_blank'> Fundamentos de programación con JavaScript</a>
+          </p>
 
           <h2>Últimos artículos publicados</h2>
           {posts.length > 0 && <Posts posts={posts} columns='2' />}

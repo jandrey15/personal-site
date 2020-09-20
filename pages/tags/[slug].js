@@ -48,7 +48,7 @@ export default function Tag ({ posts, slug }) {
     <Layout>
       {
         router.isFallback ? (
-          <PostTitle>Loading…</PostTitle>
+          <PostTitle flex>Loading…</PostTitle>
         ) : (
           <>
             <Seo {...SEO} />

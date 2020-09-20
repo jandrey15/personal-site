@@ -1,4 +1,4 @@
-const PostTitle = ({ children, capitalize }) => {
+const PostTitle = ({ children, capitalize, flex }) => {
   return (
     <h1 className={capitalize ? 'capitalize' : undefined}>
       {children}
@@ -10,6 +10,10 @@ const PostTitle = ({ children, capitalize }) => {
           margin: 20px 0;
           text-shadow: -1px 1px 2px #1c1c1c;
           text-align: center;
+          ${flex ? `flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;` : ''}
         }
         .capitalize {
           text-transform: capitalize;

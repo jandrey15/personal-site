@@ -83,7 +83,7 @@ export default function Post ({ post, posts, isProduction, DOMAIN_URL }) {
       <ProgressBar />
       {
         router.isFallback ? (
-          <PostTitle>Loading…</PostTitle>
+          <PostTitle flex>Loading…</PostTitle>
         ) : (
           <>
             <Seo {...SEO}>
