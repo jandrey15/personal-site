@@ -10,15 +10,22 @@ const Search = () => {
   return (
     <div id='Search'>
       <form className='search__form' onSubmit={handleSubmit}>
-        <input type='text' value={search} placeholder='Buscar' onChange={onChange} />
-        <button type='submit' />
+        <label>
+          <input
+            type='text'
+            value={search}
+            placeholder='Buscar'
+            onChange={onChange}
+          />
+        </label>
+        <button type='submit'>Buscar</button>
       </form>
       {search.length >= 3 && data.length >= 1 && (
         <div className='search__results'>
           {data.map(({ id, title, slug }) => {
             return (
               <article className='post-item' key={id}>
-                <Link prefetch href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
+                <Link href={`/blog/${encodeURIComponent(slug)}`}>
                   <a className='title'>{title}</a>
                 </Link>
               </article>
@@ -64,15 +71,17 @@ const Search = () => {
           border-radius: 2px 0 0 2px;
           color: #1c1c1c;
           padding: 5px;
+          width: 95%;
         }
 
         .search__form button {
-          background: #0078ae url('/static/lupa.svg') center/20px no-repeat;
+          background: #0078ae url('/lupa.svg') center/20px no-repeat;
           height: 100%;
           border: 1px solid #0078ae;
           border-radius: 0 2px 2px 0;
           cursor: pointer;
           padding: 0;
+          text-indent: -9999px;
           width: 45px;
         }
 

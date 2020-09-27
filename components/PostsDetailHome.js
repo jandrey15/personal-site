@@ -3,10 +3,11 @@ import Link from 'next/link'
 import PropTypes from 'prop-types'
 
 const PostsDetailHome = ({ slug, feature_image, title, custom_excerpt = '', excerpt = '' }) => {
+  let excerpt_custom = custom_excerpt ? custom_excerpt.slice(0, 160) : excerpt ? excerpt.slice(0, 160) : ''
   return (
     <>
       <article className='post'>
-        <Link prefetch href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
+        <Link href={`/blog/${encodeURIComponent(slug)}`}>
           <a>
             <img
               className='feature_image'
@@ -16,12 +17,14 @@ const PostsDetailHome = ({ slug, feature_image, title, custom_excerpt = '', exce
           </a>
         </Link>
         <div className='content'>
-          <Link prefetch href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
-            <a className='title'>
-              <h2>{title}</h2>
-            </a>
-          </Link>
-          <p className='excerpt'>{ custom_excerpt ? custom_excerpt.substring(0, 160) : excerpt ? excerpt.substring(0, 160) : null}</p>
+          <h2>
+            <Link href={`/blog/${encodeURIComponent(slug)}`}>
+              <a>
+                {title}
+              </a>
+            </Link>
+          </h2>
+          <p className='excerpt'>{excerpt_custom}...</p>
         </div>
       </article>
       <style jsx>{`        
@@ -36,7 +39,7 @@ const PostsDetailHome = ({ slug, feature_image, title, custom_excerpt = '', exce
           width: 100%;
         }
 
-        .title h2 {
+        h2 {
           font-size: 1.7rem;
           line-height: 2rem;
           margin: 0 0 15px;
@@ -49,13 +52,13 @@ const PostsDetailHome = ({ slug, feature_image, title, custom_excerpt = '', exce
           margin: 0;
         }
 
-        .title {
+        h2 > a {
           text-decoration: none;
           color: #1c1c1c;
           display: flex;
         }
 
-        .title:hover h2 {
+        h2 > a:hover {
           opacity: 0.9;
           color: #0078ae;
         }
