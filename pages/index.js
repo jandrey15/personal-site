@@ -47,7 +47,7 @@ const Home = ({ posts }) => {
 
           <h2>📒 Ebooks publicados</h2>
           <p>
-            <a href='https://leanpub.com/fundamentos-de-programacin-con-javascript' target='_blank'> Fundamentos de programación con JavaScript</a>
+            <a href='https://leanpub.com/fundamentos-de-programacin-con-javascript' target='_blank' rel='noreferrer'> Fundamentos de programación con JavaScript</a>
           </p>
 
           <h2>Últimos artículos publicados</h2>
