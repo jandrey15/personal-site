@@ -78,7 +78,8 @@ export async function getStaticProps ({ params }) {
     props: {
       posts,
       slug: params.slug
-    }
+    },
+    revalidate: 1
   }
 }
 

@@ -194,7 +194,8 @@ export async function getStaticProps ({ params }) {
       posts,
       isProduction,
       DOMAIN_URL
-    }
+    },
+    revalidate: 1
   }
 }
 

@@ -182,7 +182,8 @@ export async function getStaticProps () {
       DOMAIN_URL,
       API_URL,
       API_KEY
-    }
+    },
+    revalidate: 1
   }
 }
 

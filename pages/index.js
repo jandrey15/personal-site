@@ -45,7 +45,7 @@ const Home = ({ posts }) => {
             </Link>, Tutoriales, artículos sobre tecnologías: JavaScript, Node.js, Docker, React, python, etc.
           </p>
 
-          <h2>Ebooks publicados</h2>
+          <h2>📒 Ebooks publicados</h2>
           <p>
             <a href='https://leanpub.com/fundamentos-de-programacin-con-javascript' target='_blank'> Fundamentos de programación con JavaScript</a>
           </p>
@@ -162,7 +162,8 @@ export async function getStaticProps () {
   return {
     props: {
       posts
-    }
+    },
+    revalidate: 1
   }
 }
 
