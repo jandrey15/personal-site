@@ -1,18 +1,16 @@
 /* eslint-disable camelcase */
+import React from 'react'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
-import moment from 'moment'
-moment.locale('es')
+import { formatDistanceStrict } from 'date-fns'
+import { es } from 'date-fns/locale'
 
 const PostsFeature = ({ title, feature_image = '', slug, custom_excerpt = '', excerpt = '', published_at, primary_author = '' }) => {
   // console.log(props)
-  // console.log(moment().format())
-  // console.log(moment().format('MMMM Do YYYY, h:mm:ss a'))
-  // console.log(moment(published_at, 'YYYYMMDD').fromNow())
-  // console.log(moment(published_at).format('DD/MM/YYYY'))
+  const timeAgo = formatDistanceStrict(new Date(published_at), new Date(), { locale: es, addSuffix: true })
   return (
     <article id='PostsFeature'>
-      <Link prefetch href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
+      <Link href={`/blog/${encodeURIComponent(slug)}`}>
         <a>
           <img className='picture' src={feature_image.replace('admin', 'static')} alt={title} />
         </a>
@@ -20,14 +18,14 @@ const PostsFeature = ({ title, feature_image = '', slug, custom_excerpt = '', ex
 
       <div className='content'>
         <header className='post__header'>
-          <Link prefetch href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
+          <Link href={`/blog/${encodeURIComponent(slug)}`}>
             <a className='title'><h2>{title}</h2></a>
           </Link>
           <p>{ custom_excerpt ? custom_excerpt.substring(0, 160) : excerpt ? excerpt.substring(0, 160) : null}</p>
         </header>
         <footer className='post__meta'>
           <div className='profile'>
-            <Link prefetch href='/sobre-mi'>
+            <Link href='/sobre-mi'>
               <a className='profile_avatar'>
                 <img
                   className='profile__image'
@@ -40,8 +38,8 @@ const PostsFeature = ({ title, feature_image = '', slug, custom_excerpt = '', ex
             </Link>
             <span className='profile__name'>{primary_author.name}</span>
           </div>
-          <span>{moment(published_at, 'YYYYMMDD').fromNow()}</span>
-          <Link prefetch href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
+          <span>{timeAgo}</span>
+          <Link href={`/blog/${encodeURIComponent(slug)}`}>
             <a>
               <span>Leer más</span>
             </a>
@@ -191,4 +189,4 @@ PostsFeature.propTypes = {
   ])
 }
 
-export default PostsFeature
+export default React.memo(PostsFeature)

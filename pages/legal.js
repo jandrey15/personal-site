@@ -1,9 +1,11 @@
-import Layout from '../components/Layout'
-import Cover from '../components/Cover'
+import Layout from 'components/Layout'
+import Cover from 'components/Cover'
+import Seo from 'components/Seo'
 // import Link from 'next/link'
 
 const Legal = () => (
-  <Layout title='John Serrano - Legal'>
+  <Layout>
+    <Seo title='John Serrano - Legal' />
     <Cover title='Política de privacidad' profile={false} caption={false} cover='/' />
     <section id='Legal' className='container'>
       <div className='main'>

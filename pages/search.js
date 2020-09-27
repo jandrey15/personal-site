@@ -1,12 +1,28 @@
 import Layout from '../components/Layout'
 import Posts from '../components/PostsGrid'
+import Seo from 'components/Seo'
+
 import useSearchPage from '../hooks/useSearchPage'
 
 const SearchPage = () => {
   const { state, onChange } = useSearchPage()
 
+  let SEO = {
+    title: `${state.search} - John Serrano`,
+    description: '',
+    image: '',
+    url: `https://johnserrano.co/search`,
+    titleOpenGraph: '',
+    date: '',
+    modified: '',
+    imagenFacebook: '',
+    imagenTwitter: '',
+    type: 'article'
+  }
+
   return (
     <Layout>
+      <Seo {...SEO} />
       <section id='SearchPage'>
         <div className='searcher__container'>
           <form className='search__form'>
@@ -47,12 +63,13 @@ const SearchPage = () => {
             margin: 0;
             padding: 0 50px 0 10px;
             border-radius: 5px 5px 0;
-            box-sizing: border-box;            
+            box-sizing: border-box;
+            transition: all .2s ease-out;       
             width: 100%;
           }
           .search__form:before {
             content: "";
-            background: #0078ae url('/static/lupa.svg') center/20px no-repeat;
+            background: #0078ae url('/lupa.svg') center/20px no-repeat;
             height: 35px;
             position: absolute;
             top: 0;
@@ -61,6 +78,7 @@ const SearchPage = () => {
           }
           .search__form input:focus {
             box-shadow: 0 0 10px 0px rgba(28, 28, 28, 0.33);
+            outline: none;
           }
           .loading, .search_not_found {
             margin: 30px auto;
@@ -87,7 +105,6 @@ const SearchPage = () => {
             }
           }
         `}</style>
-
       </section>
     </Layout>
   )

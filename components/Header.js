@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import Link from 'next/link'
 import Hamburger from './Hamburger'
 import Search from './Search'
@@ -6,34 +6,41 @@ import Search from './Search'
 const Header = () => {
   const [active, setActive] = useState(false) // Menu
 
+  const handleClick = useCallback(
+    () => {
+      setActive(!active)
+    },
+    [active]
+  )
+
   return (
     <header id='Header'>
       <div className='header__menu container'>
-        <Hamburger handleClick={() => setActive(!active)} active={active} />
+        <Hamburger handleClick={handleClick} active={active} />
         <nav>
           <ul className='menu'>
             <li>
-              <Link prefetch href='/'>
+              <Link href='/'>
                 <a>Inicio</a>
               </Link>
             </li>
             <li>
-              <Link prefetch href='/sobre-mi'>
+              <Link href='/sobre-mi'>
                 <a>Sobre mi</a>
               </Link>
             </li>
             <li>
-              <Link prefetch href='/blog'>
+              <Link href='/blog'>
                 <a>Blog</a>
               </Link>
             </li>
             <li>
-              <Link prefetch href='/tag?slug=react' as='/tags/react'>
+              <Link href={`/tags/react`}>
                 <a>React</a>
               </Link>
             </li>
             <li>
-              <Link prefetch href='/portafolio'>
+              <Link href='/portafolio'>
                 <a>Portafolio</a>
               </Link>
             </li>

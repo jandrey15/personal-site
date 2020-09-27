@@ -1,15 +1,21 @@
 /* eslint-disable camelcase */
+import React from 'react'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
-import moment from 'moment'
-moment.locale('es')
+import { formatDistanceStrict } from 'date-fns'
+import { es } from 'date-fns/locale'
 
 const PostsDetail = ({ slug, feature_image, title, custom_excerpt = '', excerpt = '', primary_author = '', published_at }) => {
+  // {post.excerpt.slice(0, 92)}...
+  let excerpt_custom = custom_excerpt ? custom_excerpt.slice(0, 160) : excerpt ? excerpt.slice(0, 160) : ''
+  // console.log(published_at)
+  // https://github.com/you-dont-need/You-Dont-Need-Momentjs
+  const timeAgo = formatDistanceStrict(new Date(published_at), new Date(), { locale: es, addSuffix: true })
   return (
     <>
       <article className='post'>
         <header className='post__header'>
-          <Link prefetch href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
+          <Link href={`/blog/${encodeURIComponent(slug)}`} >
             <a>
               <img
                 src={feature_image ? feature_image.replace('admin', 'static') : '/static/gallery.jpg'}
@@ -18,22 +24,22 @@ const PostsDetail = ({ slug, feature_image, title, custom_excerpt = '', excerpt 
             </a>
           </Link>
           <div className='content'>
-            <Link prefetch href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
+            <Link href={`/blog/${encodeURIComponent(slug)}`} >
               <a className='title'>
                 <h2>{title}</h2>
               </a>
             </Link>
-            <p className='excerpt'>{ custom_excerpt ? custom_excerpt.substring(0, 160) : excerpt ? excerpt.substring(0, 160) : null}</p>
+            <p className='excerpt'>{excerpt_custom}...</p>
           </div>
         </header>
         <footer className='post__meta'>
           <div className='profile'>
-            <Link prefetch href='/sobre-mi'>
+            <Link href='/sobre-mi'>
               <a className='profile_avatar'>
                 <img
                   className='profile__image'
                   src={primary_author.profile_image
-                    ? primary_author.profile_image
+                    ? primary_author.profile_image.replace('admin', 'static')
                     : 'https://static.ghost.org/v3.0.0/images/ghost.png'}
                   alt={primary_author.name}
                 />
@@ -41,8 +47,8 @@ const PostsDetail = ({ slug, feature_image, title, custom_excerpt = '', excerpt 
             </Link>
             <span className='profile__name'>{primary_author.name}</span>
           </div>
-          <span>{moment(published_at, 'YYYYMMDD').fromNow()}</span>
-          <Link prefetch href={`/post?slug=${slug}`} as={`/blog/${slug}`}>
+          <span>{timeAgo}</span>
+          <Link href={`/blog/${encodeURIComponent(slug)}`}>
             <a>
               <span>Leer más</span>
             </a>
@@ -194,4 +200,4 @@ PostsDetail.propTypes = {
   ])
 }
 
-export default PostsDetail
+export default React.memo(PostsDetail)

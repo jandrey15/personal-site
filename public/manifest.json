@@ -3,14 +3,20 @@
   "short_name": "John Serrano",
   "icons": [
     {
-      "src": "/static/icon-192.png",
+      "src": "/icon-192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/static/icon-512.png",
+      "src": "/icon-512.png",
       "type": "image/png",
       "sizes": "512x512"
+    },
+    {
+      "src": "/maskable_icon.png",
+      "sizes": "213x213",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
   "background_color": "#FFFFFF",

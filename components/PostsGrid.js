@@ -1,3 +1,4 @@
+import React from 'react'
 import TrackVisibility from 'react-on-screen'
 import PostsDetail from './PostsDetail'
 import PostsDetailHome from './PostsDetailHome'
@@ -74,4 +75,4 @@ const Posts = ({ posts = [], columns }) => {
   )
 }
 
-export default Posts
+export default React.memo(Posts)

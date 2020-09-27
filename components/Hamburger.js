@@ -1,3 +1,5 @@
+import React from 'react'
+
 const Hamburger = ({ handleClick, active }) => {
   return (
     <button aria-label='Hamburger' className={`hamburger hamburger--emphatic ${active ? 'is-active' : false}`} type='button' onClick={handleClick}>
@@ -87,4 +89,4 @@ const Hamburger = ({ handleClick, active }) => {
   )
 }
 
-export default Hamburger
+export default React.memo(Hamburger)
