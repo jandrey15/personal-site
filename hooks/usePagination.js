@@ -40,7 +40,7 @@ function usePagination ({ meta, isProduction, API_URL, API_KEY }) {
   async function loadPosts (page) {
     try {
       // console.log('This is page ->', page)
-      const res = await fetch(`${API_URL}/posts/?key=${API_KEY}&limit=5&filter=featured:false&include=authors&page=${page}`)
+      const res = await fetch(`${API_URL}/posts/?key=${API_KEY}&limit=9&filter=featured:false&include=authors&page=${page}`)
 
       let { posts } = await res.json()
       // console.log(posts)

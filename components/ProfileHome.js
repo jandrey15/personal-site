@@ -16,6 +16,9 @@ const ProfileHome = ({ title }) => {
           border-radius: 50%;
           max-width: 120px;
           border: 3px solid #ffffff;
+          width: 120px;
+          height: 120px;
+          background: #ffffff17;
         }
         
         p {
