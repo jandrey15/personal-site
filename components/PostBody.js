@@ -81,6 +81,14 @@ const PostBody = ({ html }) => {
           border-left: 3px solid #232323;
         }
 
+        blockquote a {
+          text-decoration: none;
+          color: #0078ae;
+        }
+        blockquote a:hover { 
+          text-decoration: underline;
+        }
+
         .post__body pre a, .post__body code a {
           text-decoration: none;
           color: #ffffff;
