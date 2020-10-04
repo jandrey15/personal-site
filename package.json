@@ -6,7 +6,8 @@
     "build": "next build",
     "start": "NODE_ENV=production next start",
     "startWind": "npm run build && cross-env NODE_ENV=production next start",
-    "lint": "standard --fix"
+    "lint": "standard --fix",
+    "analyze": "cross-env ANALYZE=true yarn build"
   },
   "standard": {
     "parser": "babel-eslint"
@@ -35,6 +36,7 @@
     "react-paginate": "6.3.0"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^9.5.3",
     "babel-eslint": "10.0.1",
     "cross-env": "5.2.0",
     "eslint": "5.16.0",
