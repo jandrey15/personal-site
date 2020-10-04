@@ -64,6 +64,8 @@ class MyDocument extends Document {
         <Head>
           {isProduction && (
             <Fragment>
+              <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin />
+              <link rel='dns-prefetch' href='https://fonts.gstatic.com' crossOrigin />
               {/* <script
                 async
                 src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
