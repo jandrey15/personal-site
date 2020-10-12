@@ -65,7 +65,10 @@ class MyDocument extends Document {
           {isProduction && (
             <Fragment>
               <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
-              <link rel='dns-prefetch' href='https://fonts.gstatic.com' crossorigin />
+              <link rel='dns-prefetch' href='https://fonts.gstatic.com' />
+              <link rel='preconnect' href='https://www.google-analytics.com' crossorigin />
+              <link rel='dns-prefetch' href='https://www.google-analytics.com' />
+
               <script
                 async
                 src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
@@ -75,6 +78,7 @@ class MyDocument extends Document {
               <noscript dangerouslySetInnerHTML={this.setFacebookNoScript()} />
             </Fragment>
           )}
+          <link href='https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap' rel='stylesheet' />
         </Head>
         <body>
           <Main />
