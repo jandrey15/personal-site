@@ -1,9 +1,10 @@
-const Cover = ({ children, cover }) => {
+const Cover = ({ children, cover, url }) => {
   let bgm
   if (cover === '/background_2.jpg') {
     bgm = '/background_2m.jpg'
   } else if (cover === '/background.jpg') {
-    bgm = '/background_m.jpg'
+    // bgm = '/background_m.jpg'
+    bgm = 'https://res.cloudinary.com/john-serrano/image/upload/v1602534065/John%20Serrano/background_2m_dbykph.jpg'
   }
 
   return (
@@ -19,7 +20,7 @@ const Cover = ({ children, cover }) => {
           color: #ffffff;
           height: 400px;
           background: #090a0b no-repeat 50%;
-          background-image: url(${cover.replace('admin', 'static')});
+          background-image: url(${url || cover.replace('admin', 'static')});
           background-size: cover;          
           display: flex;
           flex-direction: column;
