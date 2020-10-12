@@ -1,10 +1,11 @@
 const Cover = ({ children, cover, url }) => {
   let bgm
   if (cover === '/background_2.jpg') {
-    bgm = '/background_2m.jpg'
+    // bgm = '/background_2m.jpg'
+    bgm = 'https://res.cloudinary.com/john-serrano/image/upload/v1602534065/John%20Serrano/background_2m_dbykph.jpg'
   } else if (cover === '/background.jpg') {
     // bgm = '/background_m.jpg'
-    bgm = 'https://res.cloudinary.com/john-serrano/image/upload/v1602534065/John%20Serrano/background_2m_dbykph.jpg'
+    bgm = 'https://res.cloudinary.com/john-serrano/image/upload/v1602534064/John%20Serrano/background_m_turhv7.jpg'
   }
 
   return (

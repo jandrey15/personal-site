@@ -6,7 +6,8 @@ const ProfileHome = ({ title }) => {
     <>
       <Link href='/'>
         <a className='profile'>
-          <img className='profile__avatar' src='/profile.jpg' alt='Profile' />
+          {/* <img className='profile__avatar' src='/profile.jpg' alt='Profile' /> */}
+          <img className='profile__avatar' src='https://res.cloudinary.com/john-serrano/image/upload/v1602534997/John%20Serrano/profile_plrjdf.jpg' alt='Profile' />
         </a>
       </Link>
       <PostTitle>{title}</PostTitle>
