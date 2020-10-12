@@ -27,7 +27,8 @@ const Home = ({ posts }) => {
   return (
     <Layout>
       <Seo {...SEO} />
-      <Cover>
+      <Cover cover='/background.jpg'>
+        {/* Largest Contentful Paint ➡ el problem es la imagen del cover debe ser */}
         <ProfileHome title='John Serrano' />
       </Cover>
       <section id='Home' className='container'>

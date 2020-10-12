@@ -1,4 +1,11 @@
-const Cover = ({ children, cover = '/background.jpg' }) => {
+const Cover = ({ children, cover }) => {
+  let bgm
+  if (cover === '/background_2.jpg') {
+    bgm = '/background_2m.jpg'
+  } else if (cover === '/background.jpg') {
+    bgm = '/background_m.jpg'
+  }
+
   return (
     <section id='Cover'>
       <div className='inner'>
@@ -41,6 +48,9 @@ const Cover = ({ children, cover = '/background.jpg' }) => {
         @media screen and (max-width: 768px) {
           #Cover {
             background-position: left center;
+            background: #090a0b no-repeat 50%;
+            background-image: url(${bgm || cover.replace('admin', 'static')});
+            background-size: cover;  
           }
         }
       `}</style>
