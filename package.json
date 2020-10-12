@@ -6,7 +6,8 @@
     "build": "next build",
     "start": "NODE_ENV=production next start",
     "startWind": "npm run build && cross-env NODE_ENV=production next start",
-    "lint": "standard --fix"
+    "lint": "standard --fix",
+    "analyze": "cross-env ANALYZE=true yarn build"
   },
   "standard": {
     "parser": "babel-eslint"
@@ -20,10 +21,10 @@
     "body-parser": "1.19.0",
     "date-fns": "^2.16.1",
     "express": "4.17.1",
+    "next": "^9.5.5",
     "helmet": "^3.21.2",
     "isomorphic-unfetch": "^3.0.0",
     "mailchimp-api-v3": "1.13.0",
-    "next": "^9.5.4",
     "next-offline": "5.0.2",
     "nprogress": "0.2.0",
     "prop-types": "^15.7.2",
@@ -35,6 +36,7 @@
     "react-paginate": "6.3.0"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^9.5.3",
     "babel-eslint": "10.0.1",
     "cross-env": "5.2.0",
     "eslint": "5.16.0",

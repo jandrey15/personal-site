@@ -1,4 +1,13 @@
-const Cover = ({ children, cover = '/background.jpg' }) => {
+const Cover = ({ children, cover, url }) => {
+  let bgm
+  if (cover === '/background_2.jpg') {
+    // bgm = '/background_2m.jpg'
+    bgm = 'https://res.cloudinary.com/john-serrano/image/upload/q_auto,f_auto/v1602534065/John%20Serrano/background_2m_dbykph.jpg'
+  } else if (cover === '/background.jpg') {
+    // bgm = '/background_m.jpg'
+    bgm = 'https://res.cloudinary.com/john-serrano/image/upload/q_auto,f_auto/v1602534064/John%20Serrano/background_m_turhv7.jpg'
+  }
+
   return (
     <section id='Cover'>
       <div className='inner'>
@@ -12,7 +21,7 @@ const Cover = ({ children, cover = '/background.jpg' }) => {
           color: #ffffff;
           height: 400px;
           background: #090a0b no-repeat 50%;
-          background-image: url(${cover.replace('admin', 'static')});
+          background-image: url(${url || cover.replace('admin', 'static')});
           background-size: cover;          
           display: flex;
           flex-direction: column;
@@ -41,6 +50,9 @@ const Cover = ({ children, cover = '/background.jpg' }) => {
         @media screen and (max-width: 768px) {
           #Cover {
             background-position: left center;
+            background: #090a0b no-repeat 50%;
+            background-image: url(${bgm || cover.replace('admin', 'static')});
+            background-size: cover;  
           }
         }
       `}</style>
