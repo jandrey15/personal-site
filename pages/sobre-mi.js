@@ -22,7 +22,7 @@ const SobreMi = () => {
   return (
     <Layout>
       <Seo {...SEO} />
-      <Cover cover='/background_2.jpg' url='https://res.cloudinary.com/john-serrano/image/upload/v1602534065/John%20Serrano/background_2_omigu1.jpg'>
+      <Cover cover='/background_2.jpg' url='https://res.cloudinary.com/john-serrano/image/upload/q_auto,f_auto,dpr_auto/v1602534065/John%20Serrano/background_2_omigu1.jpg'>
         <PostTitle>Quién es John Serrano</PostTitle>
       </Cover>
       <section id='Home' className='container'>

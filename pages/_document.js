@@ -67,8 +67,14 @@ class MyDocument extends Document {
               <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
               <link rel='dns-prefetch' href='https://fonts.gstatic.com' />
 
+              <link rel='preconnect' href='https://www.googletagmanager.com' crossorigin />
               <link rel='dns-prefetch' href='https://www.googletagmanager.com' />
+
+              <link rel='preconnect' href='https://www.google-analytics.com' crossorigin />
               <link rel='dns-prefetch' href='https://www.google-analytics.com' />
+
+              <link rel='preconnect' href='https://connect.facebook.net' crossorigin />
+              <link rel='dns-prefetch' href='https://connect.facebook.net' />
 
               <script
                 async

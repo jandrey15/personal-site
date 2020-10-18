@@ -27,7 +27,8 @@ const Home = ({ posts }) => {
   return (
     <Layout>
       <Seo {...SEO} />
-      <Cover cover='/background.jpg' url='https://res.cloudinary.com/john-serrano/image/upload/v1602534066/John%20Serrano/background_wt8fyp.jpg'>
+      {/* https://res.cloudinary.com/john-serrano/image/upload/q_auto,f_auto,c_scale,w_auto,dpr_auto/v1602534066/John%20Serrano/background_wt8fyp.jpg */}
+      <Cover cover='/background.jpg' url='https://res.cloudinary.com/john-serrano/image/upload/q_auto,f_auto,dpr_auto/v1602534066/John%20Serrano/background_wt8fyp.jpg'>
         <ProfileHome title='John Serrano' />
       </Cover>
       <section id='Home' className='container'>
