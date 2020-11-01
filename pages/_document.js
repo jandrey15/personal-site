@@ -4,7 +4,7 @@
 // ./pages/_document.js
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { Fragment } from 'react'
-import { GA_TRACKING_ID } from '../helpers/gtag'
+import { GA_TRACKING_ID, GA_TRACKING_GID } from '../helpers/gtag'
 
 class MyDocument extends Document {
   static async getInitialProps (ctx) {
@@ -21,6 +21,7 @@ class MyDocument extends Document {
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', '${GA_TRACKING_ID}');
+        gtag('config', '${GA_TRACKING_GID}');
       `
     }
   }

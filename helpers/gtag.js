@@ -1,4 +1,6 @@
 export const GA_TRACKING_ID = 'UA-40600692-2'
+export const GA_TRACKING_GID = 'G-LNDKYQHR93'
+// Analytics 4 🚀 https://support.google.com/analytics/answer/9744165
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const trackPageView = url => {
