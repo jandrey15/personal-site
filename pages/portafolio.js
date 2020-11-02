@@ -116,6 +116,30 @@ class Portafolio extends Component {
                 </li>
               )}
             </TrackVisibility>
+            <TrackVisibility once partialVisibility>
+              {({ isVisible }) => isVisible && (
+                <li>
+                  <a className='project medicos' href='https://especialmedicoslaop.netlify.app/' rel='noreferrer' target='_blank'>
+                    <div className='caption light'>
+                      <h3>Landing page especial médicos</h3>
+                      <span>Html5, Css3, JavaScript</span>
+                    </div>
+                  </a>
+                </li>
+              )}
+            </TrackVisibility>
+            <TrackVisibility once partialVisibility>
+              {({ isVisible }) => isVisible && (
+                <li>
+                  <a className='project halloween' href='https://halloweenlop.netlify.app/' rel='noreferrer' target='_blank'>
+                    <div className='caption light'>
+                      <h3>Landing page Halloween</h3>
+                      <span>Html5, Css3, JavaScript, Firebase</span>
+                    </div>
+                  </a>
+                </li>
+              )}
+            </TrackVisibility>
           </ul>
         </section>
         <style jsx>{`
@@ -159,6 +183,12 @@ class Portafolio extends Component {
           }
           .project.spotify {
             background: url('/spotify.jpg') no-repeat;
+          }
+          .project.medicos {
+            background: url('/medicos.jpg') no-repeat;
+          }
+          .project.halloween {
+            background: url('/halloween.jpg') no-repeat;
           }
           .project:before {
             content: "";
@@ -220,9 +250,9 @@ class Portafolio extends Component {
               grid-template-columns: 100%;
             }
 
-            .project:hover > .caption {
-              background: transparent;
-            }
+            {/* .project > .caption {
+              background: rgba(0, 0, 0, 0.8);
+            } */}
 
             .project:hover:before {
               filter: brightness(50%);
@@ -251,6 +281,12 @@ class Portafolio extends Component {
             }
             .project.spotify {
               background: url('/spotify_m.jpg') no-repeat;
+            }
+            .project.medicos {
+              background: url('/medicos_m.jpg') no-repeat;
+            }
+            .project.halloween {
+              background: url('/halloween_m.jpg') no-repeat;
             }
           }
         `}</style>
