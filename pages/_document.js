@@ -65,6 +65,9 @@ class MyDocument extends Document {
         <Head>
           {isProduction && (
             <Fragment>
+              <link rel='preconnect' href='https://connect.facebook.net' crossorigin />
+              <link rel='dns-prefetch' href='https://connect.facebook.net' />
+
               <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
               <link rel='dns-prefetch' href='https://fonts.gstatic.com' />
 
@@ -73,9 +76,6 @@ class MyDocument extends Document {
 
               <link rel='preconnect' href='https://www.google-analytics.com' crossorigin />
               <link rel='dns-prefetch' href='https://www.google-analytics.com' />
-
-              <link rel='preconnect' href='https://connect.facebook.net' crossorigin />
-              <link rel='dns-prefetch' href='https://connect.facebook.net' />
 
               <script
                 async
