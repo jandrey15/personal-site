@@ -4,7 +4,7 @@
 // ./pages/_document.js
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { Fragment } from 'react'
-import { GA_TRACKING_ID } from '../helpers/gtag'
+import { GA_TRACKING_ID, GA_TRACKING_GID } from '../helpers/gtag'
 
 class MyDocument extends Document {
   static async getInitialProps (ctx) {
@@ -21,6 +21,7 @@ class MyDocument extends Document {
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', '${GA_TRACKING_ID}');
+        gtag('config', '${GA_TRACKING_GID}');
       `
     }
   }
@@ -67,8 +68,14 @@ class MyDocument extends Document {
               <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
               <link rel='dns-prefetch' href='https://fonts.gstatic.com' />
 
+              <link rel='preconnect' href='https://www.googletagmanager.com' crossorigin />
               <link rel='dns-prefetch' href='https://www.googletagmanager.com' />
+
+              <link rel='preconnect' href='https://www.google-analytics.com' crossorigin />
               <link rel='dns-prefetch' href='https://www.google-analytics.com' />
+
+              <link rel='preconnect' href='https://connect.facebook.net' crossorigin />
+              <link rel='dns-prefetch' href='https://connect.facebook.net' />
 
               <script
                 async
