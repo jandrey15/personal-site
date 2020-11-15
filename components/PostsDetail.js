@@ -20,6 +20,9 @@ const PostsDetail = ({ slug, feature_image, title, custom_excerpt = '', excerpt 
               <img
                 src={feature_image ? feature_image.replace('admin', 'static') : '/static/gallery.jpg'}
                 alt={title}
+                width='300'
+                height='200'
+                loading='lazy'
               />
             </a>
           </Link>
@@ -42,6 +45,9 @@ const PostsDetail = ({ slug, feature_image, title, custom_excerpt = '', excerpt 
                     ? primary_author.profile_image.replace('admin', 'static')
                     : 'https://static.ghost.org/v3.0.0/images/ghost.png'}
                   alt={primary_author.name}
+                  width='35'
+                  height='35'
+                  loading='lazy'
                 />
               </a>
             </Link>
