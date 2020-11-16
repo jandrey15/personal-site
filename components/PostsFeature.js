@@ -12,7 +12,12 @@ const PostsFeature = ({ title, feature_image = '', slug, custom_excerpt = '', ex
     <article id='PostsFeature'>
       <Link href={`/blog/${encodeURIComponent(slug)}`}>
         <a>
-          <img className='picture' src={feature_image.replace('admin', 'static')} alt={title} />
+          <img className='picture'
+            src={feature_image.replace('admin', 'static')}
+            alt={title}
+            width='480'
+            height='270'
+          />
         </a>
       </Link>
 
@@ -33,6 +38,8 @@ const PostsFeature = ({ title, feature_image = '', slug, custom_excerpt = '', ex
                     ? primary_author.profile_image.replace('admin', 'static')
                     : 'https://static.ghost.org/v3.0.0/images/ghost.png'}
                   alt={primary_author.name}
+                  width='35'
+                  height='35'
                 />
               </a>
             </Link>

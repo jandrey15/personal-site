@@ -87,6 +87,8 @@ export default function Post ({ post, posts, isProduction, DOMAIN_URL }) {
         ) : (
           <>
             <Seo {...SEO}>
+              <link rel='preconnect' href='https://cdnjs.cloudflare.com' crossorigin />
+              <link rel='dns-prefetch' href='https://cdnjs.cloudflare.com' />
               <link
                 rel='stylesheet'
                 href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/railscasts.min.css' />

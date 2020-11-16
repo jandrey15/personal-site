@@ -19,6 +19,8 @@ const PostProfile = ({ primary_author, primary_tag, published_at }) => {
                   : 'https://static.ghost.org/v3.0.0/images/ghost.png'
                 }
                 alt={primary_author.name}
+                width='35'
+                height='35'
               />
             </a>
           </Link>

@@ -13,6 +13,9 @@ const PostsDetailHome = ({ slug, feature_image, title, custom_excerpt = '', exce
               className='feature_image'
               src={feature_image ? feature_image.replace('admin', 'static') : '/static/gallery.jpg'}
               alt={title}
+              width='340'
+              height='200'
+              loading='lazy'
             />
           </a>
         </Link>
