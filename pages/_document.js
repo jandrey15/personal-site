@@ -77,13 +77,13 @@ class MyDocument extends Document {
               <link rel='preconnect' href='https://www.google-analytics.com' crossorigin />
               <link rel='dns-prefetch' href='https://www.google-analytics.com' />
 
-              <script
+              {/* <script
                 async
                 src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
               />
               <script dangerouslySetInnerHTML={this.setGoogleTags()} />
               <script dangerouslySetInnerHTML={this.setFacebookPixel()} />
-              <noscript dangerouslySetInnerHTML={this.setFacebookNoScript()} />
+              <noscript dangerouslySetInnerHTML={this.setFacebookNoScript()} /> */}
             </Fragment>
           )}
         </Head>
