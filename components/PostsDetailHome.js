@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 import Link from 'next/link'
 import PropTypes from 'prop-types'
+import Image from 'next/image'
 
 const PostsDetailHome = ({ slug, feature_image, title, custom_excerpt = '', excerpt = '' }) => {
   let excerpt_custom = custom_excerpt ? custom_excerpt.slice(0, 160) : excerpt ? excerpt.slice(0, 160) : ''
@@ -9,14 +10,21 @@ const PostsDetailHome = ({ slug, feature_image, title, custom_excerpt = '', exce
       <article className='post'>
         <Link href={`/blog/${encodeURIComponent(slug)}`}>
           <a>
-            <img
+            <Image
+              className='feature_image'
+              src={feature_image ? feature_image.replace('admin', 'static') : '/static/gallery.jpg'}
+              alt={title}
+              width={346}
+              height={200}
+            />
+            {/* <img
               className='feature_image'
               src={feature_image ? feature_image.replace('admin', 'static') : '/static/gallery.jpg'}
               alt={title}
               width='340'
               height='200'
               loading='lazy'
-            />
+            /> */}
           </a>
         </Link>
         <div className='content'>

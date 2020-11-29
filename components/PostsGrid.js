@@ -47,13 +47,7 @@ const Posts = ({ posts = [], columns }) => {
   return (
     <section id='Posts'>
       {posts.map(post => (
-        <TrackVisibility once partialVisibility key={post.id}>
-          {({ isVisible }) =>
-            isVisible && (
-              <PostsDetailHome {...post} />
-            )
-          }
-        </TrackVisibility>
+        <PostsDetailHome key={post.id} {...post} />
       ))}
       <style jsx>{`
         #Posts {
