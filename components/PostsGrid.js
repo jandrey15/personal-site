@@ -47,7 +47,7 @@ const Posts = ({ posts = [], columns }) => {
   return (
     <section id='Posts'>
       {posts.map(post => (
-        <PostsDetailHome {...post} />
+        <PostsDetailHome key={post.id} {...post} />
       ))}
       <style jsx>{`
         #Posts {

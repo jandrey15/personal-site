@@ -28,6 +28,9 @@ const nextConfig = {
         }
       }
     ]
+  },
+  images: {
+    domains: ['static.johnserrano.co', 'johnserrano.herokuapp.com', 'images.unsplash.com', 'static.ghost.org']
   }
 }
 
