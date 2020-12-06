@@ -37,7 +37,16 @@ export default function Post ({ post, posts, isProduction, DOMAIN_URL }) {
   useEffect(() => {
     if (isProduction) {
       // eslint-disable-next-line no-undef
-      fbq('track', 'ViewContent', { content_name: post.title })
+      // fbq('track', 'ViewContent', { content_name: post.title })
+      // eslint-disable-next-line no-undef
+      dataLayer.push({
+        'tag': post.primary_tag,
+        'titulo': post.title,
+        'autor': post.primary_author,
+        'fecha': post.published_at,
+        'lenguaje': 'es',
+        'event': 'pageview'
+      })
     }
 
     const iframe = document.querySelector('#Post .body iframe')
