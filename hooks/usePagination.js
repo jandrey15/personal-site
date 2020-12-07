@@ -13,7 +13,11 @@ function usePagination ({ meta, isProduction, API_URL, API_KEY }) {
 
     if (isProduction) {
       // eslint-disable-next-line no-undef
-      fbq('track', 'ViewContent', { content_name: 'blog' })
+      // fbq('track', 'ViewContent', { content_name: 'blog' })
+      // eslint-disable-next-line no-undef
+      dataLayer.push({
+        'titulo': 'blog'
+      })
     }
   }, [])
 
