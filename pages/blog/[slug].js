@@ -40,9 +40,9 @@ export default function Post ({ post, posts, isProduction, DOMAIN_URL }) {
       // fbq('track', 'ViewContent', { content_name: post.title })
       // eslint-disable-next-line no-undef
       dataLayer.push({
-        'tag': post.primary_tag,
+        'tag': post.primary_tag.name,
         'titulo': post.title,
-        'autor': post.primary_author,
+        'autor': post.primary_author.name,
         'fecha': post.published_at,
         'lenguaje': 'es',
         'event': 'pageview'

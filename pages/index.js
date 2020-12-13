@@ -65,7 +65,7 @@ const Home = ({ posts }) => {
                 <form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_top'>
                   <input type='hidden' name='cmd' value='_s-xclick' />
                   <input type='hidden' name='hosted_button_id' value='SJZPTCRX7TYGA' />
-                  <input type='image' src='https://www.paypalobjects.com/webstatic/en_US/btn/btn_donate_pp_142x27.png' border='0' name='submit' title='PayPal - The safer, easier way to pay online!' alt='Donate with PayPal button' />
+                  <input id='button_paypal' type='image' src='https://www.paypalobjects.com/webstatic/en_US/btn/btn_donate_pp_142x27.png' border='0' name='submit' title='PayPal - The safer, easier way to pay online!' alt='Donate with PayPal button' />
                 </form>
                 <hr />
                 <q className='citaBible'>Jesús le dijo: Yo soy el camino, y la verdad, y la vida; nadie viene al Padre, sino por mí. Juan 14:6</q>
