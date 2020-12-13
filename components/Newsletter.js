@@ -31,6 +31,10 @@ class Newsletter extends Component {
 
     if (this.name.value !== '' && this.email.value !== '') {
       if (this.validateEmail(this.email.value)) {
+        // eslint-disable-next-line no-undef
+        dataLayer.push({
+          'email': this.email.value
+        })
         fetch(`https://contact.johnserrano.co/api/contact`, {
           method: 'POST',
           headers: {

@@ -10,10 +10,10 @@ Router.onRouteChangeStart = url => {
 
 Router.onRouteChangeComplete = url => {
   NProgress.done()
-  const NODE_ENV = process.env.NODE_ENV
-  if (NODE_ENV !== 'development') {
-    gtag.trackPageView(url)
-  }
+  // const NODE_ENV = process.env.NODE_ENV
+  // if (NODE_ENV !== 'development') {
+  //   gtag.trackPageView(url)
+  // }
 }
 
 Router.onRouteChangeError = () => NProgress.done()

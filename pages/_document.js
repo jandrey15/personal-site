@@ -4,7 +4,7 @@
 // ./pages/_document.js
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { Fragment } from 'react'
-import { GA_TRACKING_ID, GA_TRACKING_GID } from '../helpers/gtag'
+import { GA_TRACKING_ID, GA_TRACKING_GID, GT_MANAGER_ID } from '../helpers/gtag'
 
 class MyDocument extends Document {
   static async getInitialProps (ctx) {
@@ -22,6 +22,27 @@ class MyDocument extends Document {
         gtag('js', new Date());
         gtag('config', '${GA_TRACKING_ID}');
         gtag('config', '${GA_TRACKING_GID}');
+      `
+    }
+  }
+
+  setGoogleTagManager () {
+    return {
+      __html: `
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','${GT_MANAGER_ID}');
+      `
+    }
+  }
+
+  setGTMnoscript () {
+    return {
+      __html: `
+        <iframe src="https://www.googletagmanager.com/ns.html?id=${GT_MANAGER_ID}"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe>
       `
     }
   }
@@ -77,17 +98,22 @@ class MyDocument extends Document {
               <link rel='preconnect' href='https://www.google-analytics.com' crossorigin />
               <link rel='dns-prefetch' href='https://www.google-analytics.com' />
 
-              <script
+              {/* <script
                 async
                 src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
               />
               <script dangerouslySetInnerHTML={this.setGoogleTags()} />
               <script dangerouslySetInnerHTML={this.setFacebookPixel()} />
-              <noscript dangerouslySetInnerHTML={this.setFacebookNoScript()} />
+              <noscript dangerouslySetInnerHTML={this.setFacebookNoScript()} /> */}
+              <script dangerouslySetInnerHTML={this.setGoogleTagManager()} />
+
             </Fragment>
           )}
         </Head>
         <body>
+          <>
+            <noscript dangerouslySetInnerHTML={this.setGTMnoscript()} />
+          </>
           <Main />
           <NextScript />
 
