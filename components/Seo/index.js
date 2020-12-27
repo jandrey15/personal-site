@@ -23,7 +23,7 @@ function Seo ({ children, title, titleOpenGraph, description, url, image, imagen
       },
       "publisher": {
         "@type": "Organization",
-        "name": "JohnSerrano",
+        "name": "John Serrano",
         "logo": {
           "@type": "ImageObject",
           "url": "https://johnserrano.co/default.jpg"
