@@ -98,9 +98,9 @@ export default function Post ({ post, posts, isProduction, DOMAIN_URL }) {
             <Seo {...SEO}>
               <link rel='preconnect' href='https://cdnjs.cloudflare.com' crossorigin />
               <link rel='dns-prefetch' href='https://cdnjs.cloudflare.com' />
-              <link
-                rel='stylesheet'
-                href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/railscasts.min.css' />
+
+              <link rel='preload' href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/railscasts.min.css' as='style' onload="this.onload=null;this.rel='stylesheet'" />
+              <noscript dangerouslySetInnerHTML={{ __html: '<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/railscasts.min.css">' }} />
             </Seo>
             <PostHeader
               title={post.title}
@@ -185,6 +185,40 @@ export default function Post ({ post, posts, isProduction, DOMAIN_URL }) {
           margin: 70px auto 50px;
           line-height: 2.5rem;
           max-width: 700px;
+        }
+
+        .hljs {
+            display: block;
+            overflow-x: auto;
+            padding: .5em;
+            background: #232323;
+            color: #e6e1dc
+        }
+
+        .hljs-comment,.hljs-quote {
+            color: #bc9458;
+            font-style: italic
+        }
+
+        .hljs-keyword,.hljs-selector-tag {
+            color: #c26230
+        }
+
+        .hljs-string,.hljs-number,.hljs-regexp,.hljs-variable,.hljs-template-variable {
+            color: #a5c261
+        }
+        .hljs-tag,.hljs-name {
+            color: #e8bf6a
+        }
+        .hljs-symbol,.hljs-bullet,.hljs-built_in,.hljs-builtin-name,.hljs-attr,.hljs-link {
+            color: #6d9cbe
+        }
+
+        .hljs-params {
+            color: #d0d0ff
+        }
+        .hljs-title,.hljs-section {
+            color: #ffc66d
         }
       `}</style>
     </Layout>
