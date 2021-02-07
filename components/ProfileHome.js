@@ -26,7 +26,8 @@ const ProfileHome = ({ title }) => {
           text-align: center;
           font-weight: 700;
           margin: 0;
-          text-shadow: -1px 1px 2px #1c1c1c;
+          /* text-shadow: -1px 1px 2px #1c1c1c; */
+          color: #1C1C1C;
         }
       `}</style>
     </>

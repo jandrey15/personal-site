@@ -8,8 +8,9 @@ const PostTitle = ({ children, capitalize, flex }) => {
           line-height: 3.5rem;
           font-weight: 700;
           margin: 20px 0;
-          text-shadow: -1px 1px 2px #1c1c1c;
+          /* text-shadow: -1px 1px 2px #1c1c1c; */
           text-align: center;
+          color: #1c1c1c;
           ${flex ? `flex: 1;
             display: flex;
             justify-content: center;
