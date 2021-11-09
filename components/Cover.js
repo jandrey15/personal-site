@@ -1,9 +1,9 @@
 const Cover = ({ children, cover, url }) => {
   let urlM
-  if (url) {
-    urlM = url.replace('h_1000', 'h_425')
-    urlM = urlM.replace('w_1920', 'w_380')
-  }
+  // if (url) {
+  //   urlM = url.replace('h_1000', 'h_425')
+  //   urlM = urlM.replace('w_1920', 'w_380')
+  // }
 
   return (
     <section id='Cover'>
@@ -13,28 +13,21 @@ const Cover = ({ children, cover, url }) => {
       <style jsx>{`
         #Cover {
           position: relative;
-          padding-top: 12px;
-          padding-bottom: 12px;
           color: #ffffff;
-          height: 400px;
-          background: #090a0b no-repeat 50%;
-          background-image: url(${url || cover.replace('admin', 'static')});
-          background-size: cover;
-          background-position: left;      
+          height: auto;
+          padding: 50px 0;
+          /* width: 700px;
+          margin: 0 auto;*/
+          background: #0078ae;
+          /* border-radius: 5px; */
+          border-bottom-right-radius: 5px;
+          border-bottom-left-radius: 5px;  
           display: flex;
           flex-direction: column;
           justify-content: center;
         }
         #Cover:before {
-          content: "";
-          position: absolute;
-          top: 0;
-          right: 0;
-          left: 0;
-          z-index: 10;
-          display: block;
-          bottom: 0;
-          background: rgba(28, 28, 28, .55);
+          
         }
         .inner {
           margin: 0 auto;
@@ -47,11 +40,6 @@ const Cover = ({ children, cover, url }) => {
         }      
         @media screen and (max-width: 768px) {
           #Cover {
-            background-position: left center;
-            background: #090a0b no-repeat 50%;
-            background-image: url(${urlM || cover.replace('admin', 'static')});
-            background-size: cover;
-            background-position: left;
           }
         }
       `}</style>

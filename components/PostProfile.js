@@ -46,10 +46,10 @@ const PostProfile = ({ primary_author, primary_tag, published_at }) => {
         }
         .category a {
           text-decoration: none;
-          color: #ffffff;
+          color: #1c1c1c;
           text-align: center;
           transition: .2s; 
-          border: 1px solid #0078ae;
+          border: 1px solid #ffffff;
           padding: 3px 10px;
           border-radius: 10px;
         }

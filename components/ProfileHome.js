@@ -4,12 +4,11 @@ import PostTitle from './PostTitle'
 const ProfileHome = ({ title }) => {
   return (
     <>
-      <Link href='/'>
+      {/* <Link href='/'>
         <a className='profile'>
-          {/* <img className='profile__avatar' src='/profile.jpg' alt='Profile' /> */}
           <img width='120' height='120' className='profile__avatar' src='https://res.cloudinary.com/john-serrano/image/upload/q_auto,f_auto/v1602534997/John%20Serrano/profile_plrjdf.jpg' alt='Profile' />
         </a>
-      </Link>
+      </Link> */}
       <PostTitle>{title}</PostTitle>
       <p>Desarrollador Web Full-Stack</p>
       <style jsx>{`
@@ -27,6 +26,7 @@ const ProfileHome = ({ title }) => {
           font-weight: 700;
           margin: 0;
           text-shadow: -1px 1px 2px #1c1c1c;
+          color: #ffffff;
         }
       `}</style>
     </>

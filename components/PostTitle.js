@@ -10,6 +10,7 @@ const PostTitle = ({ children, capitalize, flex }) => {
           margin: 20px 0;
           text-shadow: -1px 1px 2px #1c1c1c;
           text-align: center;
+          color: #ffffff;
           ${flex ? `flex: 1;
             display: flex;
             justify-content: center;

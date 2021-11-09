@@ -24,12 +24,14 @@ export default function Post ({ post, posts, isProduction, DOMAIN_URL }) {
 
   if (!router.isFallback && !post) {
     // console.log('ok paso 404')
-    return <>
-      <Head>
-        <meta name='robots' content='noindex' />
-      </Head>
-      <ErrorPage statusCode={404} />
-    </>
+    return (
+      <>
+        <Head>
+          <meta name='robots' content='noindex' />
+        </Head>
+        <ErrorPage statusCode={404} />
+      </>
+    )
   }
 
   // console.log(isProduction)
@@ -40,12 +42,12 @@ export default function Post ({ post, posts, isProduction, DOMAIN_URL }) {
       // fbq('track', 'ViewContent', { content_name: post.title })
       // eslint-disable-next-line no-undef
       dataLayer.push({
-        'tag': post.primary_tag.name,
-        'titulo': post.title,
-        'autor': post.primary_author.name,
-        'fecha': post.published_at,
-        'lenguaje': 'es',
-        'event': 'pageview'
+        tag: post.primary_tag.name,
+        titulo: post.title,
+        autor: post.primary_author.name,
+        fecha: post.published_at,
+        lenguaje: 'es',
+        event: 'pageview'
       })
     }
 
@@ -59,29 +61,27 @@ export default function Post ({ post, posts, isProduction, DOMAIN_URL }) {
   let SEO
 
   if (post) {
-    let description = post.meta_description || post.custom_excerpt || post.excerpt
+    let description =
+      post.meta_description || post.custom_excerpt || post.excerpt
 
     description = description.replace(/(\r\n|\n|\r)/gm, '')
 
     SEO = {
       title: post.title,
       description: description,
-      image: post.feature_image ? post.feature_image.replace(
-        'admin',
-        'static'
-      ) : `${DOMAIN_URL}/static/default.jpg`,
+      image: post.feature_image
+        ? post.feature_image.replace('admin', 'static')
+        : `${DOMAIN_URL}/static/default.jpg`,
       url: post.canonical_url || `${DOMAIN_URL}/blog/${post.slug}`,
       titleOpenGraph: post.meta_title || post.title,
       date: post.published_at,
       modified: post.updated_at,
-      imagenFacebook: post.feature_image ? post.feature_image.replace(
-        'admin',
-        'static'
-      ) : `${DOMAIN_URL}/static/default.jpg`,
-      imagenTwitter: post.feature_image ? post.feature_image.replace(
-        'admin',
-        'static'
-      ) : `${DOMAIN_URL}/static/default.jpg`,
+      imagenFacebook: post.feature_image
+        ? post.feature_image.replace('admin', 'static')
+        : `${DOMAIN_URL}/static/default.jpg`,
+      imagenTwitter: post.feature_image
+        ? post.feature_image.replace('admin', 'static')
+        : `${DOMAIN_URL}/static/default.jpg`,
       type: 'article'
     }
   }
@@ -90,40 +90,54 @@ export default function Post ({ post, posts, isProduction, DOMAIN_URL }) {
     <Layout>
       {/* <progress id='progress' ref={refProgress} value={0} max={max} />  Se creo en un componente porque el hook me hacia render de todo por performance es mejor tenerlo en un component */}
       <ProgressBar />
-      {
-        router.isFallback ? (
-          <PostTitle flex>Loading…</PostTitle>
-        ) : (
-          <>
-            <Seo {...SEO}>
-              <link rel='preconnect' href='https://cdnjs.cloudflare.com' crossorigin />
-              <link rel='dns-prefetch' href='https://cdnjs.cloudflare.com' />
-
-              <link rel='preload' href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/railscasts.min.css' as='style' onload="this.onload=null;this.rel='stylesheet'" />
-              <noscript dangerouslySetInnerHTML={{ __html: '<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/railscasts.min.css">' }} />
-            </Seo>
-            <PostHeader
-              title={post.title}
-              profile={false}
-              caption={false}
-              cover={post.feature_image ? post.feature_image : '/gallery.jpg'}
-              post
-              published_at={post.published_at}
-              primary_author={post.primary_author}
-              primary_tag={post.primary_tag}
+      {router.isFallback ? (
+        <PostTitle flex>Loading…</PostTitle>
+      ) : (
+        <>
+          <Seo {...SEO}>
+            <link
+              rel='preconnect'
+              href='https://cdnjs.cloudflare.com'
+              crossOrigin
             />
+            <link rel='dns-prefetch' href='https://cdnjs.cloudflare.com' />
 
-            <section id='Post' className='container'>
-              <PostBody html={post.html} />
+            <link
+              rel='preload'
+              href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/railscasts.min.css'
+              as='style'
+              onload="this.onload=null;this.rel='stylesheet'"
+            />
+            <noscript
+              dangerouslySetInnerHTML={{
+                __html:
+                  '<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/railscasts.min.css">'
+              }}
+            />
+          </Seo>
+          <PostHeader
+            title={post.title}
+            profile={false}
+            caption={false}
+            cover={post.feature_image ? post.feature_image : '/gallery.jpg'}
+            post
+            published_at={post.published_at}
+            primary_author={post.primary_author}
+            primary_tag={post.primary_tag}
+          />
 
-              <ProfileFollow />
+          <section id='Post' className='container'>
+            <PostBody html={post.html} />
 
-              <ProfileApoyar />
+            <ProfileFollow />
 
-              <Newsletter />
+            <ProfileApoyar />
 
-              <TrackVisibility once partialVisibility>
-                {({ isVisible }) => isVisible && (
+            <Newsletter />
+
+            <TrackVisibility once partialVisibility>
+              {({ isVisible }) =>
+                isVisible && (
                   <ReactDisqusComments
                     shortname='johnserrano'
                     identifier={post.slug}
@@ -131,15 +145,16 @@ export default function Post ({ post, posts, isProduction, DOMAIN_URL }) {
                     url={`http://johnserrano.co/blog/${post.slug}`}
                     className='disqus'
                   />
-                )}
-              </TrackVisibility>
-              <h2 className='more__posts'>Otros artículos</h2>
-              {morePosts.length > 0 && <PostsGrid posts={morePosts} columns='3' />}
-
-            </section>
-          </>
-        )
-      }
+                )
+              }
+            </TrackVisibility>
+            <h2 className='more__posts'>Otros artículos</h2>
+            {morePosts.length > 0 && (
+              <PostsGrid posts={morePosts} columns='3' />
+            )}
+          </section>
+        </>
+      )}
 
       <style jsx global>{`
         .pauta {
@@ -153,8 +168,8 @@ export default function Post ({ post, posts, isProduction, DOMAIN_URL }) {
           width: 100%;
           height: 2px;
           -webkit-appearance: none;
-            -moz-appearance: none;
-                  appearance: none;
+          -moz-appearance: none;
+          appearance: none;
           border: none;
           background-color: transparent;
           color: #0078ae;
@@ -188,37 +203,50 @@ export default function Post ({ post, posts, isProduction, DOMAIN_URL }) {
         }
 
         .hljs {
-            display: block;
-            overflow-x: auto;
-            padding: .5em;
-            background: #232323;
-            color: #e6e1dc
+          display: block;
+          overflow-x: auto;
+          padding: 0.5em;
+          background: #232323;
+          color: #e6e1dc;
         }
 
-        .hljs-comment,.hljs-quote {
-            color: #bc9458;
-            font-style: italic
+        .hljs-comment,
+        .hljs-quote {
+          color: #bc9458;
+          font-style: italic;
         }
 
-        .hljs-keyword,.hljs-selector-tag {
-            color: #c26230
+        .hljs-keyword,
+        .hljs-selector-tag {
+          color: #c26230;
         }
 
-        .hljs-string,.hljs-number,.hljs-regexp,.hljs-variable,.hljs-template-variable {
-            color: #a5c261
+        .hljs-string,
+        .hljs-number,
+        .hljs-regexp,
+        .hljs-variable,
+        .hljs-template-variable {
+          color: #a5c261;
         }
-        .hljs-tag,.hljs-name {
-            color: #e8bf6a
+        .hljs-tag,
+        .hljs-name {
+          color: #e8bf6a;
         }
-        .hljs-symbol,.hljs-bullet,.hljs-built_in,.hljs-builtin-name,.hljs-attr,.hljs-link {
-            color: #6d9cbe
+        .hljs-symbol,
+        .hljs-bullet,
+        .hljs-built_in,
+        .hljs-builtin-name,
+        .hljs-attr,
+        .hljs-link {
+          color: #6d9cbe;
         }
 
         .hljs-params {
-            color: #d0d0ff
+          color: #d0d0ff;
         }
-        .hljs-title,.hljs-section {
-            color: #ffc66d
+        .hljs-title,
+        .hljs-section {
+          color: #ffc66d;
         }
       `}</style>
     </Layout>
