@@ -13,13 +13,12 @@ const Cover = ({ children, cover, url }) => {
       <style jsx>{`
         #Cover {
           position: relative;
-          padding-top: 12px;
-          padding-bottom: 12px;
           color: #ffffff;
-          height: 400px;
+          height: auto;
+          padding: 50px 0;
           /* width: 700px;
           margin: 0 auto;*/
-          background: #eeeeee;
+          background: #0078ae;
           /* border-radius: 5px; */
           border-bottom-right-radius: 5px;
           border-bottom-left-radius: 5px;  

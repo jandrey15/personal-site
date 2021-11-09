@@ -52,7 +52,7 @@ const Header = () => {
         #Header {
           height: 45px;
           background: #1c1c1c;
-          border-bottom: 5px solid #0078ae;
+          border-bottom: 5px solid #ffffff;
         }
 
         .header__menu {
