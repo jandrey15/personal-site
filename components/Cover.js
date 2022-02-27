@@ -36,10 +36,14 @@ const Cover = ({ children, cover, url }) => {
           align-items: center;
           justify-content: center;
           z-index: 11;
-          width: 100%;
+          width: 1000px;
         }      
         @media screen and (max-width: 768px) {
           #Cover {
+            padding: 0 0 35px;
+          }
+          .inner { 
+            width: 96%;
           }
         }
       `}</style>
