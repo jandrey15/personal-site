@@ -8,6 +8,7 @@ import Seo from 'components/Seo'
 // import usePagination from 'hooks/usePagination'
 
 import { getAllPostsForBlog } from '../lib/api'
+import Pauta from 'components/Pauta'
 
 const Blog = ({ posts, meta, feature, isProduction, API_URL, API_KEY }) => {
   // const { handlePageClick, data, page, pageCount } = usePagination({ meta, isProduction, API_URL, API_KEY })
@@ -36,6 +37,7 @@ const Blog = ({ posts, meta, feature, isProduction, API_URL, API_KEY }) => {
       <Seo {...SEO} />
       <section id='Blog' className='container'>
         {feature && <PostsFeature {...feature} />}
+        <Pauta />
         <PostsPagination
           posts={posts}
           meta={meta}

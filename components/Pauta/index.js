@@ -29,6 +29,8 @@ export default function Pauta () {
       <style jsx>{`
         .pauta_d {
           display: block;
+          max-width: 700px;
+          margin: 0 auto;
         }
 
         .pauta_m {
@@ -39,7 +41,9 @@ export default function Pauta () {
           .pauta_m {
             display: flex;
             justify-content: center
-            align-items: center
+            align-items: center;
+            max-width: 300px;
+            margin: 0 auto;
           }
           .pauta_d {
             display: none;
