@@ -7,6 +7,7 @@ import Cover from 'components/Cover'
 import ProfileHome from 'components/ProfileHome'
 import Posts from 'components/PostsGrid'
 import Seo from 'components/Seo'
+import Pauta from 'components/Pauta'
 
 import { getAllPostsForHome } from '../lib/api'
 
@@ -44,6 +45,8 @@ const Home = ({ posts }) => {
               <a >Desarrollo web</a>
             </Link>, Tutoriales, artículos sobre tecnologías: JavaScript, Node.js, Docker, React, python, etc.
           </p>
+
+          <Pauta />
 
           <h2>📒 Ebooks publicados</h2>
           <p>

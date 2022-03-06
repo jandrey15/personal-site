@@ -17,6 +17,7 @@ import ProgressBar from 'components/ProgressBar'
 import ErrorPage from '../404'
 
 import { getAllPostsWithSlug, getPostSlug, getMorePosts } from '../../lib/api'
+import Pauta from 'components/Pauta'
 
 export default function Post ({ post, posts, isProduction, DOMAIN_URL }) {
   const router = useRouter()
@@ -134,6 +135,8 @@ export default function Post ({ post, posts, isProduction, DOMAIN_URL }) {
             <ProfileApoyar />
 
             <Newsletter />
+
+            <Pauta />
 
             <TrackVisibility once partialVisibility>
               {({ isVisible }) =>

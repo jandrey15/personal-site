@@ -86,16 +86,16 @@ class MyDocument extends Document {
         <Head>
           {isProduction && (
             <Fragment>
-              <link rel='preconnect' href='https://connect.facebook.net' crossorigin />
+              <link rel='preconnect' href='https://connect.facebook.net' crossOrigin />
               <link rel='dns-prefetch' href='https://connect.facebook.net' />
 
-              <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+              <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin />
               <link rel='dns-prefetch' href='https://fonts.gstatic.com' />
 
-              <link rel='preconnect' href='https://www.googletagmanager.com' crossorigin />
+              <link rel='preconnect' href='https://www.googletagmanager.com' crossOrigin />
               <link rel='dns-prefetch' href='https://www.googletagmanager.com' />
 
-              <link rel='preconnect' href='https://www.google-analytics.com' crossorigin />
+              <link rel='preconnect' href='https://www.google-analytics.com' crossOrigin />
               <link rel='dns-prefetch' href='https://www.google-analytics.com' />
 
               {/* <script
