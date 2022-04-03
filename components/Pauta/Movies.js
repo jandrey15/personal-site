@@ -4,25 +4,25 @@ export default function Pauta () {
   return (
     <div className='pautas'>
       <div className='pauta_d'>
-        <a href='https://pay.hotmart.com/O67718482D' target='_blank'>
+        <a href='https://www.clickam.com.co/url/eeteikdyed' target='_blank'>
           <Image
             className='feature_image'
-            src='/ads_700x630.jpg'
-            alt='Ebook'
+            src='/movies_d.jpg'
+            alt='Movies shop'
             width={700}
-            height={368}
+            height={1244}
           />
         </a>
       </div>
       <div className='pauta_m'>
-        <a href='https://pay.hotmart.com/O67718482D' target='_blank'>
+        <a href='https://www.clickam.com.co/url/eeteikdyed' target='_blank'>
 
           <Image
             className='feature_image_m'
-            src='/ads_300x250.jpg'
-            alt='Ebook'
+            src='/movies_m.jpg'
+            alt='Movies shop'
             width={300}
-            height={250}
+            height={533}
           />
         </a>
       </div>
