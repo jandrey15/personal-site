@@ -18,6 +18,7 @@ import ErrorPage from '../404'
 
 import { getAllPostsWithSlug, getPostSlug, getMorePosts } from '../../lib/api'
 import Pauta from 'components/Pauta'
+import PautaMovies from 'components/Pauta/Movies'
 
 export default function Post ({ post, posts, isProduction, DOMAIN_URL }) {
   const router = useRouter()
@@ -99,7 +100,7 @@ export default function Post ({ post, posts, isProduction, DOMAIN_URL }) {
             <link
               rel='preconnect'
               href='https://cdnjs.cloudflare.com'
-              crossOrigin
+              crossOrigin='true'
             />
             <link rel='dns-prefetch' href='https://cdnjs.cloudflare.com' />
 
@@ -135,6 +136,8 @@ export default function Post ({ post, posts, isProduction, DOMAIN_URL }) {
             <ProfileApoyar />
 
             <Newsletter />
+
+            <PautaMovies />
 
             <Pauta />
 
