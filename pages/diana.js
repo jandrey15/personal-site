@@ -4,7 +4,7 @@ const Diana = () => {
     <>
       <div className='diana_container'>
 
-        <h4>Diana no quiero perder tu amistad, quiero que seamos amigos por siempre 😁</h4>
+        <h4>Diana no quiero perder tu amistad, quiero que seamos amigos por siempre 😁 My friend forever.</h4>
         <p>By: Andrey Serrano ❤</p>
       </div>
       <style jsx>{`
