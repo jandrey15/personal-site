@@ -13,6 +13,9 @@ const Diana = () => {
 
         <h5>Diana hace unos días soñé con vos, soñé que te daba un abrazo y vos no querias. Diana no sé qué está pasando, pero quiero que volvamos hacer amigos como antes no quiero dejar de ser tu amigo no quiero que por mis sentimientos nos alejemos, quiero que volvamos a ser amigos yo ya entendí que no va a pasar nada por eso yo me aleje porque me estaba haciendo daño necesitaba tiempo para mí para curar mis heridas espero me entiendas y no estes pensando que me aleje por rabia o porque ya no la aprecio como mi amiga, para mí siempre serás una persona muy especial. Yo no puedo seguir así como si no fuéramos nada como si nuestra amistad no valiera nada aparte tu eres mi hermana en la fe somos hermanos hijos de Dios no podemos estar así no sabe cuánto la quiero no sé porque la aprecio tanto quisiera saberlo y si es pasajero pues bueno no lo se. Todo esto te lo tengo que decir en persona, espero podamos hablar en persona pronto.</h5>
         <time>29 de Junio del 2022</time>
+
+        <h5>Mi amiga diana no se si vaya a poder soportar esto, solo de imaginarme que no vas a estar más en vida como mi amiga me da miedo. No sé que hice yo suelo hacer y decir cosas que lastimas a las personas sin yo darme cuenta hoy en día veo que no sirvo para tener amigas siempre terminan alejándose y no sé si sea mi culpa algo debo estar haciendo mal 😢 yo siempre te llevare en mi corazón es imposible olvidarme de ti porque vos ayudaste a cambiar mi vida a volver a los caminos de mi Señor Jesucristo. Le pido a Dios que te guie en cada cosa que hagas que te cuide sabes que siempre te has merecido lo mejor Dios te bendiga hoy y siempre mi amiga Diana. Te quiero.</h5>
+        <time>30 de Junio del 2022</time>
         <p>By: Andrey Serrano ❤</p>
       </div>
       <style jsx>{`
