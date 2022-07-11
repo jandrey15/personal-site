@@ -16,6 +16,9 @@ const Diana = () => {
 
         <h5>Mi amiga diana no se si vaya a poder soportar esto, solo de imaginarme que no vas a estar más en vida como mi amiga me da miedo. No sé que hice yo suelo hacer y decir cosas que lastimas a las personas sin yo darme cuenta hoy en día veo que no sirvo para tener amigas siempre terminan alejándose y no sé si sea mi culpa algo debo estar haciendo mal 😢 yo siempre te llevare en mi corazón es imposible olvidarme de ti porque vos ayudaste a cambiar mi vida a volver a los caminos de mi Señor Jesucristo. Le pido a Dios que te guie en cada cosa que hagas que te cuide sabes que siempre te has merecido lo mejor Dios te bendiga hoy y siempre mi amiga Diana. Te quiero.</h5>
         <time>30 de Junio del 2022</time>
+
+        <h5>En pocas palabras nuestra amistad no significa nada nunca significo nada para vos por lo que veo, me juzgas por algo que ni sé que fue lo que hice no me das la oportunidad de defenderme, pero bueno veo que nunca le importo mi amistad ya se olvidó de todas las cosas buenas ahora solo ves las cosas malas. Yo me voy tranquilo mi conciencia está tranquila ya te pedí perdón y disculpas y para mí siempre vas hacer una amiga, por el bien mío me debo alejar totalmente te deseo lo mejor diana que seas muy feliz y puedas cumplir tus sueños desde que la conozco siempre le he deseado lo mejor y eso nunca cambiara.</h5>
+        <time>10 de Julio del 2022</time>
         <p>By: Andrey Serrano ❤</p>
       </div>
       <style jsx>{`

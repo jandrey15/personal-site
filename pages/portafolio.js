@@ -25,6 +25,46 @@ class Portafolio extends Component {
         <section id='Portafolio'>
           <ul className='projects'>
             <li>
+              <a className='project chicaqhubo' href='https://qhubocucuta.com/chicaqhubo' rel='noreferrer' target='_blank'>
+                <div className='caption light'>
+                  <h3>ChicaQhubo</h3>
+                  <span>Next.js, React, MongoDB, React Hook Form</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a className='project elecciones' href='https://codesandbox.io/s/echarts-map-colombia-4etjj2' rel='noreferrer' target='_blank'>
+                <div className='caption light'>
+                  <h3>Elecciones 2022</h3>
+                  <span>React, ReactECharts, Echarts, HTML, CSS</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a className='project transacciones' href='https://github.com/laopinion/transacciones' rel='noreferrer' target='_blank'>
+                <div className='caption light'>
+                  <h3>Transacciones API</h3>
+                  <span>Node.js, Express, MongoDB, Hapi/boom, Hapi/joi, Nodemailer</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a className='project dbcentralizada' href='https://github.com/laopinion/db-centralizada' rel='noreferrer' target='_blank'>
+                <div className='caption light'>
+                  <h3>Data Base Centralizada</h3>
+                  <span>Node.js, Express, MongoDB, Hapi/boom, Hapi/joi, Nodemailer</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a className='project covid19' href='https://github.com/jandrey15/covid-19' rel='noreferrer' target='_blank'>
+                <div className='caption light'>
+                  <h3>Covid 19</h3>
+                  <span>Next.js, React, React Hooks</span>
+                </div>
+              </a>
+            </li>
+            <li>
               <a className='project laopinion' href='https://www.laopinion.com.co' rel='noreferrer' target='_blank'>
                 <div className='caption light'>
                   <h3>La opinión</h3>
@@ -59,7 +99,7 @@ class Portafolio extends Component {
             <TrackVisibility once partialVisibility>
               {({ isVisible }) => isVisible && (
                 <li>
-                  <a className='project promociones' href='https://promociones.laopinion.com.co' rel='noreferrer' target='_blank'>
+                  <a className='project promociones' href='https://github.com/laopinion/sitePromociones' rel='noreferrer' target='_blank'>
                     <div className='caption light'>
                       <h3>Promociones</h3>
                       <span>React, Node.js, Express, Webpack, Sass</span>
@@ -160,6 +200,21 @@ class Portafolio extends Component {
             overflow: hidden;
             display: block;
           }
+          .project.chicaqhubo {
+            background: url('/chicaqhubo.jpg') no-repeat;
+          }
+          .project.elecciones {
+            background: url('/elecciones.jpg') no-repeat;
+          }
+          .project.covid19 {
+            background: url('/covid19.jpg') no-repeat;
+          }
+          .project.transacciones {
+            background: url('/transacciones.jpg') no-repeat;
+          }
+          .project.dbcentralizada {
+            background: url('/dbcentralizada.jpg') no-repeat;
+          }
           .project.laopinion {
             background: url('/laopinion.jpg') no-repeat;
           }
@@ -258,6 +313,21 @@ class Portafolio extends Component {
               filter: brightness(50%);
             }
 
+            .project.chicaqhubo {
+              background: url('/chicaqhubo_m.jpg') no-repeat;
+            }
+            .project.elecciones {
+              background: url('/elecciones_m.jpg') no-repeat;
+            }
+            .project.covid19 {
+              background: url('/covid19_m.jpg') no-repeat;
+            }
+            .project.transacciones {
+              background: url('/transacciones_m.jpg') no-repeat;
+            }
+            .project.dbcentralizada {
+              background: url('/dbcentralizada_m.jpg') no-repeat;
+            }
             .project.laopinion {
               background: url('/laopinion_m.jpg') no-repeat;
             }
