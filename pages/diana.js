@@ -30,6 +30,9 @@ const Diana = () => {
           flex-direction: column;
           height: 100%;
           padding: 25px 5px;
+          max-width: 700px;
+          margin: 0 auto;
+          width: 100%;
         }
         p {
           font-size: 21px;
