@@ -5,7 +5,7 @@ const Love = () => {
       <div className='amy_container'>
         {/* <h4>Mi Señorita Hermosa 💖 Mi reina My Love</h4> */}
         <div className='content'>
-          <h5>Mi reina hermosa con este detalle quiero seguir demostrándote el cariño, el compromiso, el respeto, el amor, que nuestra relación va enserio, que te quiero en mi vida que tengamos una vida juntos de la mano de Dios 🙏. Eres una mujer maravillosa, inteligente, cariñosa, sincera y una guerrera, te quiero mucho amor 💖. Trabajemos como un equipo para alcanzar nuestras metas y sueños 💑. Tu voz es mi sonido favorito mi amor.</h5>
+          <h5>Mi reina hermosa con este detalle quiero seguir demostrándote el cariño, el compromiso, el respeto, el amor, que nuestra relación va enserio, que te quiero en mi vida, que tengamos una vida juntos de la mano de Dios 🙏. Eres una mujer maravillosa, inteligente, cariñosa, sincera y una guerrera, te quiero mucho amor 💖. Trabajemos como un equipo para alcanzar nuestras metas y sueños 💑. Tu voz es mi sonido favorito mi amor. Cuentas conmigo, con mi apoyo incondicional, con mucho cariño mi reina hermosa.</h5>
           <time>12 de Noviembre del 2022</time>
           <p>By: Andrey Serrano ❤</p>
         </div>
